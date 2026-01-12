@@ -11,11 +11,11 @@ if (themeToggle) {
     themeToggle.addEventListener('click', () => {
         const currentTheme = html.getAttribute('data-theme');
         const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-        
+
         html.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
         updateThemeIcon(newTheme);
-        
+
         // Add animation
         themeToggle.style.transform = 'rotate(360deg)';
         setTimeout(() => {
@@ -40,7 +40,7 @@ applyLanguage(currentLang);
 
 if (langToggle) {
     langToggle.textContent = currentLang.toUpperCase();
-    
+
     langToggle.addEventListener('click', () => {
         currentLang = currentLang === 'tr' ? 'en' : 'tr';
         localStorage.setItem('language', currentLang);
@@ -55,14 +55,14 @@ function applyLanguage(lang) {
         const trText = element.getAttribute('data-tr');
         const enText = element.getAttribute('data-en');
         const text = lang === 'tr' ? trText : enText;
-        
+
         if (!text) return;
-        
+
         // Check if element contains only text (no child elements)
-        const hasOnlyText = Array.from(element.childNodes).every(node => 
+        const hasOnlyText = Array.from(element.childNodes).every(node =>
             node.nodeType === 3 || (node.nodeType === 1 && node.tagName === 'BR')
         );
-        
+
         if (hasOnlyText) {
             // Simple case: just text content
             element.textContent = text;
@@ -76,11 +76,11 @@ function applyLanguage(lang) {
                     textNodeFound = true;
                 }
             });
-            
+
             // If no text node found, it might be wrapped in a span or similar
             if (!textNodeFound) {
                 // Check for a single text-containing child
-                const textChild = Array.from(element.children).find(child => 
+                const textChild = Array.from(element.children).find(child =>
                     child.children.length === 0 && child.textContent.trim()
                 );
                 if (textChild) {
@@ -89,7 +89,7 @@ function applyLanguage(lang) {
             }
         }
     });
-    
+
     // Update placeholders
     document.querySelectorAll('input[placeholder], textarea[placeholder]').forEach(element => {
         if (lang === 'tr') {
@@ -125,9 +125,9 @@ filterButtons.forEach(button => {
         filterButtons.forEach(btn => btn.classList.remove('active'));
         // Add active class to clicked button
         button.classList.add('active');
-        
+
         const filter = button.getAttribute('data-filter');
-        
+
         blogCards.forEach(card => {
             if (filter === 'all' || card.getAttribute('data-category') === filter) {
                 card.style.display = 'block';
@@ -145,20 +145,20 @@ const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        
+
         // Get form data
         const formData = new FormData(contactForm);
         const data = Object.fromEntries(formData);
-        
+
         // Here you would normally send the data to a server
         console.log('Form submitted:', data);
-        
+
         // Show success message
-        const message = currentLang === 'tr' 
+        const message = currentLang === 'tr'
             ? 'Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağız.'
             : 'Your message has been sent successfully! We will get back to you soon.';
         alert(message);
-        
+
         // Reset form
         contactForm.reset();
     });
@@ -229,3 +229,11 @@ window.addEventListener('scroll', () => {
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
 });
+// Register Service Worker for PWA
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+            .then(reg => console.log('Service Worker registered', reg))
+            .catch(err => console.log('Service Worker failed', err));
+    });
+}

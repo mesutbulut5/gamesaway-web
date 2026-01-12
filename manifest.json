@@ -1,0 +1,17 @@
+{
+    "name": "GamesAway - Oyun Keşfetme Platformu",
+    "short_name": "GamesAway",
+    "description": "On binlerce oyuna ücretsiz erişim imkanı sunan yenilikçi sosyal medya oyun platformu.",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#1A1A2E",
+    "theme_color": "#667EEA",
+    "icons": [
+        {
+            "src": "assets/logo-pwa.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
+}
