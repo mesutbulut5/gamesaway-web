@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GamesAway ile iletişime geçin">
+    <title>İletişim - GamesAway</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <span>GamesAway</span>
+                </a>
+                <button class="mobile-menu-toggle" aria-label="Menü">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="index.html" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a></li>
+                    <li><a href="download.html" data-tr="İndir" data-en="Download">İndir</a></li>
+                    <li><a href="quickstart.html" data-tr="Hızlı Başlangıç" data-en="Quick Start">Hızlı Başlangıç</a></li>
+                    <li><a href="blog.html" data-tr="Blog" data-en="Blog">Blog</a></li>
+                    <li><a href="contact.html" class="active" data-tr="İletişim" data-en="Contact">İletişim</a></li>
+                </ul>
+                <div class="nav-controls">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Tema Değiştir">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="lang-toggle" id="langToggle" aria-label="Dil Değiştir">
+                        TR
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1 data-tr="İletişim" data-en="Contact">İletişim</h1>
+            <p data-tr="Sorularınız için bizimle iletişime geçin" data-en="Get in touch with us for your questions">Sorularınız için bizimle iletişime geçin</p>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2 data-tr="Bize Ulaşın" data-en="Get In Touch">Bize Ulaşın</h2>
+                    <p data-tr="Sorularınız, önerileriniz veya geri bildirimleriniz için bizimle iletişime geçmekten çekinmeyin." data-en="Feel free to contact us for your questions, suggestions or feedback.">Sorularınız, önerileriniz veya geri bildirimleriniz için bizimle iletişime geçmekten çekinmeyin.</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4 data-tr="E-posta" data-en="Email">E-posta</h4>
+                                <p>contact@4usgames.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4 data-tr="Adres" data-en="Address">Adres</h4>
+                                <p>4USGAME Oyun Yazılım ve Pazarlama A.Ş.<br data-tr="İstanbul, Türkiye" data-en="Istanbul, Turkey">İstanbul, Türkiye</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4 data-tr="Çalışma Saatleri" data-en="Working Hours">Çalışma Saatleri</h4>
+                                <p data-tr="Pazartesi - Cuma: 09:00 - 18:00" data-en="Monday - Friday: 09:00 - 18:00">Pazartesi - Cuma: 09:00 - 18:00</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-section">
+                        <h4 data-tr="Sosyal Medya" data-en="Social Media">Sosyal Medya</h4>
+                        <div class="social-links-large">
+                            <a href="https://facebook.com/gamesaway" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                            <a href="https://twitter.com/gamesaway" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="https://instagram.com/gamesaway" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://youtube.com/@gamesaway" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm">
+                        <h3 data-tr="Mesaj Gönderin" data-en="Send Message">Mesaj Gönderin</h3>
+                        <div class="form-group">
+                            <label for="name" data-tr="Ad Soyad *" data-en="Full Name *">Ad Soyad *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" data-tr="E-posta *" data-en="Email *">E-posta *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject" data-tr="Konu *" data-en="Subject *">Konu *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="" data-tr="Seçiniz" data-en="Select">Seçiniz</option>
+                                <option value="genel" data-tr="Genel Soru" data-en="General Question">Genel Soru</option>
+                                <option value="teknik" data-tr="Teknik Destek" data-en="Technical Support">Teknik Destek</option>
+                                <option value="gelistirici" data-tr="Geliştirici Başvurusu" data-en="Developer Application">Geliştirici Başvurusu</option>
+                                <option value="is-birligi" data-tr="İş Birliği" data-en="Partnership">İş Birliği</option>
+                                <option value="diger" data-tr="Diğer" data-en="Other">Diğer</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" data-tr="Mesajınız *" data-en="Your Message *">Mesajınız *</label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> <span data-tr="Gönder" data-en="Send">Gönder</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>GamesAway</h4>
+                    <p data-tr="Oyun keşfetmenin yeni yolu. On binlerce oyuna ücretsiz erişim." data-en="The new way to discover games. Free access to tens of thousands of games.">Oyun keşfetmenin yeni yolu. On binlerce oyuna ücretsiz erişim.</p>
+                    <div class="social-links">
+                        <a href="https://facebook.com/gamesaway" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://twitter.com/gamesaway" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com/gamesaway" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://youtube.com/@gamesaway" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://linkedin.com/company/gamesaway" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4 data-tr="Hızlı Bağlantılar" data-en="Quick Links">Hızlı Bağlantılar</h4>
+                    <ul>
+                        <li><a href="index.html" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a></li>
+                        <li><a href="download.html" data-tr="İndir" data-en="Download">İndir</a></li>
+                        <li><a href="quickstart.html" data-tr="Hızlı Başlangıç" data-en="Quick Start">Hızlı Başlangıç</a></li>
+                        <li><a href="blog.html" data-tr="Blog" data-en="Blog">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 data-tr="Yasal" data-en="Legal">Yasal</h4>
+                    <ul>
+                        <li><a href="privacy.html" data-tr="Gizlilik Politikası" data-en="Privacy Policy">Gizlilik Politikası</a></li>
+                        <li><a href="terms.html" data-tr="Kullanım Şartları" data-en="Terms of Service">Kullanım Şartları</a></li>
+                        <li><a href="contact.html" data-tr="İletişim" data-en="Contact">İletişim</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 data-tr="Bülten" data-en="Newsletter">Bülten</h4>
+                    <p data-tr="Yeni oyunlar ve güncellemeler hakkında bilgi alın" data-en="Get updates about new games and features">Yeni oyunlar ve güncellemeler hakkında bilgi alın</p>
+                    <div class="footer-newsletter">
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="E-posta adresiniz" required>
+                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>
+                    &copy; 2025 <a href="index.html">GamesAway</a>. 
+                    <span data-tr="Tüm hakları saklıdır" data-en="All rights reserved">Tüm hakları saklıdır</span> | 
+                    <a href="https://www.4usgames.com" target="_blank">4USGAME Oyun Yazılım ve Pazarlama A.Ş.</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
