@@ -1,0 +1,46 @@
+@{
+    ViewData["Title"] = "Analitik";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="stat-card-header">
+            <div class="stat-card-title" data-tr="Toplam Kullanıcılar" data-en="Total Users">Toplam Kullanıcılar</div>
+            <div class="stat-card-icon blue">
+                <i class="fas fa-users"></i>
+            </div>
+        </div>
+        <div class="stat-card-value">64</div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-card-header">
+            <div class="stat-card-title" data-tr="Toplam Oyunlar" data-en="Total Games">Toplam Oyunlar</div>
+            <div class="stat-card-icon green">
+                <i class="fas fa-gamepad"></i>
+            </div>
+        </div>
+        <div class="stat-card-value">8</div>
+    </div>
+</div>
+
+<div class="chart-container">
+    <div class="chart-header">
+        <div class="chart-title" data-tr="Sistem Analitiği" data-en="System Analytics">Sistem Analitiği</div>
+    </div>
+    <div class="empty-state">
+        <i class="fas fa-chart-bar"></i>
+        <p data-tr="Ayrıntılı analizleri görmek için bir oyun seçin." data-en="Select a game to view detailed analytics.">Ayrıntılı analizleri görmek için bir oyun seçin.</p>
+    </div>
+</div>
+
+<div class="chart-container">
+    <div class="chart-header">
+        <div class="chart-title" data-tr="Oyun Müfettişi" data-en="Game Inspector">Oyun Müfettişi</div>
+    </div>
+    <div class="empty-state">
+        <i class="fas fa-search"></i>
+        <p data-tr="Ayrıntılı analizleri görmek için bir oyun seçin." data-en="Select a game to view detailed analytics.">Ayrıntılı analizleri görmek için bir oyun seçin.</p>
+    </div>
+</div>

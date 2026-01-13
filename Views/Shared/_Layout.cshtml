@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="GamesAway - On binlerce oyuna ücretsiz erişim imkanı sunan yenilikçi sosyal medya oyun platformu">
+    <meta name="keywords" content="oyun platformu, ücretsiz oyunlar, mobil oyunlar, oyun keşfet, GamesAway">
+    <title>@ViewData["Title"] - GamesAway</title>
+    <link rel="stylesheet" href="~/css/style.css?v=2.0" asp-append-version="true">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="manifest" href="~/manifest.json">
+    <meta name="theme-color" content="#667EEA">
+    <link rel="apple-touch-icon" href="~/assets/logo-pwa.png">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a asp-controller="Home" asp-action="Index" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <span>GamesAway</span>
+                </a>
+                <button class="mobile-menu-toggle" aria-label="Menü">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a asp-controller="Home" asp-action="Index" class="@(ViewContext.RouteData.Values["Action"]?.ToString() == "Index" && ViewContext.RouteData.Values["Controller"]?.ToString() == "Home" ? "active" : "")" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a></li>
+                    <li><a asp-controller="Home" asp-action="Download" class="@(ViewContext.RouteData.Values["Action"]?.ToString() == "Download" ? "active" : "")" data-tr="İndir" data-en="Download">İndir</a></li>
+                    <li><a asp-controller="Home" asp-action="QuickStart" class="@(ViewContext.RouteData.Values["Action"]?.ToString() == "QuickStart" ? "active" : "")" data-tr="Hızlı Başlangıç" data-en="Quick Start">Hızlı Başlangıç</a></li>
+                    <li><a asp-controller="Home" asp-action="Blog" class="@(ViewContext.RouteData.Values["Action"]?.ToString() == "Blog" ? "active" : "")" data-tr="Blog" data-en="Blog">Blog</a></li>
+                    <li><a asp-controller="Home" asp-action="Contact" class="@(ViewContext.RouteData.Values["Action"]?.ToString() == "Contact" ? "active" : "")" data-tr="İletişim" data-en="Contact">İletişim</a></li>
+                    <li><a asp-controller="Auth" asp-action="Login" class="@(ViewContext.RouteData.Values["Controller"]?.ToString() == "Auth" ? "active" : "")" data-tr="Giriş" data-en="Login">Giriş</a></li>
+                </ul>
+                <div class="nav-controls">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Tema Değiştir">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="lang-toggle" id="langToggle" aria-label="Dil Değiştir">
+                        TR
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    @RenderBody()
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <a asp-controller="Home" asp-action="Index" class="footer-logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <span>GamesAway</span>
+                    </a>
+                    <p class="footer-description" data-tr="Oyun keşfetmenin yeni yolu. On binlerce oyuna ücretsiz erişim."
+                        data-en="The new way to discover games. Free access to tens of thousands of games.">
+                        Oyun keşfetmenin yeni yolu. On binlerce oyuna ücretsiz erişim.
+                    </p>
+                    <div class="footer-links">
+                        <a asp-controller="Home" asp-action="Index" data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</a>
+                        <a asp-controller="Home" asp-action="Download" data-tr="İndir" data-en="Download">İndir</a>
+                        <a asp-controller="Home" asp-action="QuickStart" data-tr="Hızlı Başlangıç" data-en="Quick Start">Hızlı Başlangıç</a>
+                        <a asp-controller="Home" asp-action="Blog" data-tr="Blog" data-en="Blog">Blog</a>
+                        <a asp-controller="Home" asp-action="Contact" data-tr="İletişim" data-en="Contact">İletişim</a>
+                        <a asp-controller="Home" asp-action="Privacy" data-tr="Gizlilik" data-en="Privacy">Gizlilik</a>
+                        <a asp-controller="Home" asp-action="Terms" data-tr="Şartlar" data-en="Terms">Şartlar</a>
+                    </div>
+                </div>
+                <div class="footer-right">
+                    <div class="footer-auth-buttons">
+                        <a asp-controller="Auth" asp-action="Login" class="btn-footer-login">
+                            <span data-tr="Giriş Yap" data-en="Log In">Giriş Yap</span>
+                        </a>
+                        <a asp-controller="Auth" asp-action="Register" class="btn-footer-signup">
+                            <span data-tr="Kayıt Ol" data-en="Sign Up">Kayıt Ol</span>
+                        </a>
+                    </div>
+                    <div class="footer-social">
+                        <a href="https://facebook.com/gamesaway" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://twitter.com/gamesaway" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com/gamesaway" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://youtube.com/@@gamesaway" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://linkedin.com/company/gamesaway" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>
+                    &copy; 2025 <a asp-controller="Home" asp-action="Index">GamesAway</a>.
+                    <span data-tr="Tüm hakları saklıdır" data-en="All rights reserved">Tüm hakları saklıdır</span> |
+                    <a href="https://www.4usgames.com" target="_blank">4USGAME Oyun Yazılım ve Pazarlama A.Ş.</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/main.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

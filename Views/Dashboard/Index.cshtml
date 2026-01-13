@@ -1,0 +1,71 @@
+@{
+    ViewData["Title"] = "Kontrol Paneli";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<!-- Stats Grid -->
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="stat-card-header">
+            <div class="stat-card-title" data-tr="Toplam Kullanıcılar" data-en="Total Users">Toplam Kullanıcılar</div>
+            <div class="stat-card-icon blue">
+                <i class="fas fa-users"></i>
+            </div>
+        </div>
+        <div class="stat-card-value">@ViewBag.TotalUsers</div>
+        <div class="stat-card-footer">
+            <span class="stat-trend"><i class="fas fa-arrow-up"></i> 6 Geliştirildi</span>
+        </div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-card-header">
+            <div class="stat-card-title" data-tr="Toplam Oyunlar" data-en="Total Games">Toplam Oyunlar</div>
+            <div class="stat-card-icon purple">
+                <i class="fas fa-gamepad"></i>
+            </div>
+        </div>
+        <div class="stat-card-value">@ViewBag.TotalGames</div>
+        <div class="stat-card-footer">
+            <span class="stat-trend"><i class="fas fa-arrow-up"></i> 6 Yayınlandı / 0 Beklemede</span>
+        </div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-card-header">
+            <div class="stat-card-title" data-tr="Onay Oranı" data-en="Approval Rate">Onay Oranı</div>
+            <div class="stat-card-icon green">
+                <i class="fas fa-check-circle"></i>
+            </div>
+        </div>
+        <div class="stat-card-value">% @ViewBag.ApprovalRate</div>
+        <div class="stat-card-footer">
+            <span class="stat-trend down"><i class="fas fa-arrow-down"></i> 0 Reddedildi</span>
+        </div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-card-header">
+            <div class="stat-card-title" data-tr="Toplam İndirme Sayısı" data-en="Total Downloads">Toplam İndirme Sayısı</div>
+            <div class="stat-card-icon orange">
+                <i class="fas fa-download"></i>
+            </div>
+        </div>
+        <div class="stat-card-value">-</div>
+        <div class="stat-card-footer">
+            <span data-tr="Yakında gelecek" data-en="Coming soon">Yakında gelecek</span>
+        </div>
+    </div>
+</div>
+
+<!-- Chart -->
+<div class="chart-container">
+    <div class="chart-header">
+        <div class="chart-title" data-tr="Yeni Gönderimler (30 Gün)" data-en="New Submissions (30 Days)">Yeni Gönderimler (30 Gün)</div>
+        <div class="chart-subtitle" data-tr="Son 30 günün aktivite grafiği" data-en="Activity chart for the last 30 days">Son 30 günün aktivite grafiği</div>
+    </div>
+    <div class="empty-state">
+        <i class="fas fa-chart-line"></i>
+        <p data-tr="Grafik verileri yükleniyor..." data-en="Loading chart data...">Grafik verileri yükleniyor...</p>
+    </div>
+</div>

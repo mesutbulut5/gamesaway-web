@@ -1,0 +1,55 @@
+@model List<GamesAway.Models.User>
+@{
+    ViewData["Title"] = "Kullanıcılar";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="data-table-container">
+    <div class="table-header">
+        <div class="table-title" data-tr="Kullanıcı Yönetimi" data-en="User Management">Kullanıcı Yönetimi</div>
+        <div class="table-actions">
+            <button class="btn-dashboard btn-primary-dashboard">
+                <i class="fas fa-sync"></i>
+                <span data-tr="Veritabanı Profillerini Senkronize Et" data-en="Sync Database Profiles">Veritabanı Profillerini Senkronize Et</span>
+            </button>
+        </div>
+    </div>
+    
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th data-tr="E-POSTA / UID" data-en="EMAIL / UID">E-POSTA / UID</th>
+                <th data-tr="ROL" data-en="ROLE">ROL</th>
+                <th data-tr="DURUM" data-en="STATUS">DURUM</th>
+                <th data-tr="EYLEMLER" data-en="ACTIONS">EYLEMLER</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>
+                        <div style="font-weight: 600;">@user.Email</div>
+                        <div style="font-size: 0.8rem; color: rgba(255,255,255,0.5);">UID: @user.Id</div>
+                    </td>
+                    <td>
+                        <span class="status-badge info" data-tr="son kullanıcı" data-en="end user">son kullanıcı</span>
+                    </td>
+                    <td>
+                        <span data-tr="Doğrulanmamış" data-en="Not Verified">Doğrulanmamış</span>
+                    </td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="btn-icon" title="Düzenle">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn-icon danger" title="Sil">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

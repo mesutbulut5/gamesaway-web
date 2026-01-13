@@ -1,0 +1,97 @@
+@{
+    ViewData["Title"] = "Para Kazanma";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="chart-container">
+    <div class="chart-header">
+        <div class="chart-title" data-tr="💰 Para Kazanma Ayarları" data-en="💰 Monetization Settings">💰 Para Kazanma Ayarları</div>
+    </div>
+    
+    <div style="padding: 20px;">
+        <div style="margin-bottom: 30px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                <div>
+                    <div style="font-weight: 600; margin-bottom: 5px;" data-tr="Test Modu" data-en="Test Mode">Test Modu</div>
+                    <div style="font-size: 0.9rem; color: rgba(255,255,255,0.6);" data-tr="Geliştirme sürecinde politika ihlallerini önlemek için Google'ın Test Kimliklerini kullanın." data-en="Use Google's Test IDs to prevent policy violations during development.">Geliştirme sürecinde politika ihlallerini önlemek için Google'ın Test Kimliklerini kullanın.</div>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 30px;">
+            <div style="font-weight: 600; margin-bottom: 15px; color: rgba(255,255,255,0.8);" data-tr="Prodüksiyon Reklam Birimleri" data-en="Production Ad Units">Prodüksiyon Reklam Birimleri</div>
+            <div style="font-size: 0.85rem; color: rgba(255,255,255,0.5); margin-bottom: 10px;" data-tr="TEST MODUNDA DEVRE DIŞI BIRAKILDI" data-en="DISABLED IN TEST MODE">TEST MODUNDA DEVRE DIŞI BIRAKILDI</div>
+            
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-size: 0.9rem; color: rgba(255,255,255,0.7);" data-tr="Banner Reklam Birimi Kimliği" data-en="Banner Ad Unit ID">Banner Reklam Birimi Kimliği</label>
+                <input type="text" placeholder="ca-app-pub-xxxxxxxx/yyyyyyyy" style="width: 100%; padding: 12px; background: #0F0F1A; border: 1px solid rgba(139,127,255,0.2); border-radius: 10px; color: white;">
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-size: 0.9rem; color: rgba(255,255,255,0.7);" data-tr="Ara Reklam Birimi Kimliği" data-en="Interstitial Ad Unit ID">Ara Reklam Birimi Kimliği</label>
+                <input type="text" placeholder="ca-app-pub-xxxxxxxx/yyyyyyyy" style="width: 100%; padding: 12px; background: #0F0F1A; border: 1px solid rgba(139,127,255,0.2); border-radius: 10px; color: white;">
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-size: 0.9rem; color: rgba(255,255,255,0.7);" data-tr="Ödüllendirilen Reklam Birimi Kimliği" data-en="Rewarded Ad Unit ID">Ödüllendirilen Reklam Birimi Kimliği</label>
+                <input type="text" placeholder="ca-app-pub-xxxxxxxx/yyyyyyyy" style="width: 100%; padding: 12px; background: #0F0F1A; border: 1px solid rgba(139,127,255,0.2); border-radius: 10px; color: white;">
+            </div>
+        </div>
+
+        <button class="btn-dashboard btn-primary-dashboard">
+            <i class="fas fa-save"></i>
+            <span data-tr="Kaydet" data-en="Save">Kaydet</span>
+        </button>
+    </div>
+</div>
+
+<style>
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255,255,255,0.1);
+    transition: .4s;
+    border-radius: 28px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #10B981;
+}
+
+input:checked + .slider:before {
+    transform: translateX(22px);
+}
+</style>

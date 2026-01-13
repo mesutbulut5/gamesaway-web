@@ -1,0 +1,62 @@
+@{
+    ViewData["Title"] = "Bildirimler";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="tabs-container">
+    <div class="tabs-nav">
+        <button class="tab-button active" data-tr="Ayarlar" data-en="Settings">Ayarlar</button>
+        <button class="tab-button" data-tr="Gönderilen E-postalar" data-en="Sent Emails">Gönderilen E-postalar</button>
+        <button class="tab-button" data-tr="E-posta Taslakları" data-en="Email Templates">E-posta Taslakları</button>
+    </div>
+</div>
+
+<div class="chart-container">
+    <div class="chart-header">
+        <div class="chart-title" data-tr="Bildirimler" data-en="Notifications">Bildirimler</div>
+    </div>
+    
+    <div style="padding: 20px;">
+        <div style="background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 12px; padding: 20px; margin-bottom: 30px;">
+            <div style="display: flex; gap: 15px;">
+                <div style="color: #3B82F6; font-size: 1.5rem;">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <div>
+                    <div style="font-weight: 600; margin-bottom: 5px;" data-tr="Bekleyen Geliştirici İstekleri" data-en="Pending Developer Requests">Bekleyen Geliştirici İstekleri</div>
+                    <div style="font-size: 0.9rem; color: rgba(255,255,255,0.7);" data-tr="İncelenecek oyun yok." data-en="No games to review.">İncelenecek oyun yok.</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 12px; padding: 20px;">
+            <div style="display: flex; gap: 15px;">
+                <div style="color: #10B981; font-size: 1.5rem;">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div>
+                    <div style="font-weight: 600; margin-bottom: 5px;" data-tr="Oyun Onayları" data-en="Game Approvals">Oyun Onayları</div>
+                    <div style="font-size: 0.9rem; color: rgba(255,255,255,0.7);" data-tr="İncelenecek oyun yok." data-en="No games to review.">İncelenecek oyun yok.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="chart-container">
+    <div class="chart-header">
+        <div class="chart-title" data-tr="Onaylı Geliştiriciler" data-en="Approved Developers">Onaylı Geliştiriciler</div>
+    </div>
+    
+    <div style="padding: 20px;">
+        <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 12px; padding: 20px; margin-bottom: 15px;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <div style="font-weight: 600;">dev@kaat.digital</div>
+                    <div style="font-size: 0.85rem; color: rgba(255,255,255,0.6);">UID: 8hKOS6RwziYaHwPVo8Wgi2A5cnl1</div>
+                </div>
+                <span class="status-badge success" data-tr="Doğrulandı" data-en="Verified">Doğrulandı</span>
+            </div>
+        </div>
+    </div>
+</div>

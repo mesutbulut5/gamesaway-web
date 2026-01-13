@@ -1,0 +1,27 @@
+@{
+    ViewData["Title"] = "Destek Talepleri";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="tabs-container">
+    <div class="tabs-nav">
+        <button class="tab-button active" data-tr="Tümü (0)" data-en="All (0)">Tümü (0)</button>
+        <button class="tab-button" data-tr="Açık" data-en="Open">Açık</button>
+        <button class="tab-button" data-tr="Devam etmekte" data-en="In Progress">Devam etmekte</button>
+        <button class="tab-button" data-tr="Kapalı" data-en="Closed">Kapalı</button>
+    </div>
+</div>
+
+<div class="data-table-container">
+    <div class="table-header">
+        <div class="table-title" data-tr="Destek Talepleri" data-en="Support Tickets">Destek Talepleri</div>
+        <div class="table-actions">
+            <input type="text" placeholder="Oyunları ara..." style="padding: 10px 15px; background: #0F0F1A; border: 1px solid rgba(139,127,255,0.2); border-radius: 10px; color: white; width: 250px;">
+        </div>
+    </div>
+    
+    <div class="empty-state" style="padding: 100px 20px;">
+        <i class="fas fa-headset"></i>
+        <p data-tr="Kullanıcı sorularını ve sorunlarını yönetin" data-en="Manage user questions and issues">Kullanıcı sorularını ve sorunlarını yönetin</p>
+    </div>
+</div>

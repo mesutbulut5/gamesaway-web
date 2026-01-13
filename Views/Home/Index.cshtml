@@ -1,0 +1,362 @@
+﻿@{
+    ViewData["Title"] = "Oyun Keşfetmenin Yeni Yolu";
+}
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content animate-fadeInUp">
+            <h1 class="hero-title">
+                <span data-tr="Oyun Keşfetmenin" data-en="The Future of">Oyun Keşfetmenin</span><br>
+                <span class="gradient-text" data-tr="Yeni Yolu" data-en="Mobile Gaming">Yeni Yolu</span>
+            </h1>
+            <p class="hero-subtitle"
+                data-tr="On binlerce yüksek kaliteli oyunu anında oynayın. Ekstra indirme yok. Reklam yok. Sadece arkadaşlarınızla saf oyun deneyimi."
+                data-en="Play thousands of high-quality games instantly. No extra downloads. No ads. Just pure gameplay with friends.">
+                On binlerce yüksek kaliteli oyunu anında oynayın. Ekstra indirme yok. Reklam yok. Sadece arkadaşlarınızla saf oyun deneyimi.</p>
+            
+            <div class="hero-features">
+                <div class="hero-feature-item">
+                    <i class="fas fa-bolt"></i>
+                    <span data-tr="Anında Yükleme Teknolojisi" data-en="Instant Loading Technology">Anında Yükleme Teknolojisi</span>
+                </div>
+                <div class="hero-feature-item">
+                    <i class="fas fa-users"></i>
+                    <span data-tr="Çok Oyunculu & Sosyal Hub" data-en="Multiplayer & Social Hub">Çok Oyunculu & Sosyal Hub</span>
+                </div>
+                <div class="hero-feature-item">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span data-tr="Tüm Cihazlar İçin Optimize" data-en="Optimized for all Devices">Tüm Cihazlar İçin Optimize</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-signup-card">
+            <h3 data-tr="Oynamaya Hazır mısın?" data-en="Ready to Play?">Oynamaya Hazır mısın?</h3>
+            <p data-tr="Ücretsiz hesabınızı oluşturun ve yolculuğunuza başlayın." data-en="Create your free account today and start your journey.">Ücretsiz hesabınızı oluşturun ve yolculuğunuza başlayın.</p>
+            <a asp-action="Download" class="btn btn-signup">
+                <span data-tr="Hesap Oluştur" data-en="Create Account">Hesap Oluştur</span>
+            </a>
+            <p class="signup-footer">
+                <span data-tr="Zaten hesabınız var mı?" data-en="Already have an account?">Zaten hesabınız var mı?</span>
+                <a asp-controller="Auth" asp-action="Login" data-tr="Giriş Yap" data-en="Sign in">Giriş Yap</a>
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Statistics Section -->
+<section class="stats-section">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-item stat-blue">
+                <div class="stat-icon">
+                    <i class="fas fa-gamepad"></i>
+                </div>
+                <div class="stat-number" data-count="10000">10,000+</div>
+                <div class="stat-label" data-tr="AKTİF OYUNLAR" data-en="ACTIVE GAMES">AKTİF OYUNLAR</div>
+            </div>
+            <div class="stat-item stat-purple">
+                <div class="stat-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="stat-number" data-count="1000000">1M+</div>
+                <div class="stat-label" data-tr="KAYITLI OYUNCULAR" data-en="REGISTERED PLAYERS">KAYITLI OYUNCULAR</div>
+            </div>
+            <div class="stat-item stat-green">
+                <div class="stat-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <div class="stat-number" data-count="100">100+</div>
+                <div class="stat-label" data-tr="GELİŞTİRİCİLER" data-en="DEVELOPERS">GELİŞTİRİCİLER</div>
+            </div>
+            <div class="stat-item stat-orange">
+                <div class="stat-icon">
+                    <i class="fas fa-download"></i>
+                </div>
+                <div class="stat-number" data-count="5000000">5M+</div>
+                <div class="stat-label" data-tr="İNDİRMELER" data-en="DOWNLOADS">İNDİRMELER</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="features">
+    <div class="container">
+        <h2 class="section-title" data-tr="Neden GamesAway?" data-en="Why GamesAway?">Neden GamesAway?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-infinity"></i>
+                </div>
+                <h3 data-tr="On Binlerce Oyun" data-en="Tens of Thousands of Games">On Binlerce Oyun</h3>
+                <p data-tr="Ücretsiz erişim imkanı ile sınırsız oyun deneyimi"
+                    data-en="Unlimited gaming experience with free access">Ücretsiz erişim imkanı ile sınırsız oyun
+                    deneyimi</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3 data-tr="Hızlı Keşif" data-en="Quick Discovery">Hızlı Keşif</h3>
+                <p data-tr="Oyun videolarını hızlıca izleyin, indirmeden deneyin"
+                    data-en="Watch game videos quickly, try without downloading">Oyun videolarını hızlıca izleyin,
+                    indirmeden deneyin</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3 data-tr="Kişisel Koleksiyon" data-en="Personal Collection">Kişisel Koleksiyon</h3>
+                <p data-tr="Favori oyunlarınızı kaydedin ve paylaşın" data-en="Save and share your favorite games">
+                    Favori oyunlarınızı kaydedin ve paylaşın</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-swatchbook"></i>
+                </div>
+                <h3 data-tr="Basit Arayüz" data-en="Simple Interface">Basit Arayüz</h3>
+                <p data-tr="Sosyal medya benzeri kaydırma mekaniği" data-en="Social media-like scrolling mechanism">
+                    Sosyal medya benzeri kaydırma mekaniği</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Game Categories -->
+<section class="categories-section">
+    <div class="container">
+        <h2 class="section-title" data-tr="Popüler Kategoriler" data-en="Popular Categories">Popüler Kategoriler</h2>
+        <div class="categories-grid">
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fas fa-fist-raised"></i>
+                </div>
+                <h3 data-tr="Aksiyon" data-en="Action">Aksiyon</h3>
+                <p data-tr="2,500+ Oyun" data-en="2,500+ Games">2,500+ Oyun</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fas fa-puzzle-piece"></i>
+                </div>
+                <h3 data-tr="Bulmaca" data-en="Puzzle">Bulmaca</h3>
+                <p data-tr="1,800+ Oyun" data-en="1,800+ Games">1,800+ Oyun</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fas fa-car"></i>
+                </div>
+                <h3 data-tr="Yarış" data-en="Racing">Yarış</h3>
+                <p data-tr="1,200+ Oyun" data-en="1,200+ Games">1,200+ Oyun</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fas fa-football-ball"></i>
+                </div>
+                <h3 data-tr="Spor" data-en="Sports">Spor</h3>
+                <p data-tr="900+ Oyun" data-en="900+ Games">900+ Oyun</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fas fa-hat-wizard"></i>
+                </div>
+                <h3 data-tr="Macera" data-en="Adventure">Macera</h3>
+                <p data-tr="1,500+ Oyun" data-en="1,500+ Games">1,500+ Oyun</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fas fa-chess"></i>
+                </div>
+                <h3 data-tr="Strateji" data-en="Strategy">Strateji</h3>
+                <p data-tr="1,100+ Oyun" data-en="1,100+ Games">1,100+ Oyun</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works -->
+<section class="how-it-works">
+    <div class="container">
+        <h2 class="section-title" data-tr="Nasıl Çalışır?" data-en="How It Works?">Nasıl Çalışır?</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3 data-tr="İndirin" data-en="Download">İndirin</h3>
+                <p data-tr="GamesAway uygulamasını telefonunuza indirin"
+                    data-en="Download GamesAway app to your phone">GamesAway uygulamasını telefonunuza indirin</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3 data-tr="Keşfedin" data-en="Discover">Keşfedin</h3>
+                <p data-tr="Aşağı kaydırarak binlerce oyunu keşfedin"
+                    data-en="Discover thousands of games by scrolling">Aşağı kaydırarak binlerce oyunu keşfedin</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3 data-tr="Oynayın" data-en="Play">Oynayın</h3>
+                <p data-tr="Beğendiğiniz oyunları anında deneyin" data-en="Try your favorite games instantly">
+                    Beğendiğiniz oyunları anında deneyin</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3 data-tr="Paylaşın" data-en="Share">Paylaşın</h3>
+                <p data-tr="Favori oyunlarınızı arkadaşlarınızla paylaşın"
+                    data-en="Share your favorite games with friends">Favori oyunlarınızı arkadaşlarınızla paylaşın
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- For Developers -->
+<section class="for-developers">
+    <div class="container">
+        <h2 class="section-title" data-tr="Geliştiriciler İçin" data-en="For Developers">Geliştiriciler İçin</h2>
+        <div class="dev-content">
+            <div class="dev-text">
+                <div class="dev-features-list">
+                    <div class="dev-feature-item">
+                        <i class="fas fa-code"></i>
+                        <span data-tr="HTML5 Oyunlarını Doğrudan Yükleyin" data-en="Upload HTML5 Games directly">HTML5 Oyunlarını Doğrudan Yükleyin</span>
+                    </div>
+                    <div class="dev-feature-item">
+                        <i class="fas fa-globe"></i>
+                        <span data-tr="Anında Global Dağıtım" data-en="Instant global distribution">Anında Global Dağıtım</span>
+                    </div>
+                    <div class="dev-feature-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span data-tr="Gerçek Zamanlı Analitik & İçgörüler" data-en="Real-time analytics & insights">Gerçek Zamanlı Analitik & İçgörüler</span>
+                    </div>
+                </div>
+                <a asp-controller="Auth" asp-action="Login" class="btn btn-primary btn-dev">
+                    <span data-tr="Konsola Erişin" data-en="Access Console">Konsola Erişin</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="dev-terminal">
+                <div class="terminal-header">
+                    <span class="terminal-title">upload_status</span>
+                    <span class="terminal-status">Active</span>
+                </div>
+                <div class="terminal-body">
+                    <div class="terminal-line">
+                        <span class="terminal-prompt">$</span>
+                        <span class="terminal-command">git push games-away main</span>
+                    </div>
+                    <div class="terminal-line terminal-output">
+                        <span class="terminal-arrow">→</span>
+                        <span data-tr="Varlıklar derleniyor..." data-en="Compiling assets...">Varlıklar derleniyor...</span>
+                    </div>
+                    <div class="terminal-line terminal-output">
+                        <span class="terminal-arrow">→</span>
+                        <span data-tr="HTML5 uyumluluğu doğrulanıyor..." data-en="Verifying HTML5 compatibility...">HTML5 uyumluluğu doğrulanıyor...</span>
+                    </div>
+                    <div class="terminal-line terminal-success">
+                        <span class="terminal-check">+</span>
+                        <span data-tr="Yayınlandı: v2.4.0 (Global)" data-en="Published: v2.4.0 (Global)">Yayınlandı: v2.4.0 (Global)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Dashboard Demo Section -->
+<section class="dashboard-demo">
+    <div class="container">
+        <h2 class="section-title" data-tr="Gelişmiş Analitik Paneli" data-en="Advanced Analytics Dashboard">Gelişmiş
+            Analitik Paneli</h2>
+        <div class="demo-container animate-fadeInUp">
+            <div class="demo-header">
+                <div class="demo-title-group">
+                    <h3 data-tr="Gerçek Zamanlı KPI Takibi" data-en="Real-time KPI Tracking">Gerçek Zamanlı KPI
+                        Takibi</h3>
+                    <p data-tr="Oyununuzun performansını anlık olarak izleyin."
+                        data-en="Monitor your game performance instantly.">Oyununuzun performansını anlık olarak
+                        izleyin.</p>
+                </div>
+                <div class="btn btn-primary btn-sm" style="padding: 8px 20px; font-size: 0.9rem;">
+                    <i class="fas fa-external-link-alt"></i> <span data-tr="Tam Paneli Gör"
+                        data-en="View Full Dashboard">Tam Paneli Gör</span>
+                </div>
+            </div>
+
+            <div class="demo-stats">
+                <div class="stat-box">
+                    <span class="stat-label" data-tr="Ortalam CPI" data-en="Avg. CPI">Ortalama CPI</span>
+                    <span class="stat-value">$0.12</span>
+                    <span class="stat-trend trend-up"><i class="fas fa-arrow-down"></i> 12%</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label" data-tr="D1 Retention" data-en="D1 Retention">D1 Retention</span>
+                    <span class="stat-value">%42.5</span>
+                    <span class="stat-trend trend-up"><i class="fas fa-arrow-up"></i> 5.2%</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label" data-tr="Günlük Aktif Oyuncu" data-en="Daily Active Players">Günlük
+                        Aktif Oyuncu</span>
+                    <span class="stat-value">12.4K</span>
+                    <span class="stat-trend trend-up"><i class="fas fa-arrow-up"></i> 8.1%</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label" data-tr="Ort. Oyun Süresi" data-en="Avg. Playtime">Ort. Oyun
+                        Süresi</span>
+                    <span class="stat-value">18dk</span>
+                    <span class="stat-trend trend-up"><i class="fas fa-arrow-up"></i> 3dk</span>
+                </div>
+            </div>
+
+            <div class="demo-visual">
+                <div class="chart-mockup">
+                    <div class="chart-bar" style="height: 60%;" data-label="Pzt"></div>
+                    <div class="chart-bar" style="height: 75%;" data-label="Sal"></div>
+                    <div class="chart-bar" style="height: 50%;" data-label="Çar"></div>
+                    <div class="chart-bar" style="height: 90%;" data-label="Per"></div>
+                    <div class="chart-bar" style="height: 85%;" data-label="Cum"></div>
+                    <div class="chart-bar" style="height: 95%;" data-label="Cmt"></div>
+                    <div class="chart-bar" style="height: 70%;" data-label="Paz"></div>
+                </div>
+                <div class="demo-details">
+                    <div class="detail-item">
+                        <div class="detail-icon"><i class="fas fa-users"></i></div>
+                        <div class="detail-info">
+                            <h4 data-tr="Oyuncu Demografisi" data-en="Player Demographics">Oyuncu Demografisi</h4>
+                            <p data-tr="Yaş, cinsiyet ve bölge detayları" data-en="Age, gender and region details">
+                                Yaş, cinsiyet ve bölge detayları</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon"><i class="fas fa-gamepad"></i></div>
+                        <div class="detail-info">
+                            <h4 data-tr="Oyun Alışkanlıkları" data-en="Gaming Habits">Oyun Alışkanlıkları</h4>
+                            <p data-tr="Tercih edilen diğer oyun türleri" data-en="Other preferred game genres">
+                                Tercih edilen diğer oyun türleri</p>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-icon"><i class="fas fa-comments"></i></div>
+                        <div class="detail-info">
+                            <h4 data-tr="Anlık Feedback" data-en="Live Feedback">Anlık Feedback</h4>
+                            <p data-tr="Oyuncu yorumları ve puanlamalar" data-en="Player comments and ratings">
+                                Oyuncu yorumları ve puanlamalar</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta">
+    <div class="container">
+        <h2 data-tr="Oyun Dünyasına Katılın" data-en="Join the Gaming World">Oyun Dünyasına Katılın</h2>
+        <p data-tr="GamesAway ile oyun keşfetmenin keyfini çıkarın"
+            data-en="Enjoy discovering games with GamesAway">GamesAway ile oyun keşfetmenin keyfini çıkarın</p>
+        <a asp-action="Download" class="btn btn-light">
+            <i class="fas fa-download"></i> <span data-tr="Ücretsiz İndir" data-en="Download Free">Ücretsiz
+                İndir</span>
+        </a>
+    </div>
+</section>

@@ -24,6 +24,8 @@ bower_components/
 dist/
 build/
 .cache/
+bin/
+obj/
 
 # Environment Variables
 .env
@@ -37,3 +39,11 @@ build/
 *.temp
 .tmp/
 .temp/
+
+# Database Files
+*.db
+*.db-shm
+*.db-wal
+
+# User Secrets
+appsettings.Development.json

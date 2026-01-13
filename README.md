@@ -1,146 +1,142 @@
-# GamesAway - Oyun Keşfetme Platformu
+# GamesAway - Oyun Keşif Platformu
 
 GamesAway, kullanıcılara on binlerce oyuna ücretsiz erişim imkanı sunan yenilikçi bir sosyal medya oyun platformudur.
 
-## 🎮 Özellikler
+## 🚀 Özellikler
 
-- **On Binlerce Oyun**: Ücretsiz erişim ile sınırsız oyun deneyimi
-- **Hızlı Keşif**: Oyun videolarını hızlıca izleyin, indirmeden deneyin
-- **Kişisel Koleksiyon**: Favori oyunlarınızı kaydedin ve paylaşın
-- **Basit Arayüz**: Sosyal medya benzeri kaydırma mekaniği
-- **Responsive Tasarım**: Mobil ve masaüstü uyumlu
-- **Geliştiriciler İçin**: CPI, retention ve engagement metrikleri
+- ✅ **On Binlerce Oyun**: Ücretsiz erişim ile sınırsız oyun deneyimi
+- ✅ **Hızlı Keşif**: Oyun videolarını hızlıca izleyin, indirmeden deneyin
+- ✅ **Kişisel Koleksiyon**: Favori oyunlarınızı kaydedin ve paylaşın
+- ✅ **Basit Arayüz**: Sosyal medya benzeri kaydırma mekaniği
+- ✅ **Dark/Light Mode**: Gece ve gündüz tema desteği
+- ✅ **Çoklu Dil**: Türkçe ve İngilizce dil desteği
+- ✅ **Responsive**: Mobil ve masaüstü uyumlu tasarım
+- ✅ **Geliştirici Paneli**: Oyun yükleme ve analitik özellikleri
+
+## 🛠️ Teknolojiler
+
+- **Backend**: ASP.NET Core MVC (.NET 10.0)
+- **Frontend**: HTML5, CSS3, JavaScript
+- **UI Framework**: Custom CSS with animations
+- **Icons**: Font Awesome 6.4.0
+
+## 📦 Kurulum
+
+### Gereksinimler
+- .NET 10.0 SDK veya üzeri
+- Modern web tarayıcı
+
+### Adımlar
+
+1. **Projeyi klonlayın:**
+```bash
+git clone https://github.com/kullaniciadin/gamesaway.git
+cd gamesaway
+```
+
+2. **Bağımlılıkları yükleyin:**
+```bash
+dotnet restore
+```
+
+3. **Projeyi çalıştırın:**
+```bash
+dotnet run
+```
+
+4. **Tarayıcıda açın:**
+```
+http://localhost:5123
+```
 
 ## 📁 Proje Yapısı
 
 ```
-gamesaway/
-├── index.html              # Ana sayfa
-├── download.html           # İndirme sayfası
-├── quickstart.html         # Hızlı başlangıç rehberi
-├── blog.html              # Blog sayfası
-├── contact.html           # İletişim sayfası
-├── privacy.html           # Gizlilik politikası
-├── terms.html             # Kullanım şartları
-├── css/
-│   └── style.css          # Ana stil dosyası
-├── js/
-│   └── main.js            # JavaScript dosyası
-└── README.md              # Bu dosya
+GamesAway/
+├── Controllers/          # MVC Controllers
+│   ├── HomeController.cs
+│   └── DashboardController.cs
+├── Models/              # Data Models
+├── Views/               # Razor Views
+│   ├── Home/
+│   │   ├── Index.cshtml
+│   │   ├── Download.cshtml
+│   │   ├── QuickStart.cshtml
+│   │   ├── Blog.cshtml
+│   │   ├── Contact.cshtml
+│   │   ├── Privacy.cshtml
+│   │   └── Terms.cshtml
+│   ├── Dashboard/
+│   └── Shared/
+│       └── _Layout.cshtml
+├── wwwroot/             # Static Files
+│   ├── css/
+│   │   └── style.css
+│   ├── js/
+│   │   └── main.js
+│   ├── assets/
+│   └── lib/
+├── Properties/
+├── appsettings.json
+├── Program.cs
+└── GamesAway.csproj
 ```
 
-## 🚀 Kurulum
+## 🎨 Sayfalar
 
-1. Projeyi bilgisayarınıza indirin
-2. Herhangi bir web tarayıcısında `index.html` dosyasını açın
-3. Veya bir web sunucusunda yayınlayın
+- **Ana Sayfa** (`/`): Platform tanıtımı ve özellikler
+- **İndirme** (`/Home/Download`): Uygulama indirme linkleri
+- **Hızlı Başlangıç** (`/Home/QuickStart`): Kullanım rehberi
+- **Blog** (`/Home/Blog`): Haberler ve güncellemeler
+- **İletişim** (`/Home/Contact`): İletişim formu
+- **Gizlilik** (`/Home/Privacy`): Gizlilik politikası
+- **Kullanım Şartları** (`/Home/Terms`): Hizmet şartları
+- **Geliştirici Paneli** (`/Dashboard`): Oyun yönetimi (admin/1234)
 
-## 🌐 Ücretsiz Hosting Seçenekleri
+## 🔧 Geliştirme
 
-### 1. GitHub Pages (Önerilen)
-**Avantajlar**: Ücretsiz, hızlı, SSL sertifikası dahil
-
-**Adımlar**:
-1. GitHub hesabı oluşturun (github.com)
-2. Yeni bir repository oluşturun (örn: `gamesaway-website`)
-3. Tüm dosyaları repository'ye yükleyin
-4. Settings → Pages → Source: `main` branch seçin
-5. Siteniz `https://kullaniciadi.github.io/gamesaway-website/` adresinde yayında!
-
-### 2. Netlify
-**Avantajlar**: Kolay deployment, otomatik SSL, form desteği
-
-**Adımlar**:
-1. netlify.com'a gidin ve ücretsiz hesap oluşturun
-2. "Add new site" → "Deploy manually" seçin
-3. Proje klasörünü sürükle-bırak yapın
-4. Otomatik olarak yayınlanır!
-5. Özel domain bağlayabilirsiniz
-
-### 3. Vercel
-**Avantajlar**: Hızlı, otomatik deployment, ücretsiz SSL
-
-**Adımlar**:
-1. vercel.com'a gidin ve GitHub ile giriş yapın
-2. "New Project" → Repository'nizi seçin
-3. Deploy butonuna tıklayın
-4. Dakikalar içinde yayında!
-
-### 4. Render
-**Avantajlar**: Ücretsiz static site hosting, SSL dahil
-
-**Adımlar**:
-1. render.com'a gidin
-2. "New Static Site" seçin
-3. GitHub repository'nizi bağlayın
-4. Otomatik deploy edilir
-
-### 5. Firebase Hosting
-**Avantajlar**: Google altyapısı, hızlı, güvenilir
-
-**Adımlar**:
+### Debug Modu
 ```bash
-npm install -g firebase-tools
-firebase login
-firebase init hosting
-firebase deploy
+dotnet run --environment Development
 ```
 
-## 📱 Responsive Tasarım
-
-Site, aşağıdaki cihazlarda mükemmel çalışır:
-- 📱 Mobil telefonlar (320px+)
-- 📱 Tabletler (768px+)
-- 💻 Dizüstü bilgisayarlar (1024px+)
-- 🖥️ Masaüstü bilgisayarlar (1200px+)
-
-## 🎨 Özelleştirme
-
-### Renkleri Değiştirme
-`css/style.css` dosyasındaki CSS değişkenlerini düzenleyin:
-
-```css
-:root {
-    --primary-color: #6C5CE7;
-    --secondary-color: #00B894;
-    --dark-color: #2D3436;
-    /* ... */
-}
+### Production Build
+```bash
+dotnet publish -c Release -o ./publish
 ```
 
-### İçerik Güncelleme
-- HTML dosyalarındaki metinleri düzenleyin
-- Sosyal medya linklerini güncelleyin
-- İletişim bilgilerini değiştirin
+## 🌐 Deployment
+
+### IIS
+1. Publish klasörünü IIS'e kopyalayın
+2. Application Pool'u .NET Core olarak ayarlayın
+3. Web.config dosyasını kontrol edin
+
+### Docker
+```bash
+docker build -t gamesaway .
+docker run -p 5123:80 gamesaway
+```
+
+## 📝 Lisans
+
+© 2025 4USGAME Oyun Yazılım ve Pazarlama A.Ş. Tüm hakları saklıdır.
 
 ## 📧 İletişim
 
 - **E-posta**: contact@4usgames.com
+- **Website**: https://www.4usgames.com
 - **Şirket**: 4USGAME Oyun Yazılım ve Pazarlama A.Ş.
 - **Konum**: İstanbul, Türkiye
 
-## 📄 Lisans
+## 🤝 Katkıda Bulunma
 
-© 2025 GamesAway. Tüm hakları saklıdır.
+1. Fork edin
+2. Feature branch oluşturun (`git checkout -b feature/amazing-feature`)
+3. Commit edin (`git commit -m 'Add amazing feature'`)
+4. Push edin (`git push origin feature/amazing-feature`)
+5. Pull Request açın
 
-## 🔧 Teknik Detaylar
+---
 
-- **HTML5**: Semantik ve erişilebilir markup
-- **CSS3**: Modern stil özellikleri, flexbox, grid
-- **JavaScript**: Vanilla JS, modern ES6+ özellikleri
-- **Font Awesome**: İkonlar için
-- **Responsive**: Mobile-first yaklaşım
-
-## 🚀 Performans
-
-- Hafif dosya boyutları
-- Optimize edilmiş görseller
-- Hızlı yükleme süreleri
-- SEO dostu yapı
-
-## 📝 Notlar
-
-- Bu ilk versiyon statik bir web sitesidir
-- Veritabanı entegrasyonu sonraki aşamada eklenecektir
-- Form gönderimler şu anda console'a yazdırılmaktadır
-- Gerçek API entegrasyonu için backend gereklidir
+**GamesAway** - Oyun Keşfetmenin Yeni Yolu 🎮

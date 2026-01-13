@@ -1,0 +1,58 @@
+@{
+    ViewData["Title"] = "Oyunlar";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="tabs-container">
+    <div class="tabs-nav">
+        <button class="tab-button active" data-tr="Tümü (8)" data-en="All (8)">Tümü (8)</button>
+        <button class="tab-button" data-tr="İnceleme Sırası" data-en="Review Queue">İnceleme Sırası</button>
+        <button class="tab-button" data-tr="TOHUM VARSAYILANLARI" data-en="SEED DEFAULTS">TOHUM VARSAYILANLARI</button>
+        <button class="tab-button" data-tr="MOBİLİ DÜZELTİN" data-en="FIX MOBILE">MOBİLİ DÜZELTİN</button>
+        <button class="tab-button" data-tr="TÜM OYUNLARI NÜKLEER BOMBALAYIN" data-en="NUKE ALL GAMES">TÜM OYUNLARI NÜKLEER BOMBALAYIN</button>
+    </div>
+</div>
+
+<div class="data-table-container">
+    <div class="table-header">
+        <div class="table-title" data-tr="Oyun Kütüphanesi [YÖNETİCİ]" data-en="Game Library [ADMIN]">Oyun Kütüphanesi [YÖNETİCİ]</div>
+    </div>
+    
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th></th>
+                <th data-tr="OYUN BİLGİLERİ" data-en="GAME INFO">OYUN BİLGİLERİ</th>
+                <th data-tr="GÜVENLİK TARAMASI" data-en="SECURITY SCAN">GÜVENLİK TARAMASI</th>
+                <th data-tr="GELİŞTİRİCİ" data-en="DEVELOPER">GELİŞTİRİCİ</th>
+                <th data-tr="DURUM" data-en="STATUS">DURUM</th>
+                <th data-tr="EYLEMLER" data-en="ACTIONS">EYLEMLER</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>
+                    <div style="font-weight: 600;">8 Top</div>
+                    <div style="font-size: 0.8rem; color: rgba(255,255,255,0.5);">Atıklık 8 Top Bilardo oyununu oynayın...</div>
+                    <div style="font-size: 0.8rem; color: #3B82F6;"><i class="fas fa-file-archive"></i> Zip dosyasını indir</div>
+                </td>
+                <td><span data-tr="geliştirici" data-en="developer">geliştirici</span></td>
+                <td><span data-tr="geliştirici" data-en="developer">geliştirici</span></td>
+                <td>
+                    <span class="status-badge success"><i class="fas fa-check"></i> Canlı Yayın</span>
+                </td>
+                <td>
+                    <div class="action-buttons">
+                        <button class="btn-icon" title="Görüntüle">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="btn-icon danger" title="Sil">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
