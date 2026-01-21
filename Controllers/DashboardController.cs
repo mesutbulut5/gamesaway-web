@@ -25,8 +25,27 @@ public class DashboardController : Controller
         ViewBag.TotalUsers = await _db.Users.CountAsync();
         ViewBag.TotalGames = 8; // Placeholder
         ViewBag.ApprovalRate = 75.0;
+        ViewBag.Views = 0;
+        ViewBag.Downloads = 0;
+        ViewBag.Followers = 0;
         
         return View();
+    }
+
+    public IActionResult NewGame()
+    {
+        if (!IsLoggedIn()) return RedirectToAction("Login", "Auth");
+        return View();
+    }
+
+    [HttpPost]
+    public IActionResult NewGame(IFormCollection form)
+    {
+        if (!IsLoggedIn()) return RedirectToAction("Login", "Auth");
+        
+        // TODO: Save game to database
+        TempData["Success"] = "Oyun başarıyla oluşturuldu!";
+        return RedirectToAction("Index");
     }
 
     public IActionResult Analytics()

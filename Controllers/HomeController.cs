@@ -11,6 +11,24 @@ public class HomeController : Controller
         return View();
     }
 
+    public IActionResult Browse(string? category = null, string? sort = "popular")
+    {
+        ViewBag.Category = category;
+        ViewBag.Sort = sort;
+        return View();
+    }
+
+    public IActionResult GameDetail(int id)
+    {
+        ViewBag.GameId = id;
+        return View();
+    }
+
+    public IActionResult ForDevelopers()
+    {
+        return View();
+    }
+
     public IActionResult Download()
     {
         return View();

@@ -1,85 +1,286 @@
+@{
+    var userId = Context.Request.Cookies["UserId"];
+    var userName = Context.Request.Cookies["UserName"];
+    var isLoggedIn = !string.IsNullOrEmpty(userId);
+}
 <!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewData["Title"] - GamesAway Dashboard</title>
-    <link rel="stylesheet" href="~/css/style.css?v=2.0" asp-append-version="true">
-    <link rel="stylesheet" href="~/css/dashboard.css?v=1.0" asp-append-version="true">
+    <title>@ViewData["Title"] - Games Away</title>
+    <link rel="icon" type="image/svg+xml" href="~/favicon.svg?v=2">
+    <link rel="apple-touch-icon" href="~/favicon.svg?v=2">
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/navbar.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/footer.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/dashboard.css" asp-append-version="true">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="dashboard-body">
-    <!-- Sidebar -->
-    <aside class="dashboard-sidebar">
-        <div class="sidebar-header">
-            <a asp-controller="Home" asp-action="Index" class="sidebar-logo">
-                <div class="logo-icon">
-                    <i class="fas fa-gamepad"></i>
-                </div>
-                <span>GamesAway</span>
-            </a>
-        </div>
-        
-        <nav class="sidebar-nav">
-            <a asp-controller="Dashboard" asp-action="Index" class="sidebar-item @(ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")">
-                <i class="fas fa-chart-line"></i>
-                <span data-tr="Kontrol Paneli" data-en="Dashboard">Kontrol Paneli</span>
-            </a>
-            <a asp-controller="Dashboard" asp-action="Analytics" class="sidebar-item @(ViewContext.RouteData.Values["Action"]?.ToString() == "Analytics" ? "active" : "")">
-                <i class="fas fa-chart-bar"></i>
-                <span data-tr="Analitik" data-en="Analytics">Analitik</span>
-            </a>
-            <a asp-controller="Dashboard" asp-action="Users" class="sidebar-item @(ViewContext.RouteData.Values["Action"]?.ToString() == "Users" ? "active" : "")">
-                <i class="fas fa-users"></i>
-                <span data-tr="Kullanıcılar" data-en="Users">Kullanıcılar</span>
-            </a>
-            <a asp-controller="Dashboard" asp-action="Games" class="sidebar-item @(ViewContext.RouteData.Values["Action"]?.ToString() == "Games" ? "active" : "")">
-                <i class="fas fa-gamepad"></i>
-                <span data-tr="Oyunlar" data-en="Games">Oyunlar</span>
-            </a>
-            <a asp-controller="Dashboard" asp-action="Monetization" class="sidebar-item @(ViewContext.RouteData.Values["Action"]?.ToString() == "Monetization" ? "active" : "")">
-                <i class="fas fa-dollar-sign"></i>
-                <span data-tr="Para Kazanma" data-en="Monetization">Para Kazanma</span>
-            </a>
-            <a asp-controller="Dashboard" asp-action="SupportTickets" class="sidebar-item @(ViewContext.RouteData.Values["Action"]?.ToString() == "SupportTickets" ? "active" : "")">
-                <i class="fas fa-headset"></i>
-                <span data-tr="Destek Talepleri" data-en="Support Tickets">Destek Talepleri</span>
-            </a>
-            <a asp-controller="Dashboard" asp-action="Notifications" class="sidebar-item @(ViewContext.RouteData.Values["Action"]?.ToString() == "Notifications" ? "active" : "")">
-                <i class="fas fa-bell"></i>
-                <span data-tr="Bildirimler" data-en="Notifications">Bildirimler</span>
-            </a>
-        </nav>
-        
-        <div class="sidebar-footer">
-            <div class="user-info">
-                <div class="user-avatar">
-                    <i class="fas fa-user"></i>
-                </div>
-                <div class="user-details">
-                    <div class="user-name">@Context.Request.Cookies["UserName"]</div>
-                    <a asp-controller="Auth" asp-action="Logout" class="logout-link" data-tr="Çıkış" data-en="Logout">Çıkış</a>
-                </div>
-            </div>
-        </div>
-    </aside>
+<body>
+    <!-- Navigation - Same as main layout -->
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="nav-wrapper">
+                <!-- Logo -->
+                <a asp-controller="Home" asp-action="Index" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <span>GamesAway</span>
+                </a>
 
-    <!-- Main Content -->
-    <main class="dashboard-main">
-        <div class="dashboard-header">
-            <h1>@ViewData["Title"]</h1>
-            <div class="header-actions">
-                <button class="theme-toggle" id="themeToggle">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <button class="lang-toggle" id="langToggle">TR</button>
+                <!-- Main Menu -->
+                <ul class="nav-menu">
+                    <li><a asp-controller="Home" asp-action="Browse" data-tr="Oyunlar" data-en="Games">Oyunlar</a></li>
+                    <li class="nav-dropdown">
+                        <a href="#" class="nav-dropdown-toggle">
+                            <span data-tr="Topluluk" data-en="Community">Topluluk</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="nav-dropdown-menu">
+                            <a asp-controller="Home" asp-action="Blog" class="nav-dropdown-item">
+                                <span data-tr="Blog" data-en="Blog">Blog</span>
+                            </a>
+                            <a asp-controller="Home" asp-action="Contact" class="nav-dropdown-item">
+                                <span data-tr="Forum" data-en="Forum">Forum</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li><a asp-controller="Dashboard" asp-action="Index" class="active" data-tr="Kontrol Paneli" data-en="Dashboard">Kontrol Paneli</a></li>
+                </ul>
+
+                <!-- Right Side Controls -->
+                <div class="nav-right">
+                    <div class="nav-search">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Oyun, geliştirici ara...">
+                    </div>
+                    <button class="nav-icon-btn theme-toggle" id="themeToggle" aria-label="Tema Değiştir">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="nav-icon-btn lang-toggle" id="langToggle" aria-label="Dil Değiştir">
+                        TR
+                    </button>
+
+                    @if (isLoggedIn)
+                    {
+                        <button class="nav-icon-btn nav-notifications" aria-label="Bildirimler">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">3</span>
+                        </button>
+                        <div class="nav-user-dropdown">
+                            <button class="nav-user-btn" id="userDropdownBtn">
+                                <div class="nav-user-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <span class="nav-user-name">@userName</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="nav-user-menu" id="userDropdownMenu">
+                                <div class="nav-menu-section">
+                                    <a asp-controller="Dashboard" asp-action="Index" class="nav-menu-item">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                        <span data-tr="Kontrol Paneli" data-en="Dashboard">Kontrol Paneli</span>
+                                    </a>
+                                    <a asp-controller="Auth" asp-action="Logout" class="nav-menu-item">
+                                        <i class="fas fa-sign-out-alt"></i>
+                                        <span data-tr="Çıkış yap" data-en="Log out">Çıkış yap</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <a asp-controller="Auth" asp-action="Login" class="btn-nav-login">Giriş Yap</a>
+                        <a asp-controller="Auth" asp-action="Register" class="btn-nav-register">Kayıt Ol</a>
+                    }
+
+                    <button class="mobile-menu-toggle" aria-label="Menü">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
             </div>
         </div>
-        
-        <div class="dashboard-content">
-            @RenderBody()
+    </nav>
+
+    <!-- Dashboard Layout -->
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <nav class="sidebar-nav">
+                <!-- Dashboard Home -->
+                <a asp-action="Index" class="sidebar-item @(ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")">
+                    <i class="fas fa-home"></i>
+                    <span data-tr="Ana Sayfa" data-en="Home">Ana Sayfa</span>
+                </a>
+
+                <div class="sidebar-divider"></div>
+
+                <!-- Projects Section -->
+                <div class="sidebar-section-title" data-tr="PROJELERİM" data-en="MY PROJECTS">PROJELERİM</div>
+                
+                <a asp-action="Index" class="sidebar-item">
+                    <i class="fas fa-gamepad"></i>
+                    <span data-tr="Projeler" data-en="Projects">Projeler</span>
+                </a>
+                
+                <a asp-action="NewGame" class="sidebar-item @(ViewContext.RouteData.Values["Action"]?.ToString() == "NewGame" ? "active" : "")">
+                    <i class="fas fa-plus-circle"></i>
+                    <span data-tr="Yeni Proje" data-en="New Project">Yeni Proje</span>
+                </a>
+
+                <div class="sidebar-divider"></div>
+
+                <!-- Analytics Section -->
+                <div class="sidebar-section-title" data-tr="ANALİTİK" data-en="ANALYTICS">ANALİTİK</div>
+                
+                <a asp-action="Analytics" class="sidebar-item @(ViewContext.RouteData.Values["Action"]?.ToString() == "Analytics" ? "active" : "")">
+                    <i class="fas fa-chart-line"></i>
+                    <span data-tr="İstatistikler" data-en="Statistics">İstatistikler</span>
+                </a>
+                
+                <a asp-action="Monetization" class="sidebar-item @(ViewContext.RouteData.Values["Action"]?.ToString() == "Monetization" ? "active" : "")">
+                    <i class="fas fa-dollar-sign"></i>
+                    <span data-tr="Kazançlar" data-en="Earnings">Kazançlar</span>
+                </a>
+
+                <div class="sidebar-divider"></div>
+
+                <!-- Community Section -->
+                <div class="sidebar-section-title" data-tr="TOPLULUK" data-en="COMMUNITY">TOPLULUK</div>
+                
+                <a href="#" class="sidebar-item">
+                    <i class="fas fa-comments"></i>
+                    <span data-tr="Yorumlar" data-en="Comments">Yorumlar</span>
+                </a>
+                
+                <a href="#" class="sidebar-item">
+                    <i class="fas fa-users"></i>
+                    <span data-tr="Takipçiler" data-en="Followers">Takipçiler</span>
+                </a>
+
+                <div class="sidebar-divider"></div>
+
+                <!-- Settings -->
+                <a href="#" class="sidebar-item">
+                    <i class="fas fa-cog"></i>
+                    <span data-tr="Ayarlar" data-en="Settings">Ayarlar</span>
+                </a>
+            </nav>
+
+            <!-- Sidebar Footer -->
+            <div class="sidebar-footer">
+                <a asp-controller="Home" asp-action="Browse" class="sidebar-back-link">
+                    <i class="fas fa-arrow-left"></i>
+                    <span data-tr="Oyunlara Dön" data-en="Back to Games">Oyunlara Dön</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Dashboard Header -->
+            <div class="dashboard-header">
+                <div class="dashboard-header-content">
+                    <h1 class="dashboard-title" data-tr="@ViewData["Title"]" data-en="@ViewData["Title"]">@ViewData["Title"]</h1>
+                    <div class="dashboard-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-eye"></i></div>
+                            <div class="stat-info">
+                                <span class="stat-value">@(ViewBag.Views ?? 0)</span>
+                                <span class="stat-label" data-tr="Görüntüleme" data-en="Views">Görüntüleme</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-download"></i></div>
+                            <div class="stat-info">
+                                <span class="stat-value">@(ViewBag.Downloads ?? 0)</span>
+                                <span class="stat-label" data-tr="İndirme" data-en="Downloads">İndirme</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-heart"></i></div>
+                            <div class="stat-info">
+                                <span class="stat-value">@(ViewBag.Followers ?? 0)</span>
+                                <span class="stat-label" data-tr="Takipçi" data-en="Followers">Takipçi</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page Content -->
+            <div class="dashboard-content">
+                @RenderBody()
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer - Same as main layout -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-column footer-brand">
+                    <a asp-controller="Home" asp-action="Index" class="footer-logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <span>GamesAway</span>
+                    </a>
+                    <p class="footer-description" data-tr="Bağımsız oyunlarınızı anında dağıtın veya satın. Milyonlarca oyuncuya ulaşın."
+                        data-en="Instantly distribute or sell your indie games. Reach millions of players.">
+                        Bağımsız oyunlarınızı anında dağıtın veya satın. Milyonlarca oyuncuya ulaşın.
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://facebook.com/gamesaway" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://twitter.com/gamesaway" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com/gamesaway" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://youtube.com/@@gamesaway" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://discord.com/gamesaway" target="_blank" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4 data-tr="Keşfet" data-en="Discover">Keşfet</h4>
+                    <ul>
+                        <li><a asp-controller="Home" asp-action="Browse" data-tr="Oyunlar" data-en="Games">Oyunlar</a></li>
+                        <li><a asp-controller="Home" asp-action="Browse" asp-route-category="action" data-tr="Aksiyon Oyunları" data-en="Action Games">Aksiyon Oyunları</a></li>
+                        <li><a asp-controller="Home" asp-action="Browse" asp-route-category="puzzle" data-tr="Bulmaca Oyunları" data-en="Puzzle Games">Bulmaca Oyunları</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 data-tr="Oluştur" data-en="Create">Oluştur</h4>
+                    <ul>
+                        <li><a asp-controller="Home" asp-action="ForDevelopers" data-tr="Geliştiriciler" data-en="Developers">Geliştiriciler</a></li>
+                        <li><a asp-controller="Dashboard" asp-action="NewGame" data-tr="Oyun Yükle" data-en="Upload Game">Oyun Yükle</a></li>
+                        <li><a asp-controller="Dashboard" asp-action="Index" data-tr="Geliştirici Paneli" data-en="Developer Dashboard">Geliştirici Paneli</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 data-tr="Şirket" data-en="Company">Şirket</h4>
+                    <ul>
+                        <li><a asp-controller="Home" asp-action="Index" data-tr="Hakkımızda" data-en="About">Hakkımızda</a></li>
+                        <li><a asp-controller="Home" asp-action="Contact" data-tr="İletişim" data-en="Contact">İletişim</a></li>
+                        <li><a asp-controller="Home" asp-action="Privacy" data-tr="Gizlilik Politikası" data-en="Privacy Policy">Gizlilik Politikası</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-left">
+                    <p>&copy; 2025 <a asp-controller="Home" asp-action="Index">GamesAway</a>. <span data-tr="Tüm hakları saklıdır" data-en="All rights reserved">Tüm hakları saklıdır</span></p>
+                    <p class="footer-company"><a href="https://www.4usgames.com" target="_blank">4USGAME Oyun Yazılım ve Pazarlama A.Ş.</a></p>
+                </div>
+                <div class="footer-bottom-right">
+                    <a asp-controller="Home" asp-action="Privacy" data-tr="Gizlilik" data-en="Privacy">Gizlilik</a>
+                    <span>•</span>
+                    <a asp-controller="Home" asp-action="Terms" data-tr="Şartlar" data-en="Terms">Şartlar</a>
+                </div>
+            </div>
         </div>
-    </main>
+    </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/main.js" asp-append-version="true"></script>

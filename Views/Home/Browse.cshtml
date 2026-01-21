@@ -1,0 +1,717 @@
+@{
+    ViewData["Title"] = "Oyunları Keşfet";
+    var category = ViewBag.Category as string;
+    var sort = ViewBag.Sort as string;
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/browse.css" asp-append-version="true">
+}
+
+<div class="browse-page">
+    <!-- Browse Navigation Tabs -->
+    <div class="browse-tabs">
+        <div class="container-fluid">
+            <div class="browse-tabs-wrapper">
+                <a asp-action="Browse" class="browse-tab active">
+                    <i class="fas fa-gamepad"></i>
+                    <span data-tr="Oyunlar" data-en="Games">Oyunlar</span>
+                </a>
+                <a asp-action="GameDevelopment" class="browse-tab">
+                    <i class="fas fa-code"></i>
+                    <span data-tr="Oyun Geliştirme" data-en="Game development">Oyun Geliştirme</span>
+                </a>
+                <a asp-action="Assets" class="browse-tab">
+                    <i class="fas fa-cube"></i>
+                    <span data-tr="Varlıklar" data-en="Assets">Varlıklar</span>
+                </a>
+                <a asp-action="Comics" class="browse-tab">
+                    <i class="fas fa-book-open"></i>
+                    <span data-tr="Çizgi Romanlar" data-en="Comics">Çizgi Romanlar</span>
+                </a>
+                <span class="browse-tab-divider">|</span>
+                <a asp-action="Sales" class="browse-tab">
+                    <i class="fas fa-tag"></i>
+                    <span data-tr="İndirimler" data-en="Sales">İndirimler</span>
+                </a>
+                <a asp-action="Bundles" class="browse-tab">
+                    <i class="fas fa-box"></i>
+                    <span data-tr="Paketler" data-en="Bundles">Paketler</span>
+                </a>
+                <span class="browse-tab-divider">|</span>
+                <a asp-action="Jobs" class="browse-tab">
+                    <i class="fas fa-briefcase"></i>
+                    <span data-tr="İş İlanları" data-en="Jobs">İş İlanları</span>
+                </a>
+                <span class="browse-tab-divider">|</span>
+                <a asp-action="Tags" class="browse-tab">
+                    <i class="fas fa-tags"></i>
+                    <span data-tr="Etiketler" data-en="Tags">Etiketler</span>
+                </a>
+                <a asp-action="GameEngines" class="browse-tab">
+                    <i class="fas fa-cogs"></i>
+                    <span data-tr="Oyun Motorları" data-en="Game Engines">Oyun Motorları</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="browse-layout">
+            <!-- Sidebar - Filtreler -->
+            <aside class="browse-sidebar">
+                <h2 class="browse-sidebar-title" data-tr="FİLTRELEME SONUÇLARI" data-en="FILTER RESULTS">FİLTRELEME SONUÇLARI</h2>
+
+                <!-- Platform -->
+                <div class="filter-group">
+                    <button class="filter-group-toggle">
+                        <i class="fas fa-chevron-right filter-arrow"></i>
+                        <span data-tr="Platform" data-en="Platform">Platform</span>
+                    </button>
+                    <div class="filter-group-content">
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="platform" value="web">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Web (Tarayıcı)" data-en="Web Browser">Web (Tarayıcı)</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="platform" value="windows">
+                            <span class="filter-checkmark"></span>
+                            <span>Windows</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="platform" value="mac">
+                            <span class="filter-checkmark"></span>
+                            <span>macOS</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="platform" value="linux">
+                            <span class="filter-checkmark"></span>
+                            <span>Linux</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="platform" value="android">
+                            <span class="filter-checkmark"></span>
+                            <span>Android</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="platform" value="ios">
+                            <span class="filter-checkmark"></span>
+                            <span>iOS</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Fiyat -->
+                <div class="filter-group">
+                    <button class="filter-group-toggle">
+                        <i class="fas fa-chevron-right filter-arrow"></i>
+                        <span data-tr="Fiyat" data-en="Price">Fiyat</span>
+                    </button>
+                    <div class="filter-group-content">
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="price" value="free">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Ücretsiz" data-en="Free">Ücretsiz</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="price" value="sale">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="İndirimde" data-en="On sale">İndirimde</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="price" value="paid">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Ücretli" data-en="Paid">Ücretli</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Ne zaman -->
+                <div class="filter-group">
+                    <button class="filter-group-toggle">
+                        <i class="fas fa-chevron-right filter-arrow"></i>
+                        <span data-tr="Ne zaman" data-en="Release date">Ne zaman</span>
+                    </button>
+                    <div class="filter-group-content">
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="release" value="last-day">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Son 24 saat" data-en="Last 24 hours">Son 24 saat</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="release" value="last-week">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Son 7 gün" data-en="Last 7 days">Son 7 gün</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="release" value="last-month">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Son 30 gün" data-en="Last 30 days">Son 30 gün</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="release" value="last-year">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Son 1 yıl" data-en="Last year">Son 1 yıl</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Tür -->
+                <div class="filter-group">
+                    <button class="filter-group-toggle">
+                        <i class="fas fa-chevron-right filter-arrow"></i>
+                        <span data-tr="Tür" data-en="Genre">Tür</span>
+                    </button>
+                    <div class="filter-group-content">
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="genre" value="action">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Aksiyon" data-en="Action">Aksiyon</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="genre" value="adventure">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Macera" data-en="Adventure">Macera</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="genre" value="card">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Kart Oyunu" data-en="Card Game">Kart Oyunu</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="genre" value="educational">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Eğitimsel" data-en="Educational">Eğitimsel</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="genre" value="fighting">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Dövüş" data-en="Fighting">Dövüş</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="genre" value="interactive-fiction">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Etkileşimli Kurgu" data-en="Interactive Fiction">Etkileşimli Kurgu</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="genre" value="platformer">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Platform oyunu" data-en="Platformer">Platform oyunu</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="genre" value="puzzle">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Bulmaca" data-en="Puzzle">Bulmaca</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="genre" value="racing">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Yarışma" data-en="Racing">Yarışma</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="genre" value="rhythm">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Ritim" data-en="Rhythm">Ritim</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="genre" value="rpg">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Rol Yapma" data-en="Role Playing">Rol Yapma</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="genre" value="shooter">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Atıcı" data-en="Shooter">Atıcı</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="genre" value="simulation">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Simülasyon" data-en="Simulation">Simülasyon</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="genre" value="sports">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Spor" data-en="Sports">Spor</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="genre" value="strategy">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Strateji" data-en="Strategy">Strateji</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="genre" value="survival">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Hayatta Kalma" data-en="Survival">Hayatta Kalma</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="genre" value="visual-novel">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Görsel Roman" data-en="Visual Novel">Görsel Roman</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="genre" value="other">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Diğer" data-en="Other">Diğer</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Giriş yöntemleri -->
+                <div class="filter-group">
+                    <button class="filter-group-toggle">
+                        <i class="fas fa-chevron-right filter-arrow"></i>
+                        <span data-tr="Giriş yöntemleri" data-en="Input methods">Giriş yöntemleri</span>
+                    </button>
+                    <div class="filter-group-content">
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="input" value="keyboard">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Klavye" data-en="Keyboard">Klavye</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="input" value="mouse">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Fare" data-en="Mouse">Fare</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="input" value="gamepad">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Oyun kumandası (herhangi bir)" data-en="Gamepad (any)">Oyun kumandası (herhangi bir)</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="input" value="touchscreen">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Dokunmatik ekran" data-en="Touchscreen">Dokunmatik ekran</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="input" value="joystick">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Joystick" data-en="Joystick">Joystick</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="input" value="accelerometer">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="İvmeölçer" data-en="Accelerometer">İvmeölçer</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="input" value="dance-pad">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Dans pedi" data-en="Dance pad">Dans pedi</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="input" value="midi">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="MIDI kontrol cihazı" data-en="MIDI controller">MIDI kontrol cihazı</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="input" value="motion">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Hareket kontrol cihazı" data-en="Motion controller">Hareket kontrol cihazı</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="input" value="voice">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Ses kontrolü" data-en="Voice control">Ses kontrolü</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="input" value="webcam">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Web kamerası" data-en="Webcam">Web kamerası</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="input" value="xbox">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Xbox kumandası" data-en="Xbox controller">Xbox kumandası</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="input" value="oculus-rift">
+                            <span class="filter-checkmark"></span>
+                            <span>Oculus Rift</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="input" value="wiimote">
+                            <span class="filter-checkmark"></span>
+                            <span>Wiimote</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="input" value="kinect">
+                            <span class="filter-checkmark"></span>
+                            <span>Kinect</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="input" value="smartphone">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Akıllı telefon" data-en="Smartphone">Akıllı telefon</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="input" value="playstation">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Playstation kumandası" data-en="Playstation controller">Playstation kumandası</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="input" value="joycon">
+                            <span class="filter-checkmark"></span>
+                            <span>Joy-Con</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="input" value="oculus-quest">
+                            <span class="filter-checkmark"></span>
+                            <span>Oculus Quest</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="input" value="racing-wheel">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Yarış direksiyonu" data-en="Racing wheel">Yarış direksiyonu</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="input" value="flight-stick">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Uçuş çubuğu" data-en="Flight stick">Uçuş çubuğu</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="input" value="light-gun">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Hafif silah" data-en="Light gun">Hafif silah</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="input" value="eye-tracker">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Göz takip cihazı" data-en="Eye tracker">Göz takip cihazı</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="input" value="microphone">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Mikrofon" data-en="Microphone">Mikrofon</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="input" value="gyroscope">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Jiroskop" data-en="Gyroscope">Jiroskop</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="input" value="pen">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Kalem" data-en="Pen">Kalem</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Ortalama oturum süresi -->
+                <div class="filter-group">
+                    <button class="filter-group-toggle">
+                        <i class="fas fa-chevron-right filter-arrow"></i>
+                        <span data-tr="Ortalama oturum süresi" data-en="Average session">Ortalama oturum süresi</span>
+                    </button>
+                    <div class="filter-group-content">
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="session" value="few-seconds">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="birkaç saniye" data-en="A few seconds">birkaç saniye</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="session" value="few-minutes">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Birkaç dakika" data-en="A few minutes">Birkaç dakika</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="session" value="30-minutes">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Yaklaşık yarım saat" data-en="About half an hour">Yaklaşık yarım saat</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="session" value="1-hour">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Yaklaşık bir saat" data-en="About an hour">Yaklaşık bir saat</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="session" value="few-hours">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Birkaç saat" data-en="A few hours">Birkaç saat</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="session" value="days">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Günler veya daha fazla" data-en="Days or more">Günler veya daha fazla</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Çok oyunculu özellikler -->
+                <div class="filter-group">
+                    <button class="filter-group-toggle">
+                        <i class="fas fa-chevron-right filter-arrow"></i>
+                        <span data-tr="Çok oyunculu özellikler" data-en="Multiplayer features">Çok oyunculu özellikler</span>
+                    </button>
+                    <div class="filter-group-content">
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="multiplayer" value="local">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Yerel çok oyunculu" data-en="Local multiplayer">Yerel çok oyunculu</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="multiplayer" value="server">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Sunucu tabanlı ağ tabanlı çok oyunculu" data-en="Server-based networked multiplayer">Sunucu tabanlı ağ tabanlı çok oyunculu</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="multiplayer" value="adhoc">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Ad-hoc ağ tabanlı çok oyunculu" data-en="Ad-hoc networked multiplayer">Ad-hoc ağ tabanlı çok oyunculu</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Erişilebilirlik özellikleri -->
+                <div class="filter-group">
+                    <button class="filter-group-toggle">
+                        <i class="fas fa-chevron-right filter-arrow"></i>
+                        <span data-tr="Erişilebilirlik özellikleri" data-en="Accessibility features">Erişilebilirlik özellikleri</span>
+                    </button>
+                    <div class="filter-group-content">
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="accessibility" value="colorblind">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Renk körlüğüne uygun" data-en="Colorblind friendly">Renk körlüğüne uygun</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="accessibility" value="subtitles">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Altyazılar" data-en="Subtitles">Altyazılar</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="accessibility" value="configurable">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Yapılandırılabilir kontroller" data-en="Configurable controls">Yapılandırılabilir kontroller</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="accessibility" value="high-contrast">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Yüksek kontrastlı" data-en="High contrast">Yüksek kontrastlı</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="accessibility" value="interactive-tutorial">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Etkileşimli eğitim" data-en="Interactive tutorial">Etkileşimli eğitim</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="accessibility" value="one-button">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Tek düğme" data-en="One button">Tek düğme</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="accessibility" value="blind-friendly">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Görme engelliler için uygun" data-en="Blind friendly">Görme engelliler için uygun</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="accessibility" value="textless">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Metinsiz" data-en="Textless">Metinsiz</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Tip -->
+                <div class="filter-group">
+                    <button class="filter-group-toggle">
+                        <i class="fas fa-chevron-right filter-arrow"></i>
+                        <span data-tr="Tip" data-en="Type">Tip</span>
+                    </button>
+                    <div class="filter-group-content">
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="type" value="html5">
+                            <span class="filter-checkmark"></span>
+                            <span>HTML5</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="type" value="downloadable">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="İndirilebilir" data-en="Downloadable">İndirilebilir</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Çeşitli -->
+                <div class="filter-group">
+                    <button class="filter-group-toggle">
+                        <i class="fas fa-chevron-right filter-arrow"></i>
+                        <span data-tr="Çeşitli" data-en="Miscellaneous">Çeşitli</span>
+                    </button>
+                    <div class="filter-group-content">
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="misc" value="steam-keys">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Steam anahtarlarıyla" data-en="With Steam keys">Steam anahtarlarıyla</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="misc" value="game-jams">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Oyun geliştirme yarışmalarında" data-en="In game jams">Oyun geliştirme yarışmalarında</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="misc" value="not-in-jams">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Oyun geliştirme etkinliklerinde değil" data-en="Not in game jams">Oyun geliştirme etkinliklerinde değil</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="misc" value="with-demos">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Demolarla birlikte" data-en="With demos">Demolarla birlikte</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="misc" value="featured">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="Öne Çıkanlar" data-en="Featured">Öne Çıkanlar</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" name="misc" value="in-collections">
+                            <span class="filter-checkmark"></span>
+                            <span data-tr="İlgili koleksiyonla" data-en="In collections">İlgili koleksiyonla</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Filter Actions -->
+                <div class="filter-actions">
+                    <button class="btn btn-primary btn-block filter-apply-btn" data-tr="Filtreleri Uygula" data-en="Apply Filters">Filtreleri Uygula</button>
+                    <button class="btn btn-text btn-block filter-clear-btn" data-tr="Temizle" data-en="Clear All">Temizle</button>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="browse-main">
+                <!-- Header -->
+                <div class="browse-header">
+                    <div class="browse-header-left">
+                        <h1 class="browse-title">
+                            @if (!string.IsNullOrEmpty(category))
+                            {
+                                <span data-tr="@category Oyunları" data-en="@category Games">@category Oyunları</span>
+                            }
+                            else
+                            {
+                                <span data-tr="Tüm Oyunlar" data-en="All Games">Tüm Oyunlar</span>
+                            }
+                        </h1>
+                        <p class="browse-subtitle" data-tr="10,000+ oyun bulundu" data-en="10,000+ games found">10,000+ oyun bulundu</p>
+                    </div>
+                    <div class="browse-header-right">
+                        <select class="browse-sort-select" id="sortSelect">
+                            <option value="popular" selected="@(sort == "popular")">Popüler</option>
+                            <option value="newest" selected="@(sort == "newest")">En Yeni</option>
+                            <option value="rating" selected="@(sort == "rating")">En İyi Puanlı</option>
+                            <option value="downloads" selected="@(sort == "downloads")">En Çok İndirilen</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Games Grid -->
+                <div class="browse-games-grid">
+                    @for (int i = 1; i <= 12; i++)
+                    {
+                        var gradients = new[] { 
+                            "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                            "linear-gradient(135deg, #764ba2 0%, #f093fb 100%)",
+                            "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+                            "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+                            "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)",
+                            "linear-gradient(135deg, #fa709a 0%, #fee140 100%)"
+                        };
+                        var categories = new[] { "Aksiyon", "Bulmaca", "Yarış", "Macera", "Spor", "Strateji" };
+                        var gradient = gradients[i % gradients.Length];
+                        var cat = categories[i % categories.Length];
+                        
+                        <div class="game-card">
+                            <a asp-action="GameDetail" asp-route-id="@i" class="game-card-link">
+                                <div class="game-card-image" style="background: @gradient;">
+                                    <div class="game-card-overlay">
+                                        <span class="game-card-play"><i class="fas fa-play"></i></span>
+                                    </div>
+                                    <span class="game-card-badge">Ücretsiz</span>
+                                </div>
+                                <div class="game-card-content">
+                                    <h3 class="game-card-title">Amazing Game @i</h3>
+                                    <p class="game-card-developer">by Developer @i</p>
+                                    <div class="game-card-footer">
+                                        <span class="game-card-category">@cat</span>
+                                        <span class="game-card-rating">
+                                            <i class="fas fa-star"></i> @(4.5 + (i % 5) * 0.1)
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    }
+                </div>
+
+                <!-- Pagination -->
+                <div class="browse-pagination">
+                    <button class="pagination-btn pagination-prev" disabled>
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="pagination-btn pagination-number active">1</button>
+                    <button class="pagination-btn pagination-number">2</button>
+                    <button class="pagination-btn pagination-number">3</button>
+                    <button class="pagination-btn pagination-number">4</button>
+                    <button class="pagination-btn pagination-number">5</button>
+                    <span class="pagination-dots">...</span>
+                    <button class="pagination-btn pagination-number">50</button>
+                    <button class="pagination-btn pagination-next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </main>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Filter group toggle
+        document.querySelectorAll('.filter-group-toggle').forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                const group = this.closest('.filter-group');
+                group.classList.toggle('open');
+            });
+        });
+
+        // Sort select change
+        document.getElementById('sortSelect').addEventListener('change', function() {
+            const sort = this.value;
+            const url = new URL(window.location);
+            url.searchParams.set('sort', sort);
+            window.location = url;
+        });
+
+        // Filter apply
+        document.querySelector('.filter-apply-btn').addEventListener('click', function() {
+            const filters = {};
+            
+            // Collect all checked filters
+            document.querySelectorAll('.filter-checkbox input:checked').forEach(input => {
+                const name = input.name;
+                if (!filters[name]) filters[name] = [];
+                filters[name].push(input.value);
+            });
+            
+            const url = new URL(window.location);
+            Object.keys(filters).forEach(key => {
+                url.searchParams.set(key, filters[key].join(','));
+            });
+            
+            window.location = url;
+        });
+
+        // Filter clear
+        document.querySelector('.filter-clear-btn').addEventListener('click', function() {
+            // Uncheck all checkboxes
+            document.querySelectorAll('.filter-checkbox input:checked').forEach(input => {
+                input.checked = false;
+            });
+            
+            // Redirect to clean URL
+            window.location = '@Url.Action("Browse")';
+        });
+    </script>
+}

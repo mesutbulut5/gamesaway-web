@@ -3,69 +3,69 @@
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 
-<!-- Stats Grid -->
-<div class="stats-grid">
-    <div class="stat-card">
-        <div class="stat-card-header">
-            <div class="stat-card-title" data-tr="Toplam Kullanıcılar" data-en="Total Users">Toplam Kullanıcılar</div>
-            <div class="stat-card-icon blue">
-                <i class="fas fa-users"></i>
-            </div>
-        </div>
-        <div class="stat-card-value">@ViewBag.TotalUsers</div>
-        <div class="stat-card-footer">
-            <span class="stat-trend"><i class="fas fa-arrow-up"></i> 6 Geliştirildi</span>
-        </div>
+<!-- Empty State - No Projects Yet -->
+<div class="empty-project-state">
+    <div class="empty-icon">
+        <i class="fas fa-gamepad"></i>
     </div>
+    <h2 data-tr="Geliştirici misiniz? İlk oyununuzu yükleyin." data-en="Are you a developer? Upload your first game.">Geliştirici misiniz? İlk oyununuzu yükleyin.</h2>
+    <p class="empty-description" data-tr="Oyunlarınızı milyonlarca oyuncuyla paylaşın ve topluluğunuzu oluşturun." data-en="Share your games with millions of players and build your community.">Oyunlarınızı milyonlarca oyuncuyla paylaşın ve topluluğunuzu oluşturun.</p>
+    <a asp-action="NewGame" class="btn-create-project">
+        <i class="fas fa-plus"></i>
+        <span data-tr="Yeni proje oluştur" data-en="Create new project">Yeni proje oluştur</span>
+    </a>
+    <a asp-controller="Home" asp-action="Browse" class="empty-project-link" data-tr="Hayır, beni oyunlar sayfasına götür." data-en="No, take me to the games page.">Hayır, beni oyunlar sayfasına götür.</a>
+</div>
 
-    <div class="stat-card">
-        <div class="stat-card-header">
-            <div class="stat-card-title" data-tr="Toplam Oyunlar" data-en="Total Games">Toplam Oyunlar</div>
-            <div class="stat-card-icon purple">
-                <i class="fas fa-gamepad"></i>
+@* 
+<!-- Project List - Show when user has projects -->
+<div class="project-list">
+    <div class="project-item">
+        <div class="project-thumbnail">
+            <i class="fas fa-gamepad"></i>
+        </div>
+        <div class="project-info">
+            <div class="project-title">
+                <a href="#">Amazing Game</a>
             </div>
+            <div class="project-meta">Yayınlandı • 150 görüntüleme • 25 indirme</div>
         </div>
-        <div class="stat-card-value">@ViewBag.TotalGames</div>
-        <div class="stat-card-footer">
-            <span class="stat-trend"><i class="fas fa-arrow-up"></i> 6 Yayınlandı / 0 Beklemede</span>
-        </div>
-    </div>
-
-    <div class="stat-card">
-        <div class="stat-card-header">
-            <div class="stat-card-title" data-tr="Onay Oranı" data-en="Approval Rate">Onay Oranı</div>
-            <div class="stat-card-icon green">
-                <i class="fas fa-check-circle"></i>
-            </div>
-        </div>
-        <div class="stat-card-value">% @ViewBag.ApprovalRate</div>
-        <div class="stat-card-footer">
-            <span class="stat-trend down"><i class="fas fa-arrow-down"></i> 0 Reddedildi</span>
-        </div>
-    </div>
-
-    <div class="stat-card">
-        <div class="stat-card-header">
-            <div class="stat-card-title" data-tr="Toplam İndirme Sayısı" data-en="Total Downloads">Toplam İndirme Sayısı</div>
-            <div class="stat-card-icon orange">
-                <i class="fas fa-download"></i>
-            </div>
-        </div>
-        <div class="stat-card-value">-</div>
-        <div class="stat-card-footer">
-            <span data-tr="Yakında gelecek" data-en="Coming soon">Yakında gelecek</span>
+        <div class="project-actions">
+            <a href="#" class="project-action-btn">Düzenle</a>
+            <a href="#" class="project-action-btn primary">Görüntüle</a>
         </div>
     </div>
 </div>
+*@
 
-<!-- Chart -->
-<div class="chart-container">
-    <div class="chart-header">
-        <div class="chart-title" data-tr="Yeni Gönderimler (30 Gün)" data-en="New Submissions (30 Days)">Yeni Gönderimler (30 Gün)</div>
-        <div class="chart-subtitle" data-tr="Son 30 günün aktivite grafiği" data-en="Activity chart for the last 30 days">Son 30 günün aktivite grafiği</div>
-    </div>
-    <div class="empty-state">
-        <i class="fas fa-chart-line"></i>
-        <p data-tr="Grafik verileri yükleniyor..." data-en="Loading chart data...">Grafik verileri yükleniyor...</p>
-    </div>
-</div>
+<style>
+    .empty-icon {
+        width: 100px;
+        height: 100px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    }
+    
+    .empty-icon i {
+        font-size: 2.5rem;
+        color: white;
+    }
+    
+    .empty-description {
+        color: #888;
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .btn-create-project i {
+        margin-right: 0.5rem;
+    }
+</style>

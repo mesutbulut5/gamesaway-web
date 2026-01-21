@@ -1,0 +1,253 @@
+@{
+    ViewData["Title"] = "Oyun Detayı";
+    var gameId = ViewBag.GameId;
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/game-detail.css" asp-append-version="true">
+}
+
+<div class="game-detail-page">
+    <div class="container">
+        <div class="game-detail-layout">
+            <!-- Left Side - Game Content -->
+            <div class="game-detail-left">
+                <!-- Game Media -->
+                <div class="game-media">
+                    <div class="game-main-image">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: 600;">
+                            Game Screenshot
+                        </div>
+                        <button class="game-play-overlay">
+                            <i class="fas fa-play"></i>
+                            <span data-tr="Oyunu Başlat" data-en="Start Game">Oyunu Başlat</span>
+                        </button>
+                    </div>
+                    <div class="game-gallery">
+                        <div style="width: 150px; height: 100px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 6px; cursor: pointer;" class="gallery-thumb active"></div>
+                        <div style="width: 150px; height: 100px; background: linear-gradient(135deg, #764ba2 0%, #f093fb 100%); border-radius: 6px; cursor: pointer;" class="gallery-thumb"></div>
+                        <div style="width: 150px; height: 100px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); border-radius: 6px; cursor: pointer;" class="gallery-thumb"></div>
+                        <div style="width: 150px; height: 100px; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 6px; cursor: pointer;" class="gallery-thumb"></div>
+                    </div>
+                </div>
+
+                <!-- Game Description -->
+                <div class="game-description-section">
+                    <h2 data-tr="Oyun Hakkında" data-en="About This Game">Oyun Hakkında</h2>
+                    <div class="game-description-content">
+                        <p>Epic Battle Arena, heyecan verici bir aksiyon oyunudur. Düşmanlarınızı yenin, güçlü silahlar toplayın ve arena şampiyonu olun!</p>
+                        <p>Özellikler:</p>
+                        <ul>
+                            <li>Çok oyunculu mod</li>
+                            <li>50+ farklı silah</li>
+                            <li>10 benzersiz arena</li>
+                            <li>Günlük ödüller ve turnuvalar</li>
+                            <li>Özelleştirilebilir karakterler</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- System Requirements -->
+                <div class="game-requirements-section">
+                    <h2 data-tr="Sistem Gereksinimleri" data-en="System Requirements">Sistem Gereksinimleri</h2>
+                    <div class="requirements-grid">
+                        <div class="requirement-item">
+                            <i class="fas fa-desktop"></i>
+                            <span data-tr="Platform: Web Tarayıcı" data-en="Platform: Web Browser">Platform: Web Tarayıcı</span>
+                        </div>
+                        <div class="requirement-item">
+                            <i class="fas fa-memory"></i>
+                            <span data-tr="RAM: 2 GB" data-en="RAM: 2 GB">RAM: 2 GB</span>
+                        </div>
+                        <div class="requirement-item">
+                            <i class="fas fa-wifi"></i>
+                            <span data-tr="İnternet: Gerekli" data-en="Internet: Required">İnternet: Gerekli</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comments Section -->
+                <div class="game-comments-section">
+                    <h2 data-tr="Yorumlar" data-en="Comments">Yorumlar (24)</h2>
+                    
+                    <div class="comment-form">
+                        <textarea placeholder="Yorumunuzu yazın..." rows="3"></textarea>
+                        <button class="btn btn-primary" data-tr="Yorum Yap" data-en="Post Comment">Yorum Yap</button>
+                    </div>
+
+                    <div class="comments-list">
+                        <div class="comment-item">
+                            <div class="comment-avatar">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="comment-content">
+                                <div class="comment-header">
+                                    <strong>Ahmet Y.</strong>
+                                    <span class="comment-date">2 gün önce</span>
+                                </div>
+                                <div class="comment-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="comment-text">Harika bir oyun! Grafikleri ve oynanışı çok iyi. Kesinlikle tavsiye ederim.</p>
+                            </div>
+                        </div>
+
+                        <div class="comment-item">
+                            <div class="comment-avatar">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="comment-content">
+                                <div class="comment-header">
+                                    <strong>Mehmet K.</strong>
+                                    <span class="comment-date">5 gün önce</span>
+                                </div>
+                                <div class="comment-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <p class="comment-text">Güzel oyun ama bazen lag oluyor. Genel olarak eğlenceli.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-outline btn-block" data-tr="Daha Fazla Yorum Yükle" data-en="Load More Comments">Daha Fazla Yorum Yükle</button>
+                </div>
+            </div>
+
+            <!-- Right Side - Game Info -->
+            <div class="game-detail-right">
+                <div class="game-info-card">
+                    <h1 class="game-info-title">Epic Battle Arena</h1>
+                    
+                    <div class="game-info-developer">
+                        <span data-tr="Geliştirici:" data-en="Developer:">Geliştirici:</span>
+                        <a href="#" class="developer-link">StudioX</a>
+                    </div>
+
+                    <div class="game-info-rating">
+                        <div class="rating-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="rating-text">4.8 (1,234 değerlendirme)</span>
+                    </div>
+
+                    <div class="game-info-price">
+                        <span class="price-badge" data-tr="ÜCRETSİZ" data-en="FREE">ÜCRETSİZ</span>
+                    </div>
+
+                    <button class="btn btn-primary btn-large btn-block game-play-btn">
+                        <i class="fas fa-play"></i>
+                        <span data-tr="Şimdi Oyna" data-en="Play Now">Şimdi Oyna</span>
+                    </button>
+
+                    <div class="game-action-buttons">
+                        <button class="btn btn-outline btn-icon">
+                            <i class="far fa-heart"></i>
+                            <span data-tr="Favorilere Ekle" data-en="Add to Favorites">Favorilere Ekle</span>
+                        </button>
+                        <button class="btn btn-outline btn-icon">
+                            <i class="fas fa-share-alt"></i>
+                            <span data-tr="Paylaş" data-en="Share">Paylaş</span>
+                        </button>
+                    </div>
+
+                    <div class="game-info-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-download"></i>
+                            <div class="stat-content">
+                                <strong>125K</strong>
+                                <span data-tr="İndirme" data-en="Downloads">İndirme</span>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-gamepad"></i>
+                            <div class="stat-content">
+                                <strong>45K</strong>
+                                <span data-tr="Oynanma" data-en="Plays">Oynanma</span>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-calendar"></i>
+                            <div class="stat-content">
+                                <strong>15 Oca 2025</strong>
+                                <span data-tr="Yayın Tarihi" data-en="Release Date">Yayın Tarihi</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="game-info-tags">
+                        <span class="game-tag">Aksiyon</span>
+                        <span class="game-tag">Çok Oyunculu</span>
+                        <span class="game-tag">3D</span>
+                        <span class="game-tag">Rekabetçi</span>
+                    </div>
+                </div>
+
+                <!-- Similar Games -->
+                <div class="similar-games-card">
+                    <h3 data-tr="Benzer Oyunlar" data-en="Similar Games">Benzer Oyunlar</h3>
+                    <div class="similar-games-list">
+                        <a asp-action="GameDetail" asp-route-id="2" class="similar-game-item">
+                            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #764ba2 0%, #f093fb 100%); border-radius: 6px;"></div>
+                            <div class="similar-game-info">
+                                <h4>Battle Royale</h4>
+                                <span class="similar-game-rating">
+                                    <i class="fas fa-star"></i> 4.7
+                                </span>
+                            </div>
+                        </a>
+                        <a asp-action="GameDetail" asp-route-id="3" class="similar-game-item">
+                            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); border-radius: 6px;"></div>
+                            <div class="similar-game-info">
+                                <h4>Arena Fighter</h4>
+                                <span class="similar-game-rating">
+                                    <i class="fas fa-star"></i> 4.6
+                                </span>
+                            </div>
+                        </a>
+                        <a asp-action="GameDetail" asp-route-id="4" class="similar-game-item">
+                            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 6px;"></div>
+                            <div class="similar-game-info">
+                                <h4>Combat Zone</h4>
+                                <span class="similar-game-rating">
+                                    <i class="fas fa-star"></i> 4.9
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Gallery thumbs
+        document.querySelectorAll('.gallery-thumb').forEach(thumb => {
+            thumb.addEventListener('click', function() {
+                document.querySelector('.gallery-thumb.active').classList.remove('active');
+                this.classList.add('active');
+                document.querySelector('.game-main-image img').src = this.src.replace('150x100', '800x450');
+            });
+        });
+
+        // Play button
+        document.querySelectorAll('.game-play-btn, .game-play-overlay').forEach(btn => {
+            btn.addEventListener('click', function() {
+                alert('Oyun başlatılıyor... (Demo)');
+            });
+        });
+    </script>
+}

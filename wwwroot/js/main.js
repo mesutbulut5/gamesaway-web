@@ -182,8 +182,13 @@ newsletterForms.forEach(form => {
 // Smooth Scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        // Skip if href is just "#" or empty
+        if (!href || href === '#') {
+            return;
+        }
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const target = document.querySelector(href);
         if (target) {
             target.scrollIntoView({
                 behavior: 'smooth',
@@ -276,11 +281,127 @@ function formatNumber(num) {
     }
     return num.toString();
 }
-// Register Service Worker for PWA
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js')
-            .then(reg => console.log('Service Worker registered', reg))
-            .catch(err => console.log('Service Worker failed', err));
+
+// ===== USER DROPDOWN TOGGLE =====
+const userDropdownBtn = document.getElementById('userDropdownBtn');
+const userDropdown = document.querySelector('.nav-user-dropdown');
+const userDropdownMenu = document.getElementById('userDropdownMenu');
+
+if (userDropdownBtn && userDropdown) {
+    userDropdownBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        userDropdown.classList.toggle('active');
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!userDropdown.contains(e.target)) {
+            userDropdown.classList.remove('active');
+        }
+    });
+
+    // Prevent dropdown from closing when clicking inside menu
+    if (userDropdownMenu) {
+        userDropdownMenu.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    }
+}
+
+// ===== SEARCH BAR FUNCTIONALITY =====
+const navSearch = document.querySelector('.nav-search input');
+if (navSearch) {
+    navSearch.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            const searchQuery = navSearch.value.trim();
+            if (searchQuery) {
+                window.location.href = `/Home/Browse?search=${encodeURIComponent(searchQuery)}`;
+            }
+        }
     });
 }
+
+
+// ===== NAVBAR DROPDOWN TOGGLE (Mobile) =====
+const navDropdowns = document.querySelectorAll('.nav-dropdown');
+
+navDropdowns.forEach(dropdown => {
+    const toggle = dropdown.querySelector('.nav-dropdown-toggle');
+    
+    if (toggle && window.innerWidth <= 768) {
+        toggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            dropdown.classList.toggle('active');
+            
+            // Close other dropdowns
+            navDropdowns.forEach(other => {
+                if (other !== dropdown) {
+                    other.classList.remove('active');
+                }
+            });
+        });
+    }
+});
+
+// Close dropdowns when clicking outside
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-dropdown')) {
+        navDropdowns.forEach(dropdown => {
+            dropdown.classList.remove('active');
+        });
+    }
+});
+
+// ===== UNREGISTER SERVICE WORKER =====
+// Completely remove any existing service workers
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then(function(registrations) {
+        for (let registration of registrations) {
+            registration.unregister().then(function(success) {
+                if (success) {
+                    console.log('Service Worker unregistered successfully');
+                }
+            });
+        }
+    });
+    
+    // Clear all caches
+    if ('caches' in window) {
+        caches.keys().then(function(cacheNames) {
+            return Promise.all(
+                cacheNames.map(function(cacheName) {
+                    return caches.delete(cacheName);
+                })
+            );
+        }).then(function() {
+            console.log('All caches cleared');
+        });
+    }
+}
+
+
+
+// ===== SIDEBAR DROPDOWN TOGGLE =====
+document.addEventListener('DOMContentLoaded', () => {
+    const sidebarDropdowns = document.querySelectorAll('.sidebar-dropdown');
+    
+    sidebarDropdowns.forEach(dropdown => {
+        const toggle = dropdown.querySelector('.sidebar-dropdown-toggle');
+        
+        if (toggle) {
+            toggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Toggle current dropdown
+                dropdown.classList.toggle('open');
+                
+                // Optional: Close other dropdowns (uncomment if you want accordion behavior)
+                // sidebarDropdowns.forEach(other => {
+                //     if (other !== dropdown) {
+                //         other.classList.remove('open');
+                //     }
+                // });
+            });
+        }
+    });
+});

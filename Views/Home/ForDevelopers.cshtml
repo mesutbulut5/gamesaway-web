@@ -1,0 +1,257 @@
+@{
+    ViewData["Title"] = "Geliştiriciler İçin";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/developers.css" asp-append-version="true">
+}
+
+<!-- Hero for Developers -->
+<section class="dev-hero">
+    <div class="container">
+        <div class="dev-hero-content">
+            <h1 class="dev-hero-title">
+                <span data-tr="Oyununu Yükle," data-en="Upload Your Game,">Oyununu Yükle,</span><br>
+                <span class="gradient-text" data-tr="Dünyaya Ulaş" data-en="Reach the World">Dünyaya Ulaş</span>
+            </h1>
+            <p class="dev-hero-subtitle"
+                data-tr="GamesAway'de oyunlarınızı ücretsiz yayınlayın. Milyonlarca oyuncuya ulaşın, detaylı analitik alın ve gelir elde edin."
+                data-en="Publish your games on GamesAway for free. Reach millions of players, get detailed analytics and earn revenue.">
+                GamesAway'de oyunlarınızı ücretsiz yayınlayın. Milyonlarca oyuncuya ulaşın, detaylı analitik alın ve gelir elde edin.</p>
+            
+            <div class="dev-hero-actions">
+                <a asp-controller="Auth" asp-action="Register" class="btn btn-primary btn-large">
+                    <i class="fas fa-rocket"></i>
+                    <span data-tr="Hemen Başla" data-en="Get Started">Hemen Başla</span>
+                </a>
+                <a asp-controller="Auth" asp-action="Login" class="btn btn-outline btn-large">
+                    <i class="fas fa-sign-in-alt"></i>
+                    <span data-tr="Giriş Yap" data-en="Sign In">Giriş Yap</span>
+                </a>
+            </div>
+
+            <div class="dev-hero-stats">
+                <div class="dev-stat-item">
+                    <strong>1M+</strong>
+                    <span data-tr="Aktif Oyuncu" data-en="Active Players">Aktif Oyuncu</span>
+                </div>
+                <div class="dev-stat-item">
+                    <strong>100+</strong>
+                    <span data-tr="Geliştirici" data-en="Developers">Geliştirici</span>
+                </div>
+                <div class="dev-stat-item">
+                    <strong>$50K+</strong>
+                    <span data-tr="Aylık Gelir" data-en="Monthly Revenue">Aylık Gelir</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works -->
+<section class="dev-how-it-works">
+    <div class="container">
+        <h2 class="section-title" data-tr="3 Adımda Yayınla" data-en="Publish in 3 Steps">3 Adımda Yayınla</h2>
+        <div class="dev-steps">
+            <div class="dev-step">
+                <div class="dev-step-number">1</div>
+                <div class="dev-step-icon">
+                    <i class="fas fa-upload"></i>
+                </div>
+                <h3 data-tr="Oyununu Yükle" data-en="Upload Your Game">Oyununu Yükle</h3>
+                <p data-tr="Drag & drop ile oyun dosyalarını yükle. HTML5, Unity WebGL, Windows, Mac, Android desteklenir."
+                    data-en="Upload game files with drag & drop. HTML5, Unity WebGL, Windows, Mac, Android supported.">
+                    Drag & drop ile oyun dosyalarını yükle. HTML5, Unity WebGL, Windows, Mac, Android desteklenir.</p>
+            </div>
+
+            <div class="dev-step">
+                <div class="dev-step-number">2</div>
+                <div class="dev-step-icon">
+                    <i class="fas fa-edit"></i>
+                </div>
+                <h3 data-tr="Bilgileri Doldur" data-en="Fill Information">Bilgileri Doldur</h3>
+                <p data-tr="Oyun başlığı, açıklama, kategori, screenshot'lar ve fiyatlandırma bilgilerini ekle."
+                    data-en="Add game title, description, category, screenshots and pricing information.">
+                    Oyun başlığı, açıklama, kategori, screenshot'lar ve fiyatlandırma bilgilerini ekle.</p>
+            </div>
+
+            <div class="dev-step">
+                <div class="dev-step-number">3</div>
+                <div class="dev-step-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h3 data-tr="Yayınla" data-en="Publish">Yayınla</h3>
+                <p data-tr="Tek tıkla oyununu yayınla. Anında milyonlarca oyuncuya ulaş ve gelir elde etmeye başla."
+                    data-en="Publish your game with one click. Instantly reach millions of players and start earning.">
+                    Tek tıkla oyununu yayınla. Anında milyonlarca oyuncuya ulaş ve gelir elde etmeye başla.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features -->
+<section class="dev-features">
+    <div class="container">
+        <h2 class="section-title" data-tr="Neden GamesAway?" data-en="Why GamesAway?">Neden GamesAway?</h2>
+        <div class="dev-features-grid">
+            <div class="dev-feature-card">
+                <div class="dev-feature-icon">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                </div>
+                <h3 data-tr="Ücretsiz Hosting" data-en="Free Hosting">Ücretsiz Hosting</h3>
+                <p data-tr="Oyunlarınızı ücretsiz host edin. Sınırsız bant genişliği ve hızlı CDN."
+                    data-en="Host your games for free. Unlimited bandwidth and fast CDN.">
+                    Oyunlarınızı ücretsiz host edin. Sınırsız bant genişliği ve hızlı CDN.</p>
+            </div>
+
+            <div class="dev-feature-card">
+                <div class="dev-feature-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3 data-tr="Detaylı Analytics" data-en="Detailed Analytics">Detaylı Analytics</h3>
+                <p data-tr="Görüntülenme, indirme, oynanma süresi ve oyuncu demografisi verilerine erişin."
+                    data-en="Access views, downloads, playtime and player demographics data.">
+                    Görüntülenme, indirme, oynanma süresi ve oyuncu demografisi verilerine erişin.</p>
+            </div>
+
+            <div class="dev-feature-card">
+                <div class="dev-feature-icon">
+                    <i class="fas fa-dollar-sign"></i>
+                </div>
+                <h3 data-tr="Gelir Elde Et" data-en="Earn Revenue">Gelir Elde Et</h3>
+                <p data-tr="Oyunlarınızı sat veya 'istediğin kadar öde' modelini kullan. %90 gelir payı."
+                    data-en="Sell your games or use 'pay what you want' model. 90% revenue share.">
+                    Oyunlarınızı sat veya 'istediğin kadar öde' modelini kullan. %90 gelir payı.</p>
+            </div>
+
+            <div class="dev-feature-card">
+                <div class="dev-feature-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3 data-tr="Geniş Kitle" data-en="Wide Audience">Geniş Kitle</h3>
+                <p data-tr="1 milyondan fazla aktif oyuncuya anında ulaşın."
+                    data-en="Instantly reach over 1 million active players.">
+                    1 milyondan fazla aktif oyuncuya anında ulaşın.</p>
+            </div>
+
+            <div class="dev-feature-card">
+                <div class="dev-feature-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3 data-tr="Çoklu Platform" data-en="Multi-Platform">Çoklu Platform</h3>
+                <p data-tr="Web, Windows, Mac, Linux, Android - tüm platformları destekliyoruz."
+                    data-en="Web, Windows, Mac, Linux, Android - we support all platforms.">
+                    Web, Windows, Mac, Linux, Android - tüm platformları destekliyoruz.</p>
+            </div>
+
+            <div class="dev-feature-card">
+                <div class="dev-feature-icon">
+                    <i class="fas fa-comments"></i>
+                </div>
+                <h3 data-tr="Topluluk Desteği" data-en="Community Support">Topluluk Desteği</h3>
+                <p data-tr="Oyunculardan geri bildirim alın, yorumları yanıtlayın ve topluluk oluşturun."
+                    data-en="Get feedback from players, respond to comments and build community.">
+                    Oyunculardan geri bildirim alın, yorumları yanıtlayın ve topluluk oluşturun.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Dashboard Preview -->
+<section class="dev-dashboard-preview">
+    <div class="container">
+        <h2 class="section-title" data-tr="Güçlü Geliştirici Paneli" data-en="Powerful Developer Dashboard">Güçlü Geliştirici Paneli</h2>
+        <div class="dashboard-preview-image">
+            <div style="width: 100%; height: 600px; background: linear-gradient(135deg, #1A1A2E 0%, #2D3561 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: 700;">
+                Developer Dashboard Preview
+            </div>
+            <div class="dashboard-preview-features">
+                <div class="preview-feature">
+                    <i class="fas fa-chart-bar"></i>
+                    <span data-tr="Gerçek Zamanlı İstatistikler" data-en="Real-time Statistics">Gerçek Zamanlı İstatistikler</span>
+                </div>
+                <div class="preview-feature">
+                    <i class="fas fa-dollar-sign"></i>
+                    <span data-tr="Gelir Takibi" data-en="Revenue Tracking">Gelir Takibi</span>
+                </div>
+                <div class="preview-feature">
+                    <i class="fas fa-users"></i>
+                    <span data-tr="Oyuncu Demografisi" data-en="Player Demographics">Oyuncu Demografisi</span>
+                </div>
+                <div class="preview-feature">
+                    <i class="fas fa-bell"></i>
+                    <span data-tr="Anlık Bildirimler" data-en="Instant Notifications">Anlık Bildirimler</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing -->
+<section class="dev-pricing">
+    <div class="container">
+        <h2 class="section-title" data-tr="Basit ve Şeffaf Fiyatlandırma" data-en="Simple and Transparent Pricing">Basit ve Şeffaf Fiyatlandırma</h2>
+        <div class="pricing-cards">
+            <div class="pricing-card">
+                <h3 data-tr="Ücretsiz" data-en="Free">Ücretsiz</h3>
+                <div class="pricing-price">
+                    <span class="price-amount">$0</span>
+                    <span class="price-period" data-tr="/ay" data-en="/month">/ay</span>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> <span data-tr="Sınırsız oyun yükleme" data-en="Unlimited game uploads">Sınırsız oyun yükleme</span></li>
+                    <li><i class="fas fa-check"></i> <span data-tr="Temel analytics" data-en="Basic analytics">Temel analytics</span></li>
+                    <li><i class="fas fa-check"></i> <span data-tr="Topluluk desteği" data-en="Community support">Topluluk desteği</span></li>
+                    <li><i class="fas fa-check"></i> <span data-tr="%90 gelir payı" data-en="90% revenue share">%90 gelir payı</span></li>
+                </ul>
+                <a asp-controller="Auth" asp-action="Register" class="btn btn-outline btn-block" data-tr="Başla" data-en="Get Started">Başla</a>
+            </div>
+
+            <div class="pricing-card pricing-card-featured">
+                <div class="pricing-badge" data-tr="Popüler" data-en="Popular">Popüler</div>
+                <h3 data-tr="Pro" data-en="Pro">Pro</h3>
+                <div class="pricing-price">
+                    <span class="price-amount">$19</span>
+                    <span class="price-period" data-tr="/ay" data-en="/month">/ay</span>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> <span data-tr="Tüm ücretsiz özellikler" data-en="All free features">Tüm ücretsiz özellikler</span></li>
+                    <li><i class="fas fa-check"></i> <span data-tr="Gelişmiş analytics" data-en="Advanced analytics">Gelişmiş analytics</span></li>
+                    <li><i class="fas fa-check"></i> <span data-tr="Öncelikli destek" data-en="Priority support">Öncelikli destek</span></li>
+                    <li><i class="fas fa-check"></i> <span data-tr="%95 gelir payı" data-en="95% revenue share">%95 gelir payı</span></li>
+                    <li><i class="fas fa-check"></i> <span data-tr="Özel domain" data-en="Custom domain">Özel domain</span></li>
+                </ul>
+                <a asp-controller="Auth" asp-action="Register" class="btn btn-primary btn-block" data-tr="Pro'ya Geç" data-en="Upgrade to Pro">Pro'ya Geç</a>
+            </div>
+
+            <div class="pricing-card">
+                <h3 data-tr="Enterprise" data-en="Enterprise">Enterprise</h3>
+                <div class="pricing-price">
+                    <span class="price-amount" data-tr="Özel" data-en="Custom">Özel</span>
+                </div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> <span data-tr="Tüm Pro özellikler" data-en="All Pro features">Tüm Pro özellikler</span></li>
+                    <li><i class="fas fa-check"></i> <span data-tr="Özel çözümler" data-en="Custom solutions">Özel çözümler</span></li>
+                    <li><i class="fas fa-check"></i> <span data-tr="API erişimi" data-en="API access">API erişimi</span></li>
+                    <li><i class="fas fa-check"></i> <span data-tr="Özel SLA" data-en="Custom SLA">Özel SLA</span></li>
+                    <li><i class="fas fa-check"></i> <span data-tr="Hesap yöneticisi" data-en="Account manager">Hesap yöneticisi</span></li>
+                </ul>
+                <a asp-action="Contact" class="btn btn-outline btn-block" data-tr="İletişime Geç" data-en="Contact Us">İletişime Geç</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="dev-cta">
+    <div class="container">
+        <h2 data-tr="Oyununu Bugün Yayınla" data-en="Publish Your Game Today">Oyununu Bugün Yayınla</h2>
+        <p data-tr="Milyonlarca oyuncuya ulaşmak için hemen başla. Ücretsiz ve kolay."
+            data-en="Start now to reach millions of players. Free and easy.">
+            Milyonlarca oyuncuya ulaşmak için hemen başla. Ücretsiz ve kolay.</p>
+        <a asp-controller="Auth" asp-action="Register" class="btn btn-light btn-large">
+            <i class="fas fa-rocket"></i>
+            <span data-tr="Ücretsiz Hesap Oluştur" data-en="Create Free Account">Ücretsiz Hesap Oluştur</span>
+        </a>
+    </div>
+</section>

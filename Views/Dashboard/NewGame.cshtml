@@ -1,0 +1,364 @@
+@{
+    ViewData["Title"] = "Yeni Proje Oluştur";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div class="new-game-page">
+    <!-- Warning Banner -->
+    <div class="warning-banner">
+        <span>Ödeme yapılandırmanız yok.</span> Minimum fiyatı 0'ın üzerinde ayarlarsanız kimse projenizi indiremez. <a href="#">Hesabı düzenle</a>
+    </div>
+
+    <!-- Quality Tip -->
+    <div class="quality-tip">
+        <div class="tip-border"></div>
+        <div class="tip-content">
+            <strong data-tr="Herkesin sayfanızı bulabildiğinden emin olun" data-en="Make sure everyone can find your page">Herkesin sayfanızı bulabildiğinden emin olun</strong>
+            <p data-tr="Projenizi yayınlamadan önce kalite yönergelerimizi inceleyin" data-en="Review our quality guidelines before posting your project">Projenizi yayınlamadan önce <a href="#">kalite yönergelerimizi</a> inceleyin</p>
+        </div>
+    </div>
+
+    <form method="post" enctype="multipart/form-data">
+        <div class="form-two-columns">
+            <!-- Left Column -->
+            <div class="form-left-column">
+                <!-- Title -->
+                <div class="form-group">
+                    <label class="form-label" data-tr="Başlık" data-en="Title">Başlık</label>
+                    <input type="text" class="form-input" name="title" required>
+                </div>
+
+                <!-- Project URL -->
+                <div class="form-group">
+                    <label class="form-label" data-tr="Proje URL'si" data-en="Project URL">Proje URL'si</label>
+                    <input type="text" class="form-input" name="url" placeholder="https://kullaniciadi.gamesaway.com/">
+                </div>
+
+                <!-- Short description -->
+                <div class="form-group">
+                    <label class="form-label">
+                        <span data-tr="Kısa açıklama veya slogan" data-en="Short description or tagline">Kısa açıklama veya slogan</span>
+                    </label>
+                    <p class="form-label-desc" data-tr="Projenize bağlantı verdiğimizde gösterilir. Projenizin başlığını tekrarlamaktan kaçının." data-en="Shown when we link to your project. Avoid duplicating your project's title.">Projenize bağlantı verdiğimizde gösterilir. Projenizin başlığını tekrarlamaktan kaçının.</p>
+                    <input type="text" class="form-input" name="tagline" placeholder="İsteğe bağlı">
+                </div>
+
+                <!-- Classification -->
+                <div class="form-group">
+                    <label class="form-label" data-tr="Sınıflandırma" data-en="Classification">Sınıflandırma</label>
+                    <p class="form-label-desc" data-tr="Ne yüklüyorsunuz?" data-en="What are you uploading?">Ne yüklüyorsunuz?</p>
+                    <select class="form-select" name="classification">
+                        <option value="games">Oyunlar — Oynayabileceğiniz bir yazılım parçası</option>
+                        <option value="game-mod">Oyun modları — Mevcut bir oyunu değiştiren içerik</option>
+                        <option value="physical-game">Fiziksel oyunlar — Masa oyunları, kart oyunları vb.</option>
+                        <option value="assets">Varlıklar — Grafikler, müzik, araçlar vb.</option>
+                        <option value="game-dev-tool">Oyun geliştirme araçları</option>
+                        <option value="comic">Çizgi romanlar</option>
+                        <option value="book">Kitaplar</option>
+                        <option value="soundtrack">Müzik albümleri</option>
+                        <option value="other">Diğer</option>
+                    </select>
+                </div>
+
+                <!-- Kind of project -->
+                <div class="form-group">
+                    <label class="form-label" data-tr="Proje türü" data-en="Kind of project">Proje türü</label>
+                    <select class="form-select" name="project_type">
+                        <option value="downloadable">İndirilebilir — Yalnızca indirilecek dosyalarınız var</option>
+                        <option value="html">HTML — Tarayıcıda oynanabilir</option>
+                        <option value="flash">Flash — Bir SWF dosyası</option>
+                        <option value="java">Java — Bir Java uygulaması</option>
+                        <option value="unity">Unity — Unity WebGL</option>
+                    </select>
+                    <div class="form-tip">
+                        <span class="tip-badge">İPUCU</span>
+                        <span data-tr="Yukarıdaki türlerden herhangi biri için ek indirilebilir dosyalar ekleyebilirsiniz" data-en="You can add additional downloadable files for any of the types above">Yukarıdaki türlerden herhangi biri için ek indirilebilir dosyalar ekleyebilirsiniz</span>
+                    </div>
+                </div>
+
+                <!-- Release status -->
+                <div class="form-group">
+                    <label class="form-label" data-tr="Yayın durumu" data-en="Release status">Yayın durumu</label>
+                    <select class="form-select" name="release_status">
+                        <option value="released">Yayınlandı — Proje tamamlandı, ancak bazı güncellemeler alabilir</option>
+                        <option value="in-development">Geliştirme aşamasında — Proje hala üzerinde çalışılıyor</option>
+                        <option value="prototype">Prototip — Erken bir prototip veya demo</option>
+                        <option value="on-hold">Beklemede — Geliştirme şu anda duraklatıldı</option>
+                        <option value="cancelled">İptal edildi — Geliştirme iptal edildi</option>
+                    </select>
+                </div>
+
+                <!-- Pricing -->
+                <div class="form-group">
+                    <label class="form-label" data-tr="Fiyatlandırma" data-en="Pricing">Fiyatlandırma</label>
+                    <div class="pricing-buttons">
+                        <label class="pricing-btn selected">
+                            <input type="radio" name="pricing" value="free" checked>
+                            <span>$0 veya bağış</span>
+                        </label>
+                        <label class="pricing-btn">
+                            <input type="radio" name="pricing" value="paid">
+                            <span>Ücretli</span>
+                        </label>
+                        <label class="pricing-btn">
+                            <input type="radio" name="pricing" value="no-payments">
+                            <span>Ödeme yok</span>
+                        </label>
+                    </div>
+                    <p class="form-label-desc" data-tr="Projenizi indiren birine erişim almadan önce bağış yapması istenecektir. Ücretsiz indirmek için atlayabilirler." data-en="Someone downloading your project will be asked for a donation before getting access. They can skip to download for free.">Projenizi indiren birine erişim almadan önce bağış yapması istenecektir. Ücretsiz indirmek için atlayabilirler.</p>
+                </div>
+
+                <!-- Suggested donation -->
+                <div class="form-group" id="donationGroup">
+                    <label class="form-label">
+                        <span data-tr="Önerilen bağış" data-en="Suggested donation">Önerilen bağış</span>
+                        <span class="form-label-hint"> — Varsayılan bağış miktarı</span>
+                    </label>
+                    <input type="text" class="form-input" name="suggested_donation" value="$2.00" style="max-width: 150px;">
+                </div>
+
+                <!-- Uploads -->
+                <div class="form-group">
+                    <label class="form-label form-section-label" data-tr="Yüklemeler" data-en="Uploads">Yüklemeler</label>
+                    <div class="upload-buttons">
+                        <button type="button" class="btn-upload-files" onclick="document.getElementById('fileInput').click()">
+                            <span data-tr="Dosyaları yükle" data-en="Upload files">Dosyaları yükle</span>
+                        </button>
+                        <span class="upload-or">veya</span>
+                        <button type="button" class="btn-dropbox">
+                            <i class="fab fa-dropbox"></i> Dropbox'tan seç
+                        </button>
+                        <a href="#" class="add-external-link" data-tr="Harici dosya ekle" data-en="Add External file">Harici dosya ekle <i class="fas fa-question-circle"></i></a>
+                    </div>
+                    <input type="file" name="files" multiple style="display: none;" id="fileInput">
+                    <p class="form-label-desc" data-tr="Dosya boyutu sınırı: 1 GB. Daha fazla alana ihtiyacınız varsa bize ulaşın." data-en="File size limit: 1 GB. Contact us if you need more space.">Dosya boyutu sınırı: 1 GB. <a href="#">Bize ulaşın</a> daha fazla alana ihtiyacınız varsa.</p>
+                    <div class="form-tip">
+                        <span class="tip-badge">İPUCU</span>
+                        <span>Dosya yüklemek için <strong>butler</strong> kullanın: yalnızca değişenleri yükler, <a href="#">GamesAway uygulaması</a> için yamalar oluşturur ve otomatikleştirebilirsiniz. <a href="#">Başlayın!</a></span>
+                    </div>
+                </div>
+
+                <!-- Details Section -->
+                <div class="form-group">
+                    <label class="form-label form-section-label" data-tr="Detaylar" data-en="Details">Detaylar</label>
+                </div>
+
+                <!-- Description -->
+                <div class="form-group">
+                    <label class="form-label">
+                        <span data-tr="Açıklama" data-en="Description">Açıklama</span>
+                        <span class="form-label-hint"> — Bu, oyun sayfanızın içeriğini oluşturacaktır.</span>
+                    </label>
+                    <div class="editor-toolbar">
+                        <button type="button" title="Kod"><i class="fas fa-code"></i></button>
+                        <button type="button" title="Paragraf"><i class="fas fa-paragraph"></i></button>
+                        <button type="button" title="Kalın"><i class="fas fa-bold"></i></button>
+                        <button type="button" title="İtalik"><i class="fas fa-italic"></i></button>
+                        <button type="button" title="Üstü çizili"><i class="fas fa-strikethrough"></i></button>
+                        <button type="button" title="Liste"><i class="fas fa-list-ul"></i></button>
+                        <button type="button" title="Numaralı liste"><i class="fas fa-list-ol"></i></button>
+                        <button type="button" title="Bağlantı"><i class="fas fa-link"></i></button>
+                        <button type="button" title="Alıntı"><i class="fas fa-quote-right"></i></button>
+                        <button type="button" title="Video"><i class="fas fa-video"></i></button>
+                        <button type="button" title="Resim"><i class="fas fa-image"></i></button>
+                    </div>
+                    <textarea class="form-textarea" name="description" rows="10"></textarea>
+                </div>
+
+                <!-- Genre -->
+                <div class="form-group">
+                    <label class="form-label" data-tr="Tür" data-en="Genre">Tür</label>
+                    <p class="form-label-desc" data-tr="Oyununuzu en iyi tanımlayan kategoriyi seçin. Aşağıdaki etiketlerle ek türler seçebilirsiniz." data-en="Select the category that best describes your game. You can pick additional genres with tags below.">Oyununuzu en iyi tanımlayan kategoriyi seçin. Aşağıdaki etiketlerle ek türler seçebilirsiniz.</p>
+                    <select class="form-select" name="genre">
+                        <option value="">Tür yok</option>
+                        <option value="action">Aksiyon</option>
+                        <option value="adventure">Macera</option>
+                        <option value="card-game">Kart Oyunu</option>
+                        <option value="educational">Eğitimsel</option>
+                        <option value="fighting">Dövüş</option>
+                        <option value="interactive-fiction">Etkileşimli Kurgu</option>
+                        <option value="platformer">Platform</option>
+                        <option value="puzzle">Bulmaca</option>
+                        <option value="racing">Yarış</option>
+                        <option value="rhythm">Ritim</option>
+                        <option value="role-playing">Rol Yapma</option>
+                        <option value="shooter">Atıcı</option>
+                        <option value="simulation">Simülasyon</option>
+                        <option value="sports">Spor</option>
+                        <option value="strategy">Strateji</option>
+                        <option value="survival">Hayatta Kalma</option>
+                        <option value="visual-novel">Görsel Roman</option>
+                        <option value="other">Diğer</option>
+                    </select>
+                </div>
+
+                <!-- Tags -->
+                <div class="form-group">
+                    <label class="form-label">
+                        <span data-tr="Etiketler" data-en="Tags">Etiketler</span>
+                        <span class="form-label-hint"> — <a href="#">Etiket seçme ipuçları</a></span>
+                    </label>
+                    <p class="form-label-desc" data-tr="Birinin oyununuzu bulmak için arayabileceği diğer anahtar kelimeler. Maksimum 10. Yukarıda sağlanan tür veya platformları kullanmaktan kaçının." data-en="Any other keywords someone might search to find your game. Max of 10. Avoid using the genre or platforms provided above.">Birinin oyununuzu bulmak için arayabileceği diğer anahtar kelimeler. Maksimum 10. Yukarıda sağlanan tür veya platformları kullanmaktan kaçının.</p>
+                    <div class="tags-input-container" id="tagsContainer">
+                        <input type="text" class="tags-input" id="tagsInput" placeholder="Seçenekleri görüntülemek için tıklayın, filtrelemek için yazın veya özel etiket girin">
+                    </div>
+                </div>
+
+                <!-- AI generation disclosure -->
+                <div class="form-group">
+                    <label class="form-label">
+                        <span data-tr="Yapay zeka oluşturma açıklaması" data-en="AI generation disclosure">Yapay zeka oluşturma açıklaması</span>
+                        <span class="new-badge">YENİ</span>
+                        <span class="form-label-hint"> — <a href="#">Daha fazla bilgi →</a></span>
+                    </label>
+                    <p class="form-label-desc" data-tr="Bu projenin LLM'ler, ChatGPT, Midjourney, Stable Diffusion vb. gibi üretken yapay zeka araçları tarafından üretilen içerik içerip içermediğini, elle düzenlemiş olsanız bile lütfen açıklayın." data-en="Please disclose if this project contains content produced by generative AI tools such as LLMs, ChatGPT, Midjourney, Stable Diffusion, etc., even if you hand-edited it.">Bu projenin LLM'ler, ChatGPT, Midjourney, Stable Diffusion vb. gibi üretken yapay zeka araçları tarafından üretilen içerik içerip içermediğini, elle düzenlemiş olsanız bile lütfen açıklayın.</p>
+                    <div class="form-radio-group">
+                        <label class="form-radio">
+                            <input type="radio" name="ai_disclosure" value="yes">
+                            <span data-tr="Evet — Bu proje Üretken Yapay Zeka çıktısı içeriyor" data-en="Yes — This project contains the output of Generative AI">Evet — Bu proje Üretken Yapay Zeka çıktısı içeriyor</span>
+                        </label>
+                        <label class="form-radio">
+                            <input type="radio" name="ai_disclosure" value="no">
+                            <span data-tr="Hayır — Bu proje Üretken Yapay Zeka çıktısı içermiyor" data-en="No — This project does not contain the output of Generative AI">Hayır — Bu proje Üretken Yapay Zeka çıktısı içermiyor</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- App store links -->
+                <div class="form-group">
+                    <label class="form-label" data-tr="Uygulama mağazası bağlantıları" data-en="App store links">Uygulama mağazası bağlantıları</label>
+                    <p class="form-label-desc" data-tr="Projeniz başka mağazalarda da mevcutsa, ona bağlantı vereceğiz." data-en="If your project is available on any other stores we'll link to it.">Projeniz başka mağazalarda da mevcutsa, ona bağlantı vereceğiz.</p>
+                    <div class="store-buttons">
+                        <button type="button" class="store-btn"><i class="fab fa-steam"></i> Steam</button>
+                        <button type="button" class="store-btn"><i class="fab fa-apple"></i> Apple App Store</button>
+                        <button type="button" class="store-btn"><i class="fab fa-google-play"></i> Google Play</button>
+                        <button type="button" class="store-btn"><i class="fab fa-amazon"></i> Amazon App Store</button>
+                        <button type="button" class="store-btn"><i class="fab fa-windows"></i> Windows Store</button>
+                    </div>
+                </div>
+
+                <!-- Custom noun -->
+                <div class="form-group">
+                    <label class="form-label" data-tr="Özel isim" data-en="Custom noun">Özel isim</label>
+                    <p class="form-label-desc" data-tr="Özel bir isim sağlayarak GamesAway'in projenize nasıl atıfta bulunduğunu değiştirebilirsiniz. Varsayılan olarak 'oyun' bırakmak için boş bırakın." data-en="You can change how GamesAway refers to your project by providing a custom noun. Leave blank to default to: 'game'.">Özel bir isim sağlayarak GamesAway'in projenize nasıl atıfta bulunduğunu değiştirebilirsiniz. Varsayılan olarak 'oyun' bırakmak için boş bırakın.</p>
+                    <input type="text" class="form-input" name="custom_noun" placeholder="İsteğe bağlı">
+                </div>
+
+                <!-- Community -->
+                <div class="form-group">
+                    <label class="form-label" data-tr="Topluluk" data-en="Community">Topluluk</label>
+                    <p class="form-label-desc" data-tr="İnsanların sayfanıza gönderi yapmasına izin vererek projeniz için bir topluluk oluşturun." data-en="Build a community for your project by letting people post to your page.">İnsanların sayfanıza gönderi yapmasına izin vererek projeniz için bir topluluk oluşturun.</p>
+                    <div class="form-radio-group">
+                        <label class="form-radio">
+                            <input type="radio" name="community" value="disabled">
+                            <span data-tr="Devre dışı" data-en="Disabled">Devre dışı</span>
+                        </label>
+                        <label class="form-radio">
+                            <input type="radio" name="community" value="comments" checked>
+                            <span data-tr="Yorumlar — Proje sayfasının altına iç içe geçmiş bir yorum dizisi ekleyin" data-en="Comments — Add a nested comment thread to the bottom of the project page">Yorumlar — Proje sayfasının altına iç içe geçmiş bir yorum dizisi ekleyin</span>
+                        </label>
+                        <label class="form-radio">
+                            <input type="radio" name="community" value="discussion">
+                            <span data-tr="Tartışma panosu — Kategoriler, konular, yanıtlar ve daha fazlasıyla özel bir topluluk sayfası ekleyin" data-en="Discussion board — Add a dedicated community page with categories, threads, replies & more">Tartışma panosu — Kategoriler, konular, yanıtlar ve daha fazlasıyla özel bir topluluk sayfası ekleyin</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Visibility & access -->
+                <div class="form-group">
+                    <label class="form-label" data-tr="Görünürlük ve erişim" data-en="Visibility & access">Görünürlük ve erişim</label>
+                    <p class="form-label-desc">Sayfanızı herkese açık hale getirmeden önce incelemek için Taslak'ı kullanın. <a href="#">Erişim modları hakkında daha fazla bilgi edinin</a></p>
+                    <div class="form-radio-group">
+                        <label class="form-radio">
+                            <input type="radio" name="visibility" value="draft" checked>
+                            <span data-tr="Taslak — Yalnızca projeyi düzenleyebilenler sayfayı görüntüleyebilir" data-en="Draft — Only those who can edit the project can view the page">Taslak — Yalnızca projeyi düzenleyebilenler sayfayı görüntüleyebilir</span>
+                        </label>
+                        <label class="form-radio">
+                            <input type="radio" name="visibility" value="restricted">
+                            <span data-tr="Kısıtlı — Yalnızca sahipler ve yetkili kişiler sayfayı görüntüleyebilir" data-en="Restricted — Only owners & authorized people can view the page">Kısıtlı — Yalnızca sahipler ve yetkili kişiler sayfayı görüntüleyebilir</span>
+                        </label>
+                        <label class="form-radio">
+                            <input type="radio" name="visibility" value="public" disabled>
+                            <span data-tr="Herkese açık — Herkes sayfayı görüntüleyebilir, kaydettikten sonra bunu etkinleştirebilirsiniz" data-en="Public — Anyone can view the page, you can enable this after you've saved">Herkese açık — Herkes sayfayı görüntüleyebilir, <strong>kaydettikten sonra bunu etkinleştirebilirsiniz</strong></span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-actions">
+                    <button type="submit" class="btn-submit" data-tr="Kaydet ve sayfayı görüntüle" data-en="Save & view page">Kaydet ve sayfayı görüntüle</button>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="form-right-column">
+                <!-- Cover Image -->
+                <div class="cover-upload-box" id="coverUploadBox">
+                    <div class="cover-placeholder">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    <button type="button" class="btn-upload-cover" onclick="document.getElementById('coverInput').click()">
+                        <span data-tr="Kapak Görseli Yükle" data-en="Upload Cover Image">Kapak Görseli Yükle</span>
+                    </button>
+                    <input type="file" name="cover" accept="image/*" style="display: none;" id="coverInput">
+                </div>
+                <p class="cover-hint" data-tr="Kapak görseli, GamesAway sitenin başka bir bölümünden projenize bağlantı vermek istediğinde kullanılır. Gerekli (Minimum: 315x250, Önerilen: 630x500)" data-en="The cover image is used whenever GamesAway wants to link to your project from another part of the site. Required (Minimum: 315x250, Recommended: 630x500)">Kapak görseli, GamesAway sitenin başka bir bölümünden projenize bağlantı vermek istediğinde kullanılır. Gerekli (Minimum: 315x250, Önerilen: 630x500)</p>
+
+                <!-- Gameplay video -->
+                <div class="form-group" style="margin-top: 25px;">
+                    <label class="form-label" data-tr="Oynanış videosu veya fragman" data-en="Gameplay video or trailer">Oynanış videosu veya fragman</label>
+                    <p class="form-label-desc" data-tr="YouTube veya Vimeo'ya bir bağlantı sağlayın." data-en="Provide a link to YouTube or Vimeo.">YouTube veya Vimeo'ya bir bağlantı sağlayın.</p>
+                    <input type="text" class="form-input" name="video_url" placeholder="örn. https://www.youtube.com/watch?v=5JEaA47sP">
+                </div>
+
+                <!-- Screenshots -->
+                <div class="form-group" style="margin-top: 25px;">
+                    <label class="form-label" data-tr="Ekran görüntüleri" data-en="Screenshots">Ekran görüntüleri</label>
+                    <p class="form-label-desc" data-tr="Ekran görüntüleri oyun sayfanızda görünecektir. İsteğe bağlı ancak şiddetle tavsiye edilir. En iyi sonuçlar için 3 ila 5 adet yükleyin." data-en="Screenshots will appear on your game's page. Optional but highly recommended. Upload 3 to 5 for best results.">Ekran görüntüleri oyun sayfanızda görünecektir. İsteğe bağlı ancak şiddetle tavsiye edilir. En iyi sonuçlar için 3 ila 5 adet yükleyin.</p>
+                    <button type="button" class="btn-add-screenshots" onclick="document.getElementById('screenshotsInput').click()">
+                        <span data-tr="Ekran görüntüleri ekle" data-en="Add screenshots">Ekran görüntüleri ekle</span>
+                    </button>
+                    <input type="file" name="screenshots" accept="image/*" multiple style="display: none;" id="screenshotsInput">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        // Pricing button selection
+        document.querySelectorAll('.pricing-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.pricing-btn').forEach(b => b.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+
+        // Tags input
+        const tagsContainer = document.getElementById('tagsContainer');
+        const tagsInput = document.getElementById('tagsInput');
+        
+        tagsInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && this.value.trim()) {
+                e.preventDefault();
+                const tag = document.createElement('span');
+                tag.className = 'tag-item';
+                tag.innerHTML = `${this.value.trim()} <span class="remove-tag">&times;</span>`;
+                tagsContainer.insertBefore(tag, this);
+                this.value = '';
+                
+                tag.querySelector('.remove-tag').addEventListener('click', function() {
+                    tag.remove();
+                });
+            }
+        });
+
+        // Store buttons toggle
+        document.querySelectorAll('.store-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.classList.toggle('active');
+            });
+        });
+    </script>
+}
