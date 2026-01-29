@@ -1,0 +1,193 @@
+@{
+    ViewData["Title"] = "Kullanıcı Profili";
+    var username = ViewBag.Username ?? "GameDev123";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/pages.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/profile.css" asp-append-version="true">
+}
+
+<div class="profile-page">
+    <!-- Profile Header -->
+    <section class="profile-header">
+        <div class="container">
+            <div class="profile-header-content">
+                <div class="profile-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="profile-info">
+                    <h1 class="profile-name">@username</h1>
+                    <p class="profile-bio" data-tr="Bağımsız oyun geliştiricisi. Bulmaca ve macera oyunları yapıyorum." data-en="Indie game developer. Making puzzle and adventure games.">
+                        Bağımsız oyun geliştiricisi. Bulmaca ve macera oyunları yapıyorum.
+                    </p>
+                    <div class="profile-meta">
+                        <span><i class="fas fa-calendar"></i> <span data-tr="Ocak 2024'ten beri üye" data-en="Member since Jan 2024">Ocak 2024'ten beri üye</span></span>
+                        <span><i class="fas fa-map-marker-alt"></i> İstanbul, Türkiye</span>
+                    </div>
+                    <div class="profile-social">
+                        <a href="#" class="profile-social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="profile-social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="profile-social-link"><i class="fas fa-globe"></i></a>
+                    </div>
+                </div>
+                <div class="profile-stats">
+                    <div class="profile-stat">
+                        <span class="stat-value">12</span>
+                        <span class="stat-label" data-tr="Oyun" data-en="Games">Oyun</span>
+                    </div>
+                    <div class="profile-stat">
+                        <span class="stat-value">5.2K</span>
+                        <span class="stat-label" data-tr="Takipçi" data-en="Followers">Takipçi</span>
+                    </div>
+                    <div class="profile-stat">
+                        <span class="stat-value">128</span>
+                        <span class="stat-label" data-tr="Takip" data-en="Following">Takip</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Profile Tabs -->
+        <div class="profile-tabs">
+            <button class="profile-tab active" data-tab="games">
+                <i class="fas fa-gamepad"></i>
+                <span data-tr="Oyunlar" data-en="Games">Oyunlar</span>
+            </button>
+            <button class="profile-tab" data-tab="collections">
+                <i class="fas fa-layer-group"></i>
+                <span data-tr="Koleksiyonlar" data-en="Collections">Koleksiyonlar</span>
+            </button>
+            <button class="profile-tab" data-tab="jams">
+                <i class="fas fa-trophy"></i>
+                <span data-tr="Yarışmalar" data-en="Jams">Yarışmalar</span>
+            </button>
+            <button class="profile-tab" data-tab="devlogs">
+                <i class="fas fa-book-open"></i>
+                <span data-tr="Günlükler" data-en="Devlogs">Günlükler</span>
+            </button>
+        </div>
+
+        <!-- Games Tab Content -->
+        <div class="profile-tab-content active" id="games-tab">
+            <div class="games-grid">
+                <!-- Game Card 1 -->
+                <a asp-action="GameDetail" asp-route-id="1" class="game-card">
+                    <div class="game-card-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <div class="game-card-overlay">
+                            <span class="game-card-play"><i class="fas fa-play"></i></span>
+                        </div>
+                    </div>
+                    <div class="game-card-content">
+                        <h3 class="game-card-title">Epic Battle Arena</h3>
+                        <div class="game-card-footer">
+                            <span class="game-card-category">Aksiyon</span>
+                            <span class="game-card-rating"><i class="fas fa-star"></i> 4.8</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Game Card 2 -->
+                <a asp-action="GameDetail" asp-route-id="2" class="game-card">
+                    <div class="game-card-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        <div class="game-card-overlay">
+                            <span class="game-card-play"><i class="fas fa-play"></i></span>
+                        </div>
+                    </div>
+                    <div class="game-card-content">
+                        <h3 class="game-card-title">Mind Maze</h3>
+                        <div class="game-card-footer">
+                            <span class="game-card-category">Bulmaca</span>
+                            <span class="game-card-rating"><i class="fas fa-star"></i> 4.9</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Game Card 3 -->
+                <a asp-action="GameDetail" asp-route-id="3" class="game-card">
+                    <div class="game-card-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <div class="game-card-overlay">
+                            <span class="game-card-play"><i class="fas fa-play"></i></span>
+                        </div>
+                    </div>
+                    <div class="game-card-content">
+                        <h3 class="game-card-title">Speed Rush</h3>
+                        <div class="game-card-footer">
+                            <span class="game-card-category">Yarış</span>
+                            <span class="game-card-rating"><i class="fas fa-star"></i> 4.7</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Collections Tab Content -->
+        <div class="profile-tab-content" id="collections-tab">
+            <div class="collections-grid">
+                <a asp-action="CollectionDetail" asp-route-id="1" class="collection-card">
+                    <div class="collection-banner">
+                        <div class="collection-games-preview">
+                            <div class="preview-game" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                            <div class="preview-game" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+                            <div class="preview-game" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
+                        </div>
+                    </div>
+                    <div class="collection-content">
+                        <h3>Favori Bulmaca Oyunlarım</h3>
+                        <div class="collection-meta">
+                            <span><i class="fas fa-gamepad"></i> 15 oyun</span>
+                            <span><i class="fas fa-heart"></i> 234</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Jams Tab Content -->
+        <div class="profile-tab-content" id="jams-tab">
+            <div class="jams-list">
+                <a asp-action="GameJamDetail" asp-route-id="1" class="jam-participation-item">
+                    <div class="jam-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="jam-info">
+                        <h4>GamesAway Winter Jam 2026</h4>
+                        <p><span data-tr="3. Sıra" data-en="3rd Place">3. Sıra</span> • Mind Maze</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Devlogs Tab Content -->
+        <div class="profile-tab-content" id="devlogs-tab">
+            <div class="devlogs-list">
+                <a asp-action="DevlogDetail" asp-route-id="1" class="devlog-item">
+                    <div class="devlog-item-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                    <div class="devlog-item-content">
+                        <span class="devlog-game">Epic Battle Arena</span>
+                        <h3>Multiplayer Sistemini Nasıl Geliştirdik?</h3>
+                        <div class="devlog-meta">
+                            <span><i class="fas fa-calendar"></i> 25 Ocak 2026</span>
+                            <span><i class="fas fa-comments"></i> 48</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+<script>
+document.querySelectorAll('.profile-tab').forEach(tab => {
+    tab.addEventListener('click', function() {
+        document.querySelectorAll('.profile-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.profile-tab-content').forEach(c => c.classList.remove('active'));
+        this.classList.add('active');
+        document.getElementById(this.dataset.tab + '-tab').classList.add('active');
+    });
+});
+</script>
+}

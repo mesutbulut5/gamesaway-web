@@ -33,10 +33,7 @@
             <div class="nav-wrapper">
                 <!-- Logo -->
                 <a asp-controller="Home" asp-action="Index" class="logo">
-                    <div class="logo-icon">
-                        <i class="fas fa-gamepad"></i>
-                    </div>
-                    <span>GamesAway</span>
+                    <img src="~/assets/logo.png" alt="GamesAway" class="logo-img">
                 </a>
 
                 <!-- Main Menu -->
@@ -48,17 +45,20 @@
                             <i class="fas fa-chevron-down"></i>
                         </a>
                         <div class="nav-dropdown-menu">
+                            <a asp-controller="Home" asp-action="GameJams" class="nav-dropdown-item">
+                                <span data-tr="Oyun Yarışmaları" data-en="Game Jams">Oyun Yarışmaları</span>
+                            </a>
+                            <a asp-controller="Home" asp-action="Collections" class="nav-dropdown-item">
+                                <span data-tr="Koleksiyonlar" data-en="Collections">Koleksiyonlar</span>
+                            </a>
+                            <a asp-controller="Home" asp-action="Devlogs" class="nav-dropdown-item">
+                                <span data-tr="Geliştirici Günlükleri" data-en="Devlogs">Geliştirici Günlükleri</span>
+                            </a>
                             <a asp-controller="Home" asp-action="Blog" class="nav-dropdown-item">
                                 <span data-tr="Blog" data-en="Blog">Blog</span>
                             </a>
                             <a asp-controller="Home" asp-action="Contact" class="nav-dropdown-item">
                                 <span data-tr="Forum" data-en="Forum">Forum</span>
-                            </a>
-                            <a asp-controller="Home" asp-action="Blog" class="nav-dropdown-item">
-                                <span data-tr="Oyun Yarışmaları" data-en="Game Jams">Oyun Yarışmaları</span>
-                            </a>
-                            <a asp-controller="Home" asp-action="Blog" class="nav-dropdown-item">
-                                <span data-tr="Eğitim" data-en="Learn">Eğitim</span>
                             </a>
                         </div>
                     </li>
@@ -74,11 +74,14 @@
                             <a asp-controller="Dashboard" asp-action="Games" class="nav-dropdown-item">
                                 <span data-tr="Oyun Yükle" data-en="Upload Game">Oyun Yükle</span>
                             </a>
-                            <a asp-controller="Home" asp-action="Blog" class="nav-dropdown-item">
-                                <span data-tr="Dokümantasyon" data-en="Documentation">Dokümantasyon</span>
+                            <a asp-controller="Home" asp-action="Sales" class="nav-dropdown-item">
+                                <span data-tr="İndirimler" data-en="Sales">İndirimler</span>
                             </a>
-                            <a asp-controller="Home" asp-action="Blog" class="nav-dropdown-item">
-                                <span data-tr="Geliştirici Günlükleri" data-en="Dev Logs">Geliştirici Günlükleri</span>
+                            <a asp-controller="Home" asp-action="Bundles" class="nav-dropdown-item">
+                                <span data-tr="Paketler" data-en="Bundles">Paketler</span>
+                            </a>
+                            <a asp-controller="Home" asp-action="Tags" class="nav-dropdown-item">
+                                <span data-tr="Etiketler" data-en="Tags">Etiketler</span>
                             </a>
                         </div>
                     </li>
@@ -105,7 +108,9 @@
                     @{
                         var userId = Context.Request.Cookies["UserId"];
                         var userName = Context.Request.Cookies["UserName"];
+                        var userRole = Context.Request.Cookies["UserRole"];
                         var isLoggedIn = !string.IsNullOrEmpty(userId);
+                        var isAdmin = userRole == "Admin";
                     }
                     
                     @if (!isLoggedIn)
@@ -177,6 +182,13 @@
                                 <!-- Hesap -->
                                 <div class="nav-menu-section">
                                     <div class="nav-menu-title" data-tr="HESAP" data-en="ACCOUNT">HESAP</div>
+                                    @if (isAdmin)
+                                    {
+                                        <a asp-controller="Admin" asp-action="Index" class="nav-menu-item nav-menu-item-admin">
+                                            <i class="fas fa-shield-alt"></i>
+                                            <span data-tr="Admin Paneli" data-en="Admin Panel">Admin Paneli</span>
+                                        </a>
+                                    }
                                     <a asp-controller="Home" asp-action="Index" class="nav-menu-item">
                                         <i class="fas fa-user"></i>
                                         <span data-tr="Profili görüntüle" data-en="View profile">Profili görüntüle</span>
@@ -214,10 +226,7 @@
                 <!-- Logo & Description -->
                 <div class="footer-column footer-brand">
                     <a asp-controller="Home" asp-action="Index" class="footer-logo">
-                        <div class="logo-icon">
-                            <i class="fas fa-gamepad"></i>
-                        </div>
-                        <span>GamesAway</span>
+                        <img src="~/assets/logo.png" alt="GamesAway" class="logo-img">
                     </a>
                     <p class="footer-description" data-tr="Bağımsız oyunlarınızı anında dağıtın veya satın. Milyonlarca oyuncuya ulaşın."
                         data-en="Instantly distribute or sell your indie games. Reach millions of players.">

@@ -1,0 +1,143 @@
+@{
+    ViewData["Title"] = "Etiketler";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/pages.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/tags.css" asp-append-version="true">
+}
+
+<div class="tags-page">
+    <!-- Hero Section -->
+    <section class="tags-hero">
+        <div class="container">
+            <h1 class="tags-hero-title">
+                <i class="fas fa-tags"></i>
+                <span data-tr="Etiketler" data-en="Tags">Etiketler</span>
+            </h1>
+            <p class="tags-hero-subtitle" data-tr="Etiketlere göre oyunları keşfet" data-en="Discover games by tags">
+                Etiketlere göre oyunları keşfet
+            </p>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Popular Tags -->
+        <section class="tags-section">
+            <div class="section-header">
+                <h2 class="section-title" data-tr="Popüler Etiketler" data-en="Popular Tags">Popüler Etiketler</h2>
+            </div>
+
+            <div class="tags-cloud">
+                <a asp-action="Browse" asp-route-tag="action" class="tag-item tag-large">Aksiyon <span>2,500</span></a>
+                <a asp-action="Browse" asp-route-tag="puzzle" class="tag-item tag-large">Bulmaca <span>1,800</span></a>
+                <a asp-action="Browse" asp-route-tag="adventure" class="tag-item tag-large">Macera <span>1,500</span></a>
+                <a asp-action="Browse" asp-route-tag="horror" class="tag-item tag-medium">Korku <span>1,200</span></a>
+                <a asp-action="Browse" asp-route-tag="rpg" class="tag-item tag-medium">RPG <span>1,100</span></a>
+                <a asp-action="Browse" asp-route-tag="platformer" class="tag-item tag-medium">Platform <span>980</span></a>
+                <a asp-action="Browse" asp-route-tag="simulation" class="tag-item tag-medium">Simülasyon <span>850</span></a>
+                <a asp-action="Browse" asp-route-tag="strategy" class="tag-item">Strateji <span>780</span></a>
+                <a asp-action="Browse" asp-route-tag="racing" class="tag-item">Yarış <span>650</span></a>
+                <a asp-action="Browse" asp-route-tag="shooter" class="tag-item">Atıcı <span>620</span></a>
+                <a asp-action="Browse" asp-route-tag="multiplayer" class="tag-item">Çok Oyunculu <span>580</span></a>
+                <a asp-action="Browse" asp-route-tag="visual-novel" class="tag-item">Görsel Roman <span>520</span></a>
+                <a asp-action="Browse" asp-route-tag="roguelike" class="tag-item">Roguelike <span>480</span></a>
+                <a asp-action="Browse" asp-route-tag="survival" class="tag-item">Hayatta Kalma <span>450</span></a>
+                <a asp-action="Browse" asp-route-tag="sports" class="tag-item">Spor <span>420</span></a>
+            </div>
+        </section>
+
+        <!-- Tags by Category -->
+        <section class="tags-section">
+            <div class="section-header">
+                <h2 class="section-title" data-tr="Kategoriye Göre Etiketler" data-en="Tags by Category">Kategoriye Göre Etiketler</h2>
+            </div>
+
+            <div class="tags-categories">
+                <!-- Genre Tags -->
+                <div class="tag-category">
+                    <h3><i class="fas fa-gamepad"></i> <span data-tr="Tür" data-en="Genre">Tür</span></h3>
+                    <div class="tag-list">
+                        <a asp-action="Browse" asp-route-tag="action" class="tag-item">Aksiyon</a>
+                        <a asp-action="Browse" asp-route-tag="adventure" class="tag-item">Macera</a>
+                        <a asp-action="Browse" asp-route-tag="puzzle" class="tag-item">Bulmaca</a>
+                        <a asp-action="Browse" asp-route-tag="rpg" class="tag-item">RPG</a>
+                        <a asp-action="Browse" asp-route-tag="simulation" class="tag-item">Simülasyon</a>
+                        <a asp-action="Browse" asp-route-tag="strategy" class="tag-item">Strateji</a>
+                        <a asp-action="Browse" asp-route-tag="horror" class="tag-item">Korku</a>
+                        <a asp-action="Browse" asp-route-tag="shooter" class="tag-item">Atıcı</a>
+                        <a asp-action="Browse" asp-route-tag="racing" class="tag-item">Yarış</a>
+                        <a asp-action="Browse" asp-route-tag="sports" class="tag-item">Spor</a>
+                    </div>
+                </div>
+
+                <!-- Platform Tags -->
+                <div class="tag-category">
+                    <h3><i class="fas fa-desktop"></i> <span data-tr="Platform" data-en="Platform">Platform</span></h3>
+                    <div class="tag-list">
+                        <a asp-action="Browse" asp-route-tag="browser" class="tag-item">Tarayıcı</a>
+                        <a asp-action="Browse" asp-route-tag="windows" class="tag-item">Windows</a>
+                        <a asp-action="Browse" asp-route-tag="mac" class="tag-item">macOS</a>
+                        <a asp-action="Browse" asp-route-tag="linux" class="tag-item">Linux</a>
+                        <a asp-action="Browse" asp-route-tag="android" class="tag-item">Android</a>
+                        <a asp-action="Browse" asp-route-tag="ios" class="tag-item">iOS</a>
+                    </div>
+                </div>
+
+                <!-- Style Tags -->
+                <div class="tag-category">
+                    <h3><i class="fas fa-palette"></i> <span data-tr="Görsel Stil" data-en="Visual Style">Görsel Stil</span></h3>
+                    <div class="tag-list">
+                        <a asp-action="Browse" asp-route-tag="pixel-art" class="tag-item">Pixel Art</a>
+                        <a asp-action="Browse" asp-route-tag="3d" class="tag-item">3D</a>
+                        <a asp-action="Browse" asp-route-tag="2d" class="tag-item">2D</a>
+                        <a asp-action="Browse" asp-route-tag="retro" class="tag-item">Retro</a>
+                        <a asp-action="Browse" asp-route-tag="minimalist" class="tag-item">Minimalist</a>
+                        <a asp-action="Browse" asp-route-tag="anime" class="tag-item">Anime</a>
+                        <a asp-action="Browse" asp-route-tag="realistic" class="tag-item">Gerçekçi</a>
+                    </div>
+                </div>
+
+                <!-- Feature Tags -->
+                <div class="tag-category">
+                    <h3><i class="fas fa-star"></i> <span data-tr="Özellikler" data-en="Features">Özellikler</span></h3>
+                    <div class="tag-list">
+                        <a asp-action="Browse" asp-route-tag="multiplayer" class="tag-item">Çok Oyunculu</a>
+                        <a asp-action="Browse" asp-route-tag="singleplayer" class="tag-item">Tek Oyunculu</a>
+                        <a asp-action="Browse" asp-route-tag="co-op" class="tag-item">Co-op</a>
+                        <a asp-action="Browse" asp-route-tag="local-multiplayer" class="tag-item">Yerel Çok Oyunculu</a>
+                        <a asp-action="Browse" asp-route-tag="controller-support" class="tag-item">Gamepad Desteği</a>
+                        <a asp-action="Browse" asp-route-tag="achievements" class="tag-item">Başarımlar</a>
+                    </div>
+                </div>
+
+                <!-- Theme Tags -->
+                <div class="tag-category">
+                    <h3><i class="fas fa-theater-masks"></i> <span data-tr="Tema" data-en="Theme">Tema</span></h3>
+                    <div class="tag-list">
+                        <a asp-action="Browse" asp-route-tag="fantasy" class="tag-item">Fantastik</a>
+                        <a asp-action="Browse" asp-route-tag="sci-fi" class="tag-item">Bilim Kurgu</a>
+                        <a asp-action="Browse" asp-route-tag="medieval" class="tag-item">Ortaçağ</a>
+                        <a asp-action="Browse" asp-route-tag="post-apocalyptic" class="tag-item">Post-Apokaliptik</a>
+                        <a asp-action="Browse" asp-route-tag="cyberpunk" class="tag-item">Cyberpunk</a>
+                        <a asp-action="Browse" asp-route-tag="steampunk" class="tag-item">Steampunk</a>
+                        <a asp-action="Browse" asp-route-tag="space" class="tag-item">Uzay</a>
+                    </div>
+                </div>
+
+                <!-- Mood Tags -->
+                <div class="tag-category">
+                    <h3><i class="fas fa-heart"></i> <span data-tr="Atmosfer" data-en="Mood">Atmosfer</span></h3>
+                    <div class="tag-list">
+                        <a asp-action="Browse" asp-route-tag="relaxing" class="tag-item">Rahatlatıcı</a>
+                        <a asp-action="Browse" asp-route-tag="intense" class="tag-item">Yoğun</a>
+                        <a asp-action="Browse" asp-route-tag="funny" class="tag-item">Komik</a>
+                        <a asp-action="Browse" asp-route-tag="dark" class="tag-item">Karanlık</a>
+                        <a asp-action="Browse" asp-route-tag="cute" class="tag-item">Sevimli</a>
+                        <a asp-action="Browse" asp-route-tag="atmospheric" class="tag-item">Atmosferik</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

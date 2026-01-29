@@ -1,0 +1,116 @@
+@{
+    ViewData["Title"] = "Duyurular";
+    Layout = "~/Views/Admin/_AdminLayout.cshtml";
+}
+
+<!-- Quick Actions -->
+<div class="admin-quick-actions">
+    <a href="#" class="admin-quick-btn" onclick="document.getElementById('newAnnouncement').style.display='block'">
+        <i class="fas fa-plus"></i>
+        <span>Yeni Duyuru Yayınla</span>
+    </a>
+</div>
+
+<!-- New Announcement Form -->
+<div class="admin-table-card" id="newAnnouncement">
+    <div class="admin-table-header">
+        <h2><i class="fas fa-edit"></i> Yeni Duyuru</h2>
+    </div>
+    <div class="announcement-form">
+        <div class="form-group">
+            <label>Başlık</label>
+            <input type="text" class="form-input" placeholder="Duyuru başlığı...">
+        </div>
+        <div class="form-group">
+            <label>İçerik</label>
+            <textarea class="form-textarea" rows="6" placeholder="Duyuru içeriği..."></textarea>
+        </div>
+        <div class="form-group">
+            <label>Tür</label>
+            <select class="form-select">
+                <option value="info">Bilgilendirme</option>
+                <option value="update">Güncelleme</option>
+                <option value="event">Etkinlik</option>
+                <option value="maintenance">Bakım</option>
+            </select>
+        </div>
+        <div class="form-actions">
+            <button class="btn btn-primary"><i class="fas fa-paper-plane"></i> Yayınla</button>
+            <button class="btn btn-outline">Taslak Kaydet</button>
+        </div>
+    </div>
+</div>
+
+<!-- Past Announcements -->
+<div class="admin-table-card">
+    <div class="admin-table-header">
+        <h2><i class="fas fa-history"></i> Geçmiş Duyurular</h2>
+    </div>
+    <table class="admin-table">
+        <thead>
+            <tr>
+                <th>Başlık</th>
+                <th>Tür</th>
+                <th>Tarih</th>
+                <th>Görüntüleme</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <div class="admin-table-name">Kış İndirimleri Başladı!</div>
+                    <div class="admin-table-email">Binlerce oyunda %90'a varan indirimler...</div>
+                </td>
+                <td><span class="announcement-type event">Etkinlik</span></td>
+                <td>25 Ocak 2026</td>
+                <td>12,450</td>
+                <td>
+                    <button class="admin-action-btn" title="Düzenle"><i class="fas fa-edit"></i></button>
+                    <button class="admin-action-btn danger" title="Sil"><i class="fas fa-trash"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="admin-table-name">Yeni Özellik: Koleksiyonlar</div>
+                    <div class="admin-table-email">Artık favori oyunlarınızı koleksiyonlara ekleyebilirsiniz...</div>
+                </td>
+                <td><span class="announcement-type update">Güncelleme</span></td>
+                <td>20 Ocak 2026</td>
+                <td>8,320</td>
+                <td>
+                    <button class="admin-action-btn" title="Düzenle"><i class="fas fa-edit"></i></button>
+                    <button class="admin-action-btn danger" title="Sil"><i class="fas fa-trash"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="admin-table-name">Planlı Bakım - 15 Ocak</div>
+                    <div class="admin-table-email">Sunucu güncellemesi için kısa süreli kesinti...</div>
+                </td>
+                <td><span class="announcement-type maintenance">Bakım</span></td>
+                <td>14 Ocak 2026</td>
+                <td>5,120</td>
+                <td>
+                    <button class="admin-action-btn" title="Düzenle"><i class="fas fa-edit"></i></button>
+                    <button class="admin-action-btn danger" title="Sil"><i class="fas fa-trash"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<style>
+.announcement-form { padding: 1.5rem; }
+.form-group { margin-bottom: 1.25rem; }
+.form-group label { display: block; margin-bottom: 0.5rem; color: #999; font-size: 0.9rem; }
+.form-input, .form-textarea, .form-select { width: 100%; padding: 0.75rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: white; font-size: 0.95rem; }
+.form-textarea { resize: vertical; min-height: 120px; }
+.form-actions { display: flex; gap: 1rem; }
+.btn-outline { background: transparent; border: 1px solid rgba(255,255,255,0.2); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; cursor: pointer; }
+.announcement-type { padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.8rem; font-weight: 500; }
+.announcement-type.event { background: rgba(102,126,234,0.2); color: #667eea; }
+.announcement-type.update { background: rgba(67,233,123,0.2); color: #43e97b; }
+.announcement-type.maintenance { background: rgba(255,193,7,0.2); color: #ffc107; }
+.announcement-type.info { background: rgba(79,172,254,0.2); color: #4facfe; }
+</style>

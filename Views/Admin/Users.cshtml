@@ -1,0 +1,99 @@
+@model IEnumerable<GamesAway.Models.User>
+@{
+    ViewData["Title"] = "Kullanıcı Yönetimi";
+    Layout = "~/Views/Admin/_AdminLayout.cshtml";
+}
+
+<!-- Stats -->
+<div class="admin-stats">
+    <div class="admin-stat-card">
+        <div class="admin-stat-icon blue"><i class="fas fa-users"></i></div>
+        <div class="admin-stat-info">
+            <h3>@Model.Count()</h3>
+            <p>Toplam Kullanıcı</p>
+        </div>
+    </div>
+    <div class="admin-stat-card">
+        <div class="admin-stat-icon green"><i class="fas fa-code"></i></div>
+        <div class="admin-stat-info">
+            <h3>@Model.Count(u => u.Role == "Developer")</h3>
+            <p>Geliştirici</p>
+        </div>
+    </div>
+    <div class="admin-stat-card">
+        <div class="admin-stat-icon purple"><i class="fas fa-gamepad"></i></div>
+        <div class="admin-stat-info">
+            <h3>@Model.Count(u => u.Role == "Player" || u.Role == null)</h3>
+            <p>Oyuncu</p>
+        </div>
+    </div>
+    <div class="admin-stat-card">
+        <div class="admin-stat-icon orange"><i class="fas fa-ban"></i></div>
+        <div class="admin-stat-info">
+            <h3>0</h3>
+            <p>Yasaklı</p>
+        </div>
+    </div>
+</div>
+
+<!-- Users Table -->
+<div class="admin-table-card">
+    <div class="admin-table-header">
+        <h2><i class="fas fa-users"></i> Tüm Kullanıcılar</h2>
+        <div style="display: flex; gap: 1rem;">
+            <select class="admin-filter-select">
+                <option value="">Tüm Roller</option>
+                <option value="admin">Admin</option>
+                <option value="developer">Geliştirici</option>
+                <option value="player">Oyuncu</option>
+            </select>
+            <button class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Kullanıcı Ekle</button>
+        </div>
+    </div>
+    <table class="admin-table">
+        <thead>
+            <tr>
+                <th>Kullanıcı</th>
+                <th>Rol</th>
+                <th>Kayıt Tarihi</th>
+                <th>Durum</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>
+                        <div class="admin-table-user">
+                            <div class="admin-table-avatar"><i class="fas fa-user"></i></div>
+                            <div>
+                                <div class="admin-table-name">@user.Username</div>
+                                <div class="admin-table-email">@user.Email</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>@(user.Role ?? "Oyuncu")</td>
+                    <td>@user.CreatedAt.ToString("dd MMM yyyy")</td>
+                    <td><span class="status-badge active">Aktif</span></td>
+                    <td>
+                        <button class="admin-action-btn" title="Düzenle"><i class="fas fa-edit"></i></button>
+                        <button class="admin-action-btn" title="Görüntüle"><i class="fas fa-eye"></i></button>
+                        <button class="admin-action-btn danger" title="Yasakla"><i class="fas fa-ban"></i></button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<style>
+.admin-filter-select {
+    padding: 0.5rem 1rem;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+    color: white;
+}
+.btn-sm { padding: 0.5rem 1rem; font-size: 0.9rem; }
+</style>

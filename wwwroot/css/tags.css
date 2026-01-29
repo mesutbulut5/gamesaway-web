@@ -1,0 +1,140 @@
+/* ===== TAGS PAGE STYLES ===== */
+
+.tags-page {
+    min-height: 100vh;
+}
+
+.tags-hero {
+    padding: 60px 0 40px;
+    background: var(--gradient);
+    color: white;
+    text-align: center;
+}
+
+.tags-hero-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.tags-hero-subtitle {
+    font-size: 1.25rem;
+    opacity: 0.95;
+}
+
+/* Tags Section */
+.tags-section {
+    padding: 3rem 0;
+}
+
+/* Tags Cloud */
+.tags-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.tag-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 25px;
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.tag-item:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.tag-item span {
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+.tag-item.tag-large {
+    padding: 1rem 1.75rem;
+    font-size: 1.1rem;
+}
+
+.tag-item.tag-medium {
+    padding: 0.85rem 1.5rem;
+    font-size: 1rem;
+}
+
+/* Tags Categories */
+.tags-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.tag-category {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+}
+
+.tag-category h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.tag-category h3 i {
+    color: var(--primary-color);
+}
+
+.tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag-list .tag-item {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+.tag-list .tag-item span {
+    display: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .tags-hero-title {
+        font-size: 2rem;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .tags-categories {
+        grid-template-columns: 1fr;
+    }
+    
+    .tag-item.tag-large,
+    .tag-item.tag-medium {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.95rem;
+    }
+}

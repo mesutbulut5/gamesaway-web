@@ -10,6 +10,9 @@ public class User
     [StringLength(100)]
     public string Name { get; set; } = string.Empty;
     
+    [StringLength(50)]
+    public string Username { get; set; } = string.Empty;
+    
     [Required]
     [EmailAddress]
     [StringLength(100)]
@@ -18,6 +21,9 @@ public class User
     [Required]
     [StringLength(255)]
     public string PasswordHash { get; set; } = string.Empty;
+    
+    [StringLength(20)]
+    public string? Role { get; set; } = "Player"; // Player, Developer, Admin
     
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     

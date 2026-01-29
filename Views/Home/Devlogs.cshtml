@@ -1,0 +1,144 @@
+@{
+    ViewData["Title"] = "Geliştirici Günlükleri";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/pages.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/devlogs.css" asp-append-version="true">
+}
+
+<div class="devlogs-page">
+    <!-- Hero Section -->
+    <section class="devlogs-hero">
+        <div class="container">
+            <h1 class="devlogs-hero-title">
+                <i class="fas fa-book-open"></i>
+                <span data-tr="Geliştirici Günlükleri" data-en="Devlogs">Geliştirici Günlükleri</span>
+            </h1>
+            <p class="devlogs-hero-subtitle" data-tr="Geliştiricilerin oyun yapım süreçlerini takip et" data-en="Follow developers' game development journeys">
+                Geliştiricilerin oyun yapım süreçlerini takip et
+            </p>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Featured Devlog -->
+        <section class="featured-devlog">
+            <a asp-action="DevlogDetail" asp-route-id="1" class="featured-devlog-card">
+                <div class="featured-devlog-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    <span class="devlog-badge" data-tr="ÖNE ÇIKAN" data-en="FEATURED">ÖNE ÇIKAN</span>
+                </div>
+                <div class="featured-devlog-content">
+                    <span class="devlog-game">Epic Battle Arena</span>
+                    <h2>Multiplayer Sistemini Nasıl Geliştirdik?</h2>
+                    <p class="devlog-excerpt">Son güncellememizde eklediğimiz multiplayer sisteminin arkasındaki teknik detayları ve karşılaştığımız zorlukları paylaşıyoruz...</p>
+                    <div class="devlog-meta">
+                        <span class="devlog-author"><i class="fas fa-user"></i> StudioX</span>
+                        <span class="devlog-date"><i class="fas fa-calendar"></i> 25 Ocak 2026</span>
+                        <span class="devlog-comments"><i class="fas fa-comments"></i> 48</span>
+                    </div>
+                </div>
+            </a>
+        </section>
+
+        <!-- Recent Devlogs -->
+        <section class="devlogs-section">
+            <div class="section-header">
+                <h2 class="section-title" data-tr="Son Günlükler" data-en="Recent Devlogs">Son Günlükler</h2>
+            </div>
+
+            <div class="devlogs-list">
+                <!-- Devlog Item 1 -->
+                <a asp-action="DevlogDetail" asp-route-id="2" class="devlog-item">
+                    <div class="devlog-item-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+                    <div class="devlog-item-content">
+                        <span class="devlog-game">Mind Maze</span>
+                        <h3>Yeni Bulmaca Mekanikleri Geliyor!</h3>
+                        <p>Oyunculardan gelen geri bildirimler doğrultusunda tamamen yeni bulmaca türleri ekliyoruz...</p>
+                        <div class="devlog-meta">
+                            <span><i class="fas fa-user"></i> PuzzleMaster</span>
+                            <span><i class="fas fa-calendar"></i> 24 Ocak 2026</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Devlog Item 2 -->
+                <a asp-action="DevlogDetail" asp-route-id="3" class="devlog-item">
+                    <div class="devlog-item-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
+                    <div class="devlog-item-content">
+                        <span class="devlog-game">Speed Rush</span>
+                        <h3>Yeni Pistler ve Araçlar</h3>
+                        <p>Şubat güncellemesinde 5 yeni pist ve 10 yeni araç ekliyoruz. İşte detaylar...</p>
+                        <div class="devlog-meta">
+                            <span><i class="fas fa-user"></i> RaceTeam</span>
+                            <span><i class="fas fa-calendar"></i> 23 Ocak 2026</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Devlog Item 3 -->
+                <a asp-action="DevlogDetail" asp-route-id="4" class="devlog-item">
+                    <div class="devlog-item-image" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);"></div>
+                    <div class="devlog-item-content">
+                        <span class="devlog-game">Lost Kingdom</span>
+                        <h3>Hikaye Modu Tamamlandı!</h3>
+                        <p>2 yıllık geliştirme sürecinin ardından ana hikaye modunu tamamladık. İşte yolculuğumuz...</p>
+                        <div class="devlog-meta">
+                            <span><i class="fas fa-user"></i> AdventureStudio</span>
+                            <span><i class="fas fa-calendar"></i> 22 Ocak 2026</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Devlog Item 4 -->
+                <a asp-action="DevlogDetail" asp-route-id="5" class="devlog-item">
+                    <div class="devlog-item-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);"></div>
+                    <div class="devlog-item-content">
+                        <span class="devlog-game">Cyber Runner</span>
+                        <h3>Performans Optimizasyonları</h3>
+                        <p>Düşük donanımlı sistemlerde bile 60 FPS hedefine nasıl ulaştık? Teknik detaylar...</p>
+                        <div class="devlog-meta">
+                            <span><i class="fas fa-user"></i> NeonGames</span>
+                            <span><i class="fas fa-calendar"></i> 21 Ocak 2026</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Devlog Item 5 -->
+                <a asp-action="DevlogDetail" asp-route-id="6" class="devlog-item">
+                    <div class="devlog-item-image" style="background: linear-gradient(135deg, #30cfd0 0%, #667eea 100%);"></div>
+                    <div class="devlog-item-content">
+                        <span class="devlog-game">Block Master</span>
+                        <h3>Seviye Editörü Yayında!</h3>
+                        <p>Artık kendi seviyelerinizi oluşturabilir ve toplulukla paylaşabilirsiniz...</p>
+                        <div class="devlog-meta">
+                            <span><i class="fas fa-user"></i> CubeStudios</span>
+                            <span><i class="fas fa-calendar"></i> 20 Ocak 2026</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="section-footer">
+                <a href="#" class="btn btn-text">
+                    <span data-tr="Tüm Günlükleri Gör" data-en="View All Devlogs">Tüm Günlükleri Gör</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Write Devlog CTA -->
+        <section class="write-devlog-cta">
+            <div class="cta-content">
+                <i class="fas fa-pen-fancy"></i>
+                <h3 data-tr="Geliştirme Sürecini Paylaş" data-en="Share Your Development Journey">Geliştirme Sürecini Paylaş</h3>
+                <p data-tr="Oyununu geliştirirken yaşadıklarını toplulukla paylaş, geri bildirim al!" data-en="Share your game development experience with the community, get feedback!">
+                    Oyununu geliştirirken yaşadıklarını toplulukla paylaş, geri bildirim al!
+                </p>
+                <a asp-controller="Dashboard" asp-action="Index" class="btn btn-primary">
+                    <span data-tr="Günlük Yaz" data-en="Write Devlog">Günlük Yaz</span>
+                </a>
+            </div>
+        </section>
+    </div>
+</div>

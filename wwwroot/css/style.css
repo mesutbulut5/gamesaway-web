@@ -2221,6 +2221,13 @@ body {
     box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
 }
 
+.auth-logo-img {
+    height: 200px;
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
 .auth-header h1 {
     font-size: 2rem;
     color: var(--text-dark);

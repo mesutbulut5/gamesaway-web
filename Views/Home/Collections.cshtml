@@ -1,0 +1,163 @@
+@{
+    ViewData["Title"] = "Koleksiyonlar";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/pages.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/collections.css" asp-append-version="true">
+}
+
+<div class="collections-page">
+    <!-- Hero Section -->
+    <section class="collections-hero">
+        <div class="container">
+            <h1 class="collections-hero-title">
+                <i class="fas fa-layer-group"></i>
+                <span data-tr="Koleksiyonlar" data-en="Collections">Koleksiyonlar</span>
+            </h1>
+            <p class="collections-hero-subtitle" data-tr="Topluluk tarafından özenle seçilmiş oyun listeleri" data-en="Curated game lists by the community">
+                Topluluk tarafından özenle seçilmiş oyun listeleri
+            </p>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Featured Collections -->
+        <section class="collections-section">
+            <div class="section-header">
+                <h2 class="section-title" data-tr="Öne Çıkan Koleksiyonlar" data-en="Featured Collections">Öne Çıkan Koleksiyonlar</h2>
+            </div>
+
+            <div class="collections-grid">
+                <!-- Collection Card 1 -->
+                <a asp-action="CollectionDetail" asp-route-id="1" class="collection-card collection-featured">
+                    <div class="collection-banner">
+                        <div class="collection-games-preview">
+                            <div class="preview-game" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                            <div class="preview-game" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+                            <div class="preview-game" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
+                            <div class="preview-game" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);"></div>
+                        </div>
+                    </div>
+                    <div class="collection-content">
+                        <h3>2025'in En İyi Bağımsız Oyunları</h3>
+                        <p class="collection-curator"><i class="fas fa-user"></i> GamesAway Editörleri</p>
+                        <div class="collection-meta">
+                            <span><i class="fas fa-gamepad"></i> 50 <span data-tr="oyun" data-en="games">oyun</span></span>
+                            <span><i class="fas fa-heart"></i> 12.5K</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Collection Card 2 -->
+                <a asp-action="CollectionDetail" asp-route-id="2" class="collection-card">
+                    <div class="collection-banner">
+                        <div class="collection-games-preview">
+                            <div class="preview-game" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+                            <div class="preview-game" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);"></div>
+                            <div class="preview-game" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                        </div>
+                    </div>
+                    <div class="collection-content">
+                        <h3>Korku Severler İçin</h3>
+                        <p class="collection-curator"><i class="fas fa-user"></i> HorrorFan42</p>
+                        <div class="collection-meta">
+                            <span><i class="fas fa-gamepad"></i> 35 <span data-tr="oyun" data-en="games">oyun</span></span>
+                            <span><i class="fas fa-heart"></i> 8.2K</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Collection Card 3 -->
+                <a asp-action="CollectionDetail" asp-route-id="3" class="collection-card">
+                    <div class="collection-banner">
+                        <div class="collection-games-preview">
+                            <div class="preview-game" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
+                            <div class="preview-game" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);"></div>
+                            <div class="preview-game" style="background: linear-gradient(135deg, #30cfd0 0%, #667eea 100%);"></div>
+                        </div>
+                    </div>
+                    <div class="collection-content">
+                        <h3>Rahatlatıcı Oyunlar</h3>
+                        <p class="collection-curator"><i class="fas fa-user"></i> ChillGamer</p>
+                        <div class="collection-meta">
+                            <span><i class="fas fa-gamepad"></i> 28 <span data-tr="oyun" data-en="games">oyun</span></span>
+                            <span><i class="fas fa-heart"></i> 6.7K</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Collection Card 4 -->
+                <a asp-action="CollectionDetail" asp-route-id="4" class="collection-card">
+                    <div class="collection-banner">
+                        <div class="collection-games-preview">
+                            <div class="preview-game" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);"></div>
+                            <div class="preview-game" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                            <div class="preview-game" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+                        </div>
+                    </div>
+                    <div class="collection-content">
+                        <h3>Retro Pixel Art Hazineleri</h3>
+                        <p class="collection-curator"><i class="fas fa-user"></i> PixelNostalgia</p>
+                        <div class="collection-meta">
+                            <span><i class="fas fa-gamepad"></i> 42 <span data-tr="oyun" data-en="games">oyun</span></span>
+                            <span><i class="fas fa-heart"></i> 5.3K</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Collection Card 5 -->
+                <a asp-action="CollectionDetail" asp-route-id="5" class="collection-card">
+                    <div class="collection-banner">
+                        <div class="collection-games-preview">
+                            <div class="preview-game" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);"></div>
+                            <div class="preview-game" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
+                            <div class="preview-game" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                        </div>
+                    </div>
+                    <div class="collection-content">
+                        <h3>Çocuklar İçin Eğitici Oyunlar</h3>
+                        <p class="collection-curator"><i class="fas fa-user"></i> EduGames</p>
+                        <div class="collection-meta">
+                            <span><i class="fas fa-gamepad"></i> 25 <span data-tr="oyun" data-en="games">oyun</span></span>
+                            <span><i class="fas fa-heart"></i> 4.1K</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Collection Card 6 -->
+                <a asp-action="CollectionDetail" asp-route-id="6" class="collection-card">
+                    <div class="collection-banner">
+                        <div class="collection-games-preview">
+                            <div class="preview-game" style="background: linear-gradient(135deg, #30cfd0 0%, #667eea 100%);"></div>
+                            <div class="preview-game" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);"></div>
+                            <div class="preview-game" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);"></div>
+                        </div>
+                    </div>
+                    <div class="collection-content">
+                        <h3>Multiplayer Parti Oyunları</h3>
+                        <p class="collection-curator"><i class="fas fa-user"></i> PartyMaster</p>
+                        <div class="collection-meta">
+                            <span><i class="fas fa-gamepad"></i> 18 <span data-tr="oyun" data-en="games">oyun</span></span>
+                            <span><i class="fas fa-heart"></i> 3.8K</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Create Collection CTA -->
+        <section class="create-collection-cta">
+            <div class="cta-content">
+                <i class="fas fa-plus-circle"></i>
+                <h3 data-tr="Kendi Koleksiyonunu Oluştur" data-en="Create Your Own Collection">Kendi Koleksiyonunu Oluştur</h3>
+                <p data-tr="Favori oyunlarını bir araya getir ve topluluğla paylaş!" data-en="Gather your favorite games and share with the community!">
+                    Favori oyunlarını bir araya getir ve topluluğla paylaş!
+                </p>
+                <a asp-controller="Auth" asp-action="Register" class="btn btn-primary">
+                    <span data-tr="Koleksiyon Oluştur" data-en="Create Collection">Koleksiyon Oluştur</span>
+                </a>
+            </div>
+        </section>
+    </div>
+</div>

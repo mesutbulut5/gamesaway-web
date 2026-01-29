@@ -1,0 +1,133 @@
+@{
+    ViewData["Title"] = "Site Ayarları";
+    Layout = "~/Views/Admin/_AdminLayout.cshtml";
+}
+
+<div class="admin-settings">
+    <!-- General Settings -->
+    <div class="settings-card">
+        <div class="settings-header">
+            <h2><i class="fas fa-cog"></i> Genel Ayarlar</h2>
+        </div>
+        <div class="settings-body">
+            <div class="setting-item">
+                <div class="setting-info">
+                    <h4>Site Adı</h4>
+                    <p>Sitenin görünen adı</p>
+                </div>
+                <input type="text" class="setting-input" value="GamesAway">
+            </div>
+            <div class="setting-item">
+                <div class="setting-info">
+                    <h4>Site Açıklaması</h4>
+                    <p>SEO için meta açıklama</p>
+                </div>
+                <input type="text" class="setting-input" value="Bağımsız oyun platformu">
+            </div>
+            <div class="setting-item">
+                <div class="setting-info">
+                    <h4>Bakım Modu</h4>
+                    <p>Siteyi geçici olarak kapat</p>
+                </div>
+                <label class="setting-toggle">
+                    <input type="checkbox">
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Commission Settings -->
+    <div class="settings-card">
+        <div class="settings-header">
+            <h2><i class="fas fa-percentage"></i> Komisyon Ayarları</h2>
+        </div>
+        <div class="settings-body">
+            <div class="setting-item">
+                <div class="setting-info">
+                    <h4>Platform Komisyonu</h4>
+                    <p>Her satıştan alınan yüzde</p>
+                </div>
+                <div class="setting-input-group">
+                    <input type="number" class="setting-input small" value="10">
+                    <span>%</span>
+                </div>
+            </div>
+            <div class="setting-item">
+                <div class="setting-info">
+                    <h4>Minimum Ödeme</h4>
+                    <p>Geliştiricilerin çekebileceği minimum tutar</p>
+                </div>
+                <div class="setting-input-group">
+                    <span>₺</span>
+                    <input type="number" class="setting-input small" value="100">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content Settings -->
+    <div class="settings-card">
+        <div class="settings-header">
+            <h2><i class="fas fa-shield-alt"></i> İçerik Ayarları</h2>
+        </div>
+        <div class="settings-body">
+            <div class="setting-item">
+                <div class="setting-info">
+                    <h4>Oyun Onayı Gerekli</h4>
+                    <p>Yeni oyunlar yayınlanmadan önce onay iste</p>
+                </div>
+                <label class="setting-toggle">
+                    <input type="checkbox" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            <div class="setting-item">
+                <div class="setting-info">
+                    <h4>Yetişkin İçerik</h4>
+                    <p>+18 içeriğe izin ver</p>
+                </div>
+                <label class="setting-toggle">
+                    <input type="checkbox">
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            <div class="setting-item">
+                <div class="setting-info">
+                    <h4>Maksimum Dosya Boyutu</h4>
+                    <p>Oyun dosyası için maksimum boyut</p>
+                </div>
+                <div class="setting-input-group">
+                    <input type="number" class="setting-input small" value="500">
+                    <span>MB</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="settings-actions">
+        <button class="btn btn-primary"><i class="fas fa-save"></i> Değişiklikleri Kaydet</button>
+    </div>
+</div>
+
+<style>
+.admin-settings { max-width: 800px; }
+.settings-card { background: #1a1a2e; border-radius: 12px; margin-bottom: 1.5rem; overflow: hidden; }
+.settings-header { padding: 1.25rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.settings-header h2 { font-size: 1.1rem; font-weight: 600; color: white; margin: 0; }
+.settings-body { padding: 0.5rem 0; }
+.setting-item { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.03); }
+.setting-item:last-child { border-bottom: none; }
+.setting-info h4 { font-size: 0.95rem; font-weight: 500; color: white; margin: 0 0 0.25rem 0; }
+.setting-info p { font-size: 0.85rem; color: #666; margin: 0; }
+.setting-input { padding: 0.5rem 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; color: white; width: 250px; }
+.setting-input.small { width: 80px; text-align: center; }
+.setting-input-group { display: flex; align-items: center; gap: 0.5rem; color: #999; }
+.setting-toggle { position: relative; width: 50px; height: 26px; }
+.setting-toggle input { opacity: 0; width: 0; height: 0; }
+.toggle-slider { position: absolute; cursor: pointer; inset: 0; background: rgba(255,255,255,0.1); border-radius: 26px; transition: 0.3s; }
+.toggle-slider:before { content: ""; position: absolute; height: 20px; width: 20px; left: 3px; bottom: 3px; background: white; border-radius: 50%; transition: 0.3s; }
+.setting-toggle input:checked + .toggle-slider { background: #667eea; }
+.setting-toggle input:checked + .toggle-slider:before { transform: translateX(24px); }
+.settings-actions { padding: 1rem 0; }
+</style>

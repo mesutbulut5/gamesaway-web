@@ -11,10 +11,11 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Browse(string? category = null, string? sort = "popular")
+    public IActionResult Browse(string? category = null, string? sort = "popular", string? tag = null)
     {
         ViewBag.Category = category;
         ViewBag.Sort = sort;
+        ViewBag.Tag = tag;
         return View();
     }
 
@@ -56,6 +57,73 @@ public class HomeController : Controller
 
     public IActionResult Terms()
     {
+        return View();
+    }
+
+    // Game Jams - Oyun Yarışmaları
+    public IActionResult GameJams()
+    {
+        return View();
+    }
+
+    public IActionResult GameJamDetail(int id)
+    {
+        ViewBag.JamId = id;
+        return View();
+    }
+
+    // Bundles - Paketler
+    public IActionResult Bundles()
+    {
+        return View();
+    }
+
+    public IActionResult BundleDetail(int id)
+    {
+        ViewBag.BundleId = id;
+        return View();
+    }
+
+    // Sales - İndirimler
+    public IActionResult Sales()
+    {
+        return View();
+    }
+
+    // Collections - Koleksiyonlar
+    public IActionResult Collections()
+    {
+        return View();
+    }
+
+    public IActionResult CollectionDetail(int id)
+    {
+        ViewBag.CollectionId = id;
+        return View();
+    }
+
+    // Devlogs - Geliştirici Günlükleri
+    public IActionResult Devlogs()
+    {
+        return View();
+    }
+
+    public IActionResult DevlogDetail(int id)
+    {
+        ViewBag.DevlogId = id;
+        return View();
+    }
+
+    // Tags - Etiketler
+    public IActionResult Tags()
+    {
+        return View();
+    }
+
+    // User Profile
+    public IActionResult Profile(string? username = null)
+    {
+        ViewBag.Username = username;
         return View();
     }
 

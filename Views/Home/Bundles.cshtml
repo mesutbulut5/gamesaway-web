@@ -1,0 +1,157 @@
+@{
+    ViewData["Title"] = "Oyun Paketleri";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/pages.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/bundles.css" asp-append-version="true">
+}
+
+<div class="bundles-page">
+    <!-- Hero Section -->
+    <section class="bundles-hero">
+        <div class="container">
+            <h1 class="bundles-hero-title">
+                <span data-tr="Oyun Paketleri" data-en="Game Bundles">Oyun Paketleri</span>
+            </h1>
+            <p class="bundles-hero-subtitle" data-tr="Birden fazla oyunu tek fiyata al, büyük tasarruf et!" data-en="Get multiple games for one price, save big!">
+                Birden fazla oyunu tek fiyata al, büyük tasarruf et!
+            </p>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Featured Bundle -->
+        <section class="featured-bundle">
+            <div class="featured-bundle-card">
+                <div class="featured-bundle-banner" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    <span class="bundle-badge" data-tr="ÖNE ÇIKAN" data-en="FEATURED">ÖNE ÇIKAN</span>
+                    <div class="bundle-discount">%85 <span data-tr="İNDİRİM" data-en="OFF">İNDİRİM</span></div>
+                </div>
+                <div class="featured-bundle-content">
+                    <h2>Indie Essentials Bundle</h2>
+                    <p class="bundle-description" data-tr="En sevilen 10 bağımsız oyunu içeren devasa paket!" data-en="Massive bundle containing 10 beloved indie games!">
+                        En sevilen 10 bağımsız oyunu içeren devasa paket!
+                    </p>
+                    <div class="bundle-games-preview">
+                        <div class="game-thumb" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+                        <div class="game-thumb" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
+                        <div class="game-thumb" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);"></div>
+                        <div class="game-thumb" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);"></div>
+                        <span class="more-games">+6</span>
+                    </div>
+                    <div class="bundle-pricing">
+                        <span class="original-price">₺500</span>
+                        <span class="bundle-price">₺75</span>
+                    </div>
+                    <a asp-action="BundleDetail" asp-route-id="1" class="btn btn-primary btn-large btn-block">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span data-tr="Paketi Al" data-en="Get Bundle">Paketi Al</span>
+                    </a>
+                    <p class="bundle-charity" data-tr="Gelirin %10'u hayır kurumlarına bağışlanır" data-en="10% of proceeds go to charity">
+                        <i class="fas fa-heart"></i> Gelirin %10'u hayır kurumlarına bağışlanır
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Active Bundles -->
+        <section class="bundles-section">
+            <div class="section-header">
+                <h2 class="section-title" data-tr="Aktif Paketler" data-en="Active Bundles">Aktif Paketler</h2>
+            </div>
+
+            <div class="bundles-grid">
+                <!-- Bundle Card 1 -->
+                <a asp-action="BundleDetail" asp-route-id="2" class="bundle-card">
+                    <div class="bundle-card-banner" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        <span class="bundle-discount-badge">%70</span>
+                    </div>
+                    <div class="bundle-card-content">
+                        <h3>Horror Collection</h3>
+                        <p class="bundle-game-count"><i class="fas fa-gamepad"></i> 5 <span data-tr="oyun" data-en="games">oyun</span></p>
+                        <div class="bundle-card-pricing">
+                            <span class="original">₺200</span>
+                            <span class="current">₺60</span>
+                        </div>
+                        <div class="bundle-timer">
+                            <i class="fas fa-clock"></i>
+                            <span data-tr="2 gün kaldı" data-en="2 days left">2 gün kaldı</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Bundle Card 2 -->
+                <a asp-action="BundleDetail" asp-route-id="3" class="bundle-card">
+                    <div class="bundle-card-banner" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <span class="bundle-discount-badge">%65</span>
+                    </div>
+                    <div class="bundle-card-content">
+                        <h3>Puzzle Masters Pack</h3>
+                        <p class="bundle-game-count"><i class="fas fa-gamepad"></i> 8 <span data-tr="oyun" data-en="games">oyun</span></p>
+                        <div class="bundle-card-pricing">
+                            <span class="original">₺320</span>
+                            <span class="current">₺112</span>
+                        </div>
+                        <div class="bundle-timer">
+                            <i class="fas fa-clock"></i>
+                            <span data-tr="5 gün kaldı" data-en="5 days left">5 gün kaldı</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Bundle Card 3 -->
+                <a asp-action="BundleDetail" asp-route-id="4" class="bundle-card">
+                    <div class="bundle-card-banner" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                        <span class="bundle-discount-badge">%80</span>
+                    </div>
+                    <div class="bundle-card-content">
+                        <h3>Retro Arcade Bundle</h3>
+                        <p class="bundle-game-count"><i class="fas fa-gamepad"></i> 12 <span data-tr="oyun" data-en="games">oyun</span></p>
+                        <div class="bundle-card-pricing">
+                            <span class="original">₺480</span>
+                            <span class="current">₺96</span>
+                        </div>
+                        <div class="bundle-timer">
+                            <i class="fas fa-clock"></i>
+                            <span data-tr="1 hafta kaldı" data-en="1 week left">1 hafta kaldı</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Bundle Card 4 -->
+                <a asp-action="BundleDetail" asp-route-id="5" class="bundle-card">
+                    <div class="bundle-card-banner" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                        <span class="bundle-discount-badge">%75</span>
+                    </div>
+                    <div class="bundle-card-content">
+                        <h3>Adventure Starter Kit</h3>
+                        <p class="bundle-game-count"><i class="fas fa-gamepad"></i> 6 <span data-tr="oyun" data-en="games">oyun</span></p>
+                        <div class="bundle-card-pricing">
+                            <span class="original">₺240</span>
+                            <span class="current">₺60</span>
+                        </div>
+                        <div class="bundle-timer">
+                            <i class="fas fa-clock"></i>
+                            <span data-tr="3 gün kaldı" data-en="3 days left">3 gün kaldı</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Create Bundle CTA -->
+        <section class="create-bundle-cta">
+            <div class="cta-content">
+                <i class="fas fa-box-open"></i>
+                <h3 data-tr="Geliştirici misin?" data-en="Are you a developer?">Geliştirici misin?</h3>
+                <p data-tr="Kendi oyun paketini oluştur ve daha fazla oyuncuya ulaş!" data-en="Create your own game bundle and reach more players!">
+                    Kendi oyun paketini oluştur ve daha fazla oyuncuya ulaş!
+                </p>
+                <a asp-controller="Dashboard" asp-action="Index" class="btn btn-primary">
+                    <span data-tr="Paket Oluştur" data-en="Create Bundle">Paket Oluştur</span>
+                </a>
+            </div>
+        </section>
+    </div>
+</div>

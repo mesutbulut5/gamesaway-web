@@ -1,0 +1,231 @@
+/* ===== DEVLOGS PAGE STYLES ===== */
+
+.devlogs-page {
+    min-height: 100vh;
+}
+
+.devlogs-hero {
+    padding: 60px 0 40px;
+    background: var(--gradient);
+    color: white;
+    text-align: center;
+}
+
+.devlogs-hero-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.devlogs-hero-subtitle {
+    font-size: 1.25rem;
+    opacity: 0.95;
+}
+
+/* Featured Devlog */
+.featured-devlog {
+    margin: -30px 0 3rem;
+}
+
+.featured-devlog-card {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    background: var(--card-bg);
+    border-radius: 16px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    transition: var(--transition);
+}
+
+.featured-devlog-card:hover {
+    transform: translateY(-5px);
+}
+
+.featured-devlog-image {
+    position: relative;
+    min-height: 300px;
+}
+
+.devlog-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.featured-devlog-content {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.featured-devlog-content .devlog-game {
+    display: inline-block;
+    background: var(--gradient);
+    color: white;
+    padding: 0.35rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    width: fit-content;
+}
+
+.featured-devlog-content h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.devlog-excerpt {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.devlog-meta {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.devlog-meta i {
+    margin-right: 0.35rem;
+}
+
+/* Devlogs Section */
+.devlogs-section {
+    padding: 2rem 0;
+}
+
+/* Devlogs List */
+.devlogs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.devlog-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 1.5rem;
+    background: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+}
+
+.devlog-item:hover {
+    transform: translateX(5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.devlog-item-image {
+    min-height: 150px;
+}
+
+.devlog-item-content {
+    padding: 1.25rem 1.25rem 1.25rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.devlog-item-content .devlog-game {
+    display: inline-block;
+    background: var(--gradient);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+    width: fit-content;
+}
+
+.devlog-item-content h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.devlog-item-content p {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+/* Write Devlog CTA */
+.write-devlog-cta {
+    margin: 3rem 0;
+    padding: 3rem;
+    background: var(--light-color);
+    border-radius: 16px;
+    text-align: center;
+}
+
+.write-devlog-cta .cta-content i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.write-devlog-cta h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.write-devlog-cta p {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .devlogs-hero-title {
+        font-size: 2rem;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .featured-devlog-card {
+        grid-template-columns: 1fr;
+    }
+    
+    .featured-devlog-image {
+        min-height: 200px;
+    }
+    
+    .devlog-item {
+        grid-template-columns: 1fr;
+    }
+    
+    .devlog-item-image {
+        min-height: 150px;
+    }
+    
+    .devlog-item-content {
+        padding: 1.25rem;
+    }
+}

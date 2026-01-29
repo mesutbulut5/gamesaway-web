@@ -1,0 +1,274 @@
+/* ===== BUNDLES PAGE STYLES ===== */
+
+.bundles-page {
+    min-height: 100vh;
+}
+
+.bundles-hero {
+    padding: 60px 0 40px;
+    background: var(--gradient);
+    color: white;
+    text-align: center;
+}
+
+.bundles-hero-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.bundles-hero-subtitle {
+    font-size: 1.25rem;
+    opacity: 0.95;
+}
+
+/* Featured Bundle */
+.featured-bundle {
+    margin: -30px 0 3rem;
+}
+
+.featured-bundle-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.featured-bundle-banner {
+    position: relative;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.bundle-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.bundle-discount {
+    font-size: 4rem;
+    font-weight: 800;
+    color: white;
+    text-align: center;
+}
+
+.bundle-discount span {
+    display: block;
+    font-size: 1.5rem;
+}
+
+.featured-bundle-content {
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.featured-bundle-content h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.bundle-description {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.bundle-games-preview {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    align-items: center;
+}
+
+.game-thumb {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+}
+
+.more-games {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    background: var(--light-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: var(--text-light);
+}
+
+.bundle-pricing {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.bundle-pricing .original-price {
+    font-size: 1.25rem;
+    color: var(--text-light);
+    text-decoration: line-through;
+}
+
+.bundle-pricing .bundle-price {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary-color);
+}
+
+.bundle-charity {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.bundle-charity i {
+    color: #ff6b6b;
+}
+
+/* Bundles Grid */
+.bundles-section {
+    padding: 2rem 0;
+}
+
+.bundles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.bundle-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+}
+
+.bundle-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.bundle-card-banner {
+    position: relative;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bundle-discount-badge {
+    font-size: 2rem;
+    font-weight: 800;
+    color: white;
+}
+
+.bundle-card-content {
+    padding: 1.25rem;
+}
+
+.bundle-card-content h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.bundle-game-count {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.bundle-card-pricing {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.bundle-card-pricing .original {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    text-decoration: line-through;
+}
+
+.bundle-card-pricing .current {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.bundle-timer {
+    font-size: 0.85rem;
+    color: #ff6b6b;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Create Bundle CTA */
+.create-bundle-cta {
+    margin: 3rem 0;
+    padding: 3rem;
+    background: var(--light-color);
+    border-radius: 16px;
+    text-align: center;
+}
+
+.create-bundle-cta i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.create-bundle-cta h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.create-bundle-cta p {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .featured-bundle-card {
+        grid-template-columns: 1fr;
+    }
+    
+    .featured-bundle-banner {
+        min-height: 200px;
+    }
+    
+    .bundle-discount {
+        font-size: 3rem;
+    }
+}

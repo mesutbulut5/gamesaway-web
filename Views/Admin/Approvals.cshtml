@@ -1,0 +1,152 @@
+@{
+    ViewData["Title"] = "Onay Bekleyenler";
+    Layout = "~/Views/Admin/_AdminLayout.cshtml";
+}
+
+<!-- Stats -->
+<div class="admin-stats">
+    <div class="admin-stat-card">
+        <div class="admin-stat-icon orange"><i class="fas fa-clock"></i></div>
+        <div class="admin-stat-info">
+            <h3>12</h3>
+            <p>Onay Bekleyen Oyun</p>
+        </div>
+    </div>
+    <div class="admin-stat-card">
+        <div class="admin-stat-icon blue"><i class="fas fa-user-clock"></i></div>
+        <div class="admin-stat-info">
+            <h3>3</h3>
+            <p>Geliştirici Başvurusu</p>
+        </div>
+    </div>
+    <div class="admin-stat-card">
+        <div class="admin-stat-icon purple"><i class="fas fa-money-bill-wave"></i></div>
+        <div class="admin-stat-info">
+            <h3>5</h3>
+            <p>Ödeme Talebi</p>
+        </div>
+    </div>
+</div>
+
+<!-- Pending Games -->
+<div class="admin-table-card">
+    <div class="admin-table-header">
+        <h2><i class="fas fa-gamepad"></i> Onay Bekleyen Oyunlar</h2>
+        <div>
+            <button class="btn btn-primary btn-sm"><i class="fas fa-check-double"></i> Tümünü Onayla</button>
+        </div>
+    </div>
+    <table class="admin-table">
+        <thead>
+            <tr>
+                <th>Oyun</th>
+                <th>Geliştirici</th>
+                <th>Kategori</th>
+                <th>Yükleme Tarihi</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <div class="admin-table-user">
+                        <div class="admin-game-thumb" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);"></div>
+                        <div>
+                            <div class="admin-table-name">New Adventure Game</div>
+                            <div class="admin-table-email">Macera, Platform</div>
+                        </div>
+                    </div>
+                </td>
+                <td>NewDev</td>
+                <td>Macera</td>
+                <td>30 dakika önce</td>
+                <td>
+                    <button class="btn btn-success btn-sm"><i class="fas fa-check"></i> Onayla</button>
+                    <button class="btn btn-danger btn-sm"><i class="fas fa-times"></i> Reddet</button>
+                    <button class="admin-action-btn" title="İncele"><i class="fas fa-eye"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="admin-table-user">
+                        <div class="admin-game-thumb" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);"></div>
+                        <div>
+                            <div class="admin-table-name">Pixel Runner</div>
+                            <div class="admin-table-email">Aksiyon, Retro</div>
+                        </div>
+                    </div>
+                </td>
+                <td>RetroGamer</td>
+                <td>Aksiyon</td>
+                <td>2 saat önce</td>
+                <td>
+                    <button class="btn btn-success btn-sm"><i class="fas fa-check"></i> Onayla</button>
+                    <button class="btn btn-danger btn-sm"><i class="fas fa-times"></i> Reddet</button>
+                    <button class="admin-action-btn" title="İncele"><i class="fas fa-eye"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="admin-table-user">
+                        <div class="admin-game-thumb" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
+                        <div>
+                            <div class="admin-table-name">Space Shooter X</div>
+                            <div class="admin-table-email">Atıcı, Uzay</div>
+                        </div>
+                    </div>
+                </td>
+                <td>SpaceDevs</td>
+                <td>Atıcı</td>
+                <td>5 saat önce</td>
+                <td>
+                    <button class="btn btn-success btn-sm"><i class="fas fa-check"></i> Onayla</button>
+                    <button class="btn btn-danger btn-sm"><i class="fas fa-times"></i> Reddet</button>
+                    <button class="admin-action-btn" title="İncele"><i class="fas fa-eye"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Pending Developer Applications -->
+<div class="admin-table-card">
+    <div class="admin-table-header">
+        <h2><i class="fas fa-user-plus"></i> Geliştirici Başvuruları</h2>
+    </div>
+    <table class="admin-table">
+        <thead>
+            <tr>
+                <th>Kullanıcı</th>
+                <th>Başvuru Tarihi</th>
+                <th>Portföy</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <div class="admin-table-user">
+                        <div class="admin-table-avatar"><i class="fas fa-user"></i></div>
+                        <div>
+                            <div class="admin-table-name">NewCreator</div>
+                            <div class="admin-table-email">[email]</div>
+                        </div>
+                    </div>
+                </td>
+                <td>1 gün önce</td>
+                <td><a href="#" style="color: #667eea;">Portföyü Gör</a></td>
+                <td>
+                    <button class="btn btn-success btn-sm"><i class="fas fa-check"></i> Onayla</button>
+                    <button class="btn btn-danger btn-sm"><i class="fas fa-times"></i> Reddet</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<style>
+.admin-game-thumb { width: 50px; height: 50px; border-radius: 8px; flex-shrink: 0; }
+.btn-sm { padding: 0.4rem 0.8rem; font-size: 0.85rem; }
+.btn-success { background: #43e97b; color: white; border: none; border-radius: 6px; cursor: pointer; }
+.btn-danger { background: #ff6b6b; color: white; border: none; border-radius: 6px; cursor: pointer; }
+</style>

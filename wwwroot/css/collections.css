@@ -1,0 +1,165 @@
+/* ===== COLLECTIONS PAGE STYLES ===== */
+
+.collections-page {
+    min-height: 100vh;
+}
+
+.collections-hero {
+    padding: 60px 0 40px;
+    background: var(--gradient);
+    color: white;
+    text-align: center;
+}
+
+.collections-hero-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.collections-hero-subtitle {
+    font-size: 1.25rem;
+    opacity: 0.95;
+}
+
+/* Collections Section */
+.collections-section {
+    padding: 3rem 0;
+}
+
+/* Collections Grid */
+.collections-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.collection-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+}
+
+.collection-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.collection-card.collection-featured {
+    grid-column: span 2;
+}
+
+.collection-banner {
+    height: 180px;
+    background: var(--light-color);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.collection-featured .collection-banner {
+    height: 220px;
+}
+
+.collection-games-preview {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 300px;
+}
+
+.collection-featured .collection-games-preview {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 500px;
+}
+
+.preview-game {
+    aspect-ratio: 1;
+    border-radius: 8px;
+}
+
+.collection-content {
+    padding: 1.25rem;
+}
+
+.collection-content h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.collection-featured .collection-content h3 {
+    font-size: 1.35rem;
+}
+
+.collection-curator {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.collection-meta {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.collection-meta i {
+    margin-right: 0.25rem;
+}
+
+/* Create Collection CTA */
+.create-collection-cta {
+    margin: 3rem 0;
+    padding: 3rem;
+    background: var(--light-color);
+    border-radius: 16px;
+    text-align: center;
+}
+
+.create-collection-cta .cta-content i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.create-collection-cta h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.create-collection-cta p {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .collections-hero-title {
+        font-size: 2rem;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .collection-card.collection-featured {
+        grid-column: span 1;
+    }
+    
+    .collection-featured .collection-games-preview {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

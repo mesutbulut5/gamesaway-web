@@ -6,9 +6,7 @@
     <div class="container">
         <div class="auth-card animate-fadeInUp">
             <div class="auth-header">
-                <div class="logo-icon">
-                    <i class="fas fa-gamepad"></i>
-                </div>
+                <img src="~/assets/logo.png" alt="GamesAway" class="auth-logo-img">
                 <h1 data-tr="Hoş Geldiniz" data-en="Welcome Back">Hoş Geldiniz</h1>
                 <p data-tr="Hesabınıza giriş yapın" data-en="Sign in to your account">Hesabınıza giriş yapın</p>
             </div>
@@ -55,6 +53,21 @@
             <div class="demo-info">
                 <i class="fas fa-info-circle"></i>
                 <span data-tr="Demo: demo@gamesaway.com / demo123" data-en="Demo: demo@gamesaway.com / demo123">Demo: demo@gamesaway.com / demo123</span>
+            </div>
+
+            <!-- Temporary Admin Access - REMOVE IN PRODUCTION -->
+            <div class="admin-access-temp" style="margin-top: 20px; padding: 15px; background: linear-gradient(135deg, #ff6b6b, #ee5a5a); border-radius: 12px; text-align: center;">
+                <p style="color: white; margin-bottom: 10px; font-size: 12px;">
+                    <i class="fas fa-shield-alt"></i>
+                    <span data-tr="Geliştirici Modu - Canlıda Kaldır!" data-en="Dev Mode - Remove in Production!">Geliştirici Modu - Canlıda Kaldır!</span>
+                </p>
+                <form asp-controller="Auth" asp-action="MakeAdmin" method="get" style="display: inline;">
+                    <input type="email" name="email" placeholder="Email adresiniz" required style="padding: 8px 12px; border-radius: 6px; border: none; margin-right: 8px; width: 200px;">
+                    <button type="submit" style="padding: 8px 16px; background: white; color: #ee5a5a; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;">
+                        <i class="fas fa-crown"></i>
+                        <span data-tr="Admin Yap" data-en="Make Admin">Admin Yap</span>
+                    </button>
+                </form>
             </div>
         </div>
     </div>

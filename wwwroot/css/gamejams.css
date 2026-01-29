@@ -1,0 +1,291 @@
+/* ===== GAME JAMS PAGE STYLES ===== */
+
+.gamejams-page {
+    min-height: 100vh;
+}
+
+.gamejams-hero {
+    padding: 80px 0 60px;
+    background: var(--gradient);
+    color: white;
+    text-align: center;
+}
+
+.gamejams-hero-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.gamejams-hero-subtitle {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+}
+
+.gamejams-hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+/* Stats */
+.gamejams-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: -40px 0 3rem;
+}
+
+.stat-box {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: var(--shadow);
+}
+
+.stat-box i {
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+.stat-box .stat-number {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    display: block;
+}
+
+.stat-box .stat-label {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+/* Jams Section */
+.gamejams-section {
+    padding: 2rem 0;
+}
+
+.jam-count {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    background: var(--light-color);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+}
+
+/* Jams Grid */
+.jams-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.jam-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+}
+
+.jam-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.jam-card.jam-featured {
+    grid-column: span 2;
+}
+
+.jam-banner {
+    position: relative;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.jam-featured .jam-banner {
+    height: 200px;
+}
+
+.jam-status {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.jam-live {
+    background: #ff6b6b;
+    color: white;
+}
+
+.jam-live i {
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.jam-upcoming {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.jam-content {
+    padding: 1.25rem;
+}
+
+.jam-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.jam-featured .jam-title {
+    font-size: 1.35rem;
+}
+
+.jam-host {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.jam-meta {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.jam-theme {
+    background: var(--light-color);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+}
+
+.theme-label {
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+.theme-value {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* Past Jams */
+.past-jams-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.past-jam-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--card-bg);
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+.past-jam-item:hover {
+    background: var(--light-color);
+}
+
+.past-jam-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.past-jam-info {
+    flex: 1;
+}
+
+.past-jam-info h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.25rem;
+}
+
+.past-jam-info p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.past-jam-arrow {
+    color: var(--text-light);
+}
+
+/* Host Jam CTA */
+.host-jam-cta {
+    margin: 3rem 0;
+    padding: 4rem;
+    background: var(--gradient);
+    border-radius: 16px;
+    text-align: center;
+    color: white;
+}
+
+.host-jam-cta h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.host-jam-cta p {
+    font-size: 1.1rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .gamejams-hero-title {
+        font-size: 2rem;
+    }
+    
+    .gamejams-hero-actions {
+        flex-direction: column;
+    }
+    
+    .gamejams-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .jam-card.jam-featured {
+        grid-column: span 1;
+    }
+    
+    .host-jam-cta {
+        padding: 2rem;
+    }
+}

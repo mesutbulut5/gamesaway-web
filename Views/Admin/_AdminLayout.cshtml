@@ -1,0 +1,139 @@
+@{
+    var userId = Context.Request.Cookies["UserId"];
+    var userName = Context.Request.Cookies["UserName"];
+    var isLoggedIn = !string.IsNullOrEmpty(userId);
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - Admin Panel</title>
+    <link rel="icon" type="image/svg+xml" href="~/favicon.svg?v=2">
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/admin.css" asp-append-version="true">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="admin-body">
+    <!-- Admin Sidebar -->
+    <aside class="admin-sidebar">
+        <div class="admin-sidebar-header">
+            <a asp-controller="Home" asp-action="Index" class="admin-logo">
+                <img src="~/assets/logo.png" alt="GamesAway" class="logo-img">
+            </a>
+            <span class="admin-badge">ADMIN</span>
+        </div>
+
+        <nav class="admin-nav">
+            <div class="admin-nav-section">
+                <span class="admin-nav-title">GENEL</span>
+                <a asp-action="Index" class="admin-nav-item @(ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Genel Bakış</span>
+                </a>
+            </div>
+
+            <div class="admin-nav-section">
+                <span class="admin-nav-title">YÖNETİM</span>
+                <a asp-action="Users" class="admin-nav-item @(ViewContext.RouteData.Values["Action"]?.ToString() == "Users" ? "active" : "")">
+                    <i class="fas fa-users"></i>
+                    <span>Kullanıcılar</span>
+                </a>
+                <a asp-action="Games" class="admin-nav-item @(ViewContext.RouteData.Values["Action"]?.ToString() == "Games" ? "active" : "")">
+                    <i class="fas fa-gamepad"></i>
+                    <span>Oyunlar</span>
+                </a>
+                <a asp-action="Approvals" class="admin-nav-item @(ViewContext.RouteData.Values["Action"]?.ToString() == "Approvals" ? "active" : "")">
+                    <i class="fas fa-clock"></i>
+                    <span>Onay Bekleyenler</span>
+                    <span class="admin-nav-badge">12</span>
+                </a>
+            </div>
+
+            <div class="admin-nav-section">
+                <span class="admin-nav-title">İÇERİK</span>
+                <a asp-action="Featured" class="admin-nav-item @(ViewContext.RouteData.Values["Action"]?.ToString() == "Featured" ? "active" : "")">
+                    <i class="fas fa-star"></i>
+                    <span>Öne Çıkanlar</span>
+                </a>
+                <a asp-action="GameJams" class="admin-nav-item @(ViewContext.RouteData.Values["Action"]?.ToString() == "GameJams" ? "active" : "")">
+                    <i class="fas fa-trophy"></i>
+                    <span>Game Jam'ler</span>
+                </a>
+                <a asp-action="Bundles" class="admin-nav-item @(ViewContext.RouteData.Values["Action"]?.ToString() == "Bundles" ? "active" : "")">
+                    <i class="fas fa-box"></i>
+                    <span>Paketler</span>
+                </a>
+                <a asp-action="Announcements" class="admin-nav-item @(ViewContext.RouteData.Values["Action"]?.ToString() == "Announcements" ? "active" : "")">
+                    <i class="fas fa-bullhorn"></i>
+                    <span>Duyurular</span>
+                </a>
+            </div>
+
+            <div class="admin-nav-section">
+                <span class="admin-nav-title">FİNANS</span>
+                <a asp-action="Finance" class="admin-nav-item @(ViewContext.RouteData.Values["Action"]?.ToString() == "Finance" ? "active" : "")">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Gelir & Raporlar</span>
+                </a>
+            </div>
+
+            <div class="admin-nav-section">
+                <span class="admin-nav-title">GÜVENLİK</span>
+                <a asp-action="Reports" class="admin-nav-item @(ViewContext.RouteData.Values["Action"]?.ToString() == "Reports" ? "active" : "")">
+                    <i class="fas fa-flag"></i>
+                    <span>Raporlar</span>
+                    <span class="admin-nav-badge warning">3</span>
+                </a>
+                <a asp-action="Settings" class="admin-nav-item @(ViewContext.RouteData.Values["Action"]?.ToString() == "Settings" ? "active" : "")">
+                    <i class="fas fa-cog"></i>
+                    <span>Site Ayarları</span>
+                </a>
+            </div>
+        </nav>
+
+        <div class="admin-sidebar-footer">
+            <a asp-controller="Home" asp-action="Index" class="admin-back-link">
+                <i class="fas fa-arrow-left"></i>
+                <span>Siteye Dön</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="admin-main">
+        <!-- Top Bar -->
+        <header class="admin-topbar">
+            <div class="admin-topbar-left" style="display: flex; align-items: center; gap: 1rem;">
+                <button class="admin-mobile-toggle" onclick="document.querySelector('.admin-sidebar').classList.toggle('active')">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 class="admin-page-title">@ViewData["Title"]</h1>
+            </div>
+            <div class="admin-topbar-right">
+                <div class="admin-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Ara...">
+                </div>
+                <button class="admin-topbar-btn">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-dot"></span>
+                </button>
+                <div class="admin-user">
+                    <div class="admin-user-avatar"><i class="fas fa-user-shield"></i></div>
+                    <span>@userName</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Page Content -->
+        <main class="admin-content">
+            @RenderBody()
+        </main>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/main.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,149 @@
+@{
+    ViewData["Title"] = "Oyun Yönetimi";
+    Layout = "~/Views/Admin/_AdminLayout.cshtml";
+}
+
+<!-- Stats -->
+<div class="admin-stats">
+    <div class="admin-stat-card">
+        <div class="admin-stat-icon blue"><i class="fas fa-gamepad"></i></div>
+        <div class="admin-stat-info">
+            <h3>156</h3>
+            <p>Toplam Oyun</p>
+        </div>
+    </div>
+    <div class="admin-stat-card">
+        <div class="admin-stat-icon green"><i class="fas fa-check-circle"></i></div>
+        <div class="admin-stat-info">
+            <h3>142</h3>
+            <p>Yayında</p>
+        </div>
+    </div>
+    <div class="admin-stat-card">
+        <div class="admin-stat-icon orange"><i class="fas fa-clock"></i></div>
+        <div class="admin-stat-info">
+            <h3>12</h3>
+            <p>Onay Bekliyor</p>
+        </div>
+    </div>
+    <div class="admin-stat-card">
+        <div class="admin-stat-icon purple"><i class="fas fa-ban"></i></div>
+        <div class="admin-stat-info">
+            <h3>2</h3>
+            <p>Reddedildi</p>
+        </div>
+    </div>
+</div>
+
+<!-- Games Table -->
+<div class="admin-table-card">
+    <div class="admin-table-header">
+        <h2><i class="fas fa-gamepad"></i> Tüm Oyunlar</h2>
+        <div style="display: flex; gap: 1rem;">
+            <select class="admin-filter-select">
+                <option value="">Tüm Durumlar</option>
+                <option value="published">Yayında</option>
+                <option value="pending">Onay Bekliyor</option>
+                <option value="rejected">Reddedildi</option>
+            </select>
+            <select class="admin-filter-select">
+                <option value="">Tüm Kategoriler</option>
+                <option value="action">Aksiyon</option>
+                <option value="puzzle">Bulmaca</option>
+                <option value="adventure">Macera</option>
+            </select>
+        </div>
+    </div>
+    <table class="admin-table">
+        <thead>
+            <tr>
+                <th>Oyun</th>
+                <th>Geliştirici</th>
+                <th>Kategori</th>
+                <th>Görüntüleme</th>
+                <th>Durum</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <div class="admin-table-user">
+                        <div class="admin-game-thumb" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                        <div>
+                            <div class="admin-table-name">Epic Battle Arena</div>
+                            <div class="admin-table-email">Yükleme: 2 saat önce</div>
+                        </div>
+                    </div>
+                </td>
+                <td>StudioX</td>
+                <td>Aksiyon</td>
+                <td>12,450</td>
+                <td><span class="status-badge approved">Yayında</span></td>
+                <td>
+                    <button class="admin-action-btn" title="Düzenle"><i class="fas fa-edit"></i></button>
+                    <button class="admin-action-btn" title="Görüntüle"><i class="fas fa-eye"></i></button>
+                    <button class="admin-action-btn" title="Öne Çıkar"><i class="fas fa-star"></i></button>
+                    <button class="admin-action-btn danger" title="Kaldır"><i class="fas fa-trash"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="admin-table-user">
+                        <div class="admin-game-thumb" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+                        <div>
+                            <div class="admin-table-name">Mind Maze</div>
+                            <div class="admin-table-email">Yükleme: 1 gün önce</div>
+                        </div>
+                    </div>
+                </td>
+                <td>PuzzleMaster</td>
+                <td>Bulmaca</td>
+                <td>8,320</td>
+                <td><span class="status-badge approved">Yayında</span></td>
+                <td>
+                    <button class="admin-action-btn" title="Düzenle"><i class="fas fa-edit"></i></button>
+                    <button class="admin-action-btn" title="Görüntüle"><i class="fas fa-eye"></i></button>
+                    <button class="admin-action-btn" title="Öne Çıkar"><i class="fas fa-star"></i></button>
+                    <button class="admin-action-btn danger" title="Kaldır"><i class="fas fa-trash"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="admin-table-user">
+                        <div class="admin-game-thumb" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);"></div>
+                        <div>
+                            <div class="admin-table-name">New Adventure Game</div>
+                            <div class="admin-table-email">Yükleme: 30 dk önce</div>
+                        </div>
+                    </div>
+                </td>
+                <td>NewDev</td>
+                <td>Macera</td>
+                <td>0</td>
+                <td><span class="status-badge pending">Onay Bekliyor</span></td>
+                <td>
+                    <button class="admin-action-btn" style="color: #43e97b;" title="Onayla"><i class="fas fa-check"></i></button>
+                    <button class="admin-action-btn danger" title="Reddet"><i class="fas fa-times"></i></button>
+                    <button class="admin-action-btn" title="İncele"><i class="fas fa-eye"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<style>
+.admin-game-thumb {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+.admin-filter-select {
+    padding: 0.5rem 1rem;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+    color: white;
+}
+</style>

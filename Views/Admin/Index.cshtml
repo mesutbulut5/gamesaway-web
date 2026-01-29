@@ -1,0 +1,198 @@
+@{
+    ViewData["Title"] = "Genel Bakış";
+    Layout = "~/Views/Admin/_AdminLayout.cshtml";
+}
+
+<!-- Stats Cards -->
+<div class="admin-stats">
+    <div class="admin-stat-card">
+        <div class="admin-stat-icon blue"><i class="fas fa-users"></i></div>
+        <div class="admin-stat-info">
+            <h3>@(ViewBag.TotalUsers ?? 0)</h3>
+            <p>Toplam Kullanıcı</p>
+        </div>
+        <span class="admin-stat-change up"><i class="fas fa-arrow-up"></i> 12%</span>
+    </div>
+    <div class="admin-stat-card">
+        <div class="admin-stat-icon green"><i class="fas fa-gamepad"></i></div>
+        <div class="admin-stat-info">
+            <h3>@(ViewBag.TotalGames ?? 0)</h3>
+            <p>Toplam Oyun</p>
+        </div>
+        <span class="admin-stat-change up"><i class="fas fa-arrow-up"></i> 8%</span>
+    </div>
+    <div class="admin-stat-card">
+        <div class="admin-stat-icon purple"><i class="fas fa-lira-sign"></i></div>
+        <div class="admin-stat-info">
+            <h3>₺@(ViewBag.TotalRevenue ?? 0)</h3>
+            <p>Toplam Gelir</p>
+        </div>
+        <span class="admin-stat-change up"><i class="fas fa-arrow-up"></i> 23%</span>
+    </div>
+    <div class="admin-stat-card">
+        <div class="admin-stat-icon orange"><i class="fas fa-clock"></i></div>
+        <div class="admin-stat-info">
+            <h3>@(ViewBag.PendingApprovals ?? 0)</h3>
+            <p>Onay Bekleyen</p>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Actions -->
+<div class="admin-quick-actions">
+    <a asp-action="Approvals" class="admin-quick-btn">
+        <i class="fas fa-check-circle"></i>
+        <span>Oyunları Onayla</span>
+    </a>
+    <a asp-action="Featured" class="admin-quick-btn">
+        <i class="fas fa-star"></i>
+        <span>Öne Çıkan Seç</span>
+    </a>
+    <a asp-action="Announcements" class="admin-quick-btn">
+        <i class="fas fa-bullhorn"></i>
+        <span>Duyuru Yayınla</span>
+    </a>
+    <a asp-action="Reports" class="admin-quick-btn">
+        <i class="fas fa-flag"></i>
+        <span>Raporları İncele</span>
+    </a>
+</div>
+
+<!-- Charts -->
+<div class="admin-charts">
+    <div class="admin-chart-card">
+        <h3><i class="fas fa-chart-area"></i> Gelir Grafiği (Son 30 Gün)</h3>
+        <div class="chart-placeholder">
+            <span>Grafik verisi yüklenecek...</span>
+        </div>
+    </div>
+    <div class="admin-chart-card">
+        <h3><i class="fas fa-chart-pie"></i> Oyun Kategorileri</h3>
+        <div class="chart-placeholder">
+            <span>Grafik verisi yüklenecek...</span>
+        </div>
+    </div>
+</div>
+
+<!-- Recent Activity -->
+<div class="admin-table-card">
+    <div class="admin-table-header">
+        <h2><i class="fas fa-history"></i> Son Aktiviteler</h2>
+        <a href="#" class="btn btn-text">Tümünü Gör</a>
+    </div>
+    <table class="admin-table">
+        <thead>
+            <tr>
+                <th>Aktivite</th>
+                <th>Kullanıcı</th>
+                <th>Tarih</th>
+                <th>Durum</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Yeni oyun yüklendi: "Epic Battle Arena"</td>
+                <td>StudioX</td>
+                <td>5 dakika önce</td>
+                <td><span class="status-badge pending">Onay Bekliyor</span></td>
+            </tr>
+            <tr>
+                <td>Yeni kullanıcı kaydı</td>
+                <td>GameDev123</td>
+                <td>15 dakika önce</td>
+                <td><span class="status-badge active">Aktif</span></td>
+            </tr>
+            <tr>
+                <td>Oyun güncellendi: "Mind Maze v2.0"</td>
+                <td>PuzzleMaster</td>
+                <td>1 saat önce</td>
+                <td><span class="status-badge approved">Onaylandı</span></td>
+            </tr>
+            <tr>
+                <td>İçerik raporu: Uygunsuz içerik</td>
+                <td>User456</td>
+                <td>2 saat önce</td>
+                <td><span class="status-badge pending">İnceleniyor</span></td>
+            </tr>
+            <tr>
+                <td>Ödeme talebi: ₺1,250</td>
+                <td>RaceTeam</td>
+                <td>3 saat önce</td>
+                <td><span class="status-badge approved">Onaylandı</span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Recent Users & Games -->
+<div class="admin-charts">
+    <div class="admin-table-card">
+        <div class="admin-table-header">
+            <h2><i class="fas fa-user-plus"></i> Son Kayıt Olan Kullanıcılar</h2>
+        </div>
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>Kullanıcı</th>
+                    <th>Rol</th>
+                    <th>Tarih</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="admin-table-user">
+                            <div class="admin-table-avatar"><i class="fas fa-user"></i></div>
+                            <div>
+                                <div class="admin-table-name">GameDev123</div>
+                                <div class="admin-table-email">[email]</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>Geliştirici</td>
+                    <td>15 dk önce</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="admin-table-user">
+                            <div class="admin-table-avatar"><i class="fas fa-user"></i></div>
+                            <div>
+                                <div class="admin-table-name">Player99</div>
+                                <div class="admin-table-email">[email]</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>Oyuncu</td>
+                    <td>1 saat önce</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="admin-table-card">
+        <div class="admin-table-header">
+            <h2><i class="fas fa-gamepad"></i> Son Yüklenen Oyunlar</h2>
+        </div>
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>Oyun</th>
+                    <th>Durum</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Epic Battle Arena</td>
+                    <td><span class="status-badge pending">Bekliyor</span></td>
+                </tr>
+                <tr>
+                    <td>Mind Maze v2.0</td>
+                    <td><span class="status-badge approved">Onaylı</span></td>
+                </tr>
+                <tr>
+                    <td>Speed Rush</td>
+                    <td><span class="status-badge approved">Onaylı</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

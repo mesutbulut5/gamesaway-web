@@ -1,0 +1,214 @@
+/* ===== SALES PAGE STYLES ===== */
+
+.sales-page {
+    min-height: 100vh;
+}
+
+.sales-hero {
+    padding: 60px 0 40px;
+    background: var(--gradient);
+    color: white;
+    text-align: center;
+}
+
+.sales-hero-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.sales-hero-subtitle {
+    font-size: 1.25rem;
+    opacity: 0.95;
+}
+
+/* Active Sale Banner */
+.active-sale-banner {
+    margin: -30px 0 3rem;
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+    border-radius: 16px;
+    padding: 3rem;
+    color: white;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(238, 90, 36, 0.3);
+}
+
+.sale-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.sale-banner-content h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.sale-banner-content p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+}
+
+.sale-timer {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.timer-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    min-width: 80px;
+}
+
+.timer-value {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.timer-label {
+    font-size: 0.85rem;
+    opacity: 0.9;
+}
+
+/* Sale Games Section */
+.sale-games-section {
+    padding: 2rem 0 4rem;
+}
+
+.sale-filters {
+    display: flex;
+    gap: 1rem;
+}
+
+.sale-filter-select {
+    padding: 0.75rem 1.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--card-bg);
+    color: var(--text-dark);
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+/* Sale Games Grid */
+.sale-games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.sale-game-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+}
+
+.sale-game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.sale-game-image {
+    position: relative;
+    height: 160px;
+}
+
+.discount-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #ff6b6b;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.sale-game-content {
+    padding: 1.25rem;
+}
+
+.sale-game-content h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: var(--text-dark);
+}
+
+.sale-game-dev {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.sale-game-pricing {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.sale-game-pricing .original-price {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    text-decoration: line-through;
+}
+
+.sale-game-pricing .sale-price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ff6b6b;
+}
+
+.section-footer {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sales-hero-title {
+        font-size: 2rem;
+    }
+    
+    .active-sale-banner {
+        padding: 2rem 1.5rem;
+    }
+    
+    .sale-banner-content h2 {
+        font-size: 1.75rem;
+    }
+    
+    .sale-timer {
+        gap: 0.75rem;
+    }
+    
+    .timer-item {
+        padding: 0.75rem 1rem;
+        min-width: 60px;
+    }
+    
+    .timer-value {
+        font-size: 1.5rem;
+    }
+}

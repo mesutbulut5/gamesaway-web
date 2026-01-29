@@ -1,0 +1,118 @@
+@{
+    ViewData["Title"] = "Game Jam Yönetimi";
+    Layout = "~/Views/Admin/_AdminLayout.cshtml";
+}
+
+<!-- Stats -->
+<div class="admin-stats">
+    <div class="admin-stat-card">
+        <div class="admin-stat-icon blue"><i class="fas fa-trophy"></i></div>
+        <div class="admin-stat-info">
+            <h3>5</h3>
+            <p>Aktif Yarışma</p>
+        </div>
+    </div>
+    <div class="admin-stat-card">
+        <div class="admin-stat-icon green"><i class="fas fa-gamepad"></i></div>
+        <div class="admin-stat-info">
+            <h3>1,234</h3>
+            <p>Toplam Katılımcı</p>
+        </div>
+    </div>
+    <div class="admin-stat-card">
+        <div class="admin-stat-icon purple"><i class="fas fa-calendar-check"></i></div>
+        <div class="admin-stat-info">
+            <h3>48</h3>
+            <p>Tamamlanan</p>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Actions -->
+<div class="admin-quick-actions">
+    <a href="#" class="admin-quick-btn">
+        <i class="fas fa-plus"></i>
+        <span>Yeni Yarışma Oluştur</span>
+    </a>
+</div>
+
+<!-- Active Jams -->
+<div class="admin-table-card">
+    <div class="admin-table-header">
+        <h2><i class="fas fa-play-circle"></i> Aktif Yarışmalar</h2>
+    </div>
+    <table class="admin-table">
+        <thead>
+            <tr>
+                <th>Yarışma</th>
+                <th>Düzenleyen</th>
+                <th>Katılımcı</th>
+                <th>Bitiş</th>
+                <th>Durum</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <div class="admin-table-name">GamesAway Winter Jam 2026</div>
+                    <div class="admin-table-email">Tema: Kış Masalı</div>
+                </td>
+                <td>GamesAway Team</td>
+                <td>1,234</td>
+                <td>3 gün</td>
+                <td><span class="status-badge active">Canlı</span></td>
+                <td>
+                    <button class="admin-action-btn" title="Düzenle"><i class="fas fa-edit"></i></button>
+                    <button class="admin-action-btn" title="Görüntüle"><i class="fas fa-eye"></i></button>
+                    <button class="admin-action-btn danger" title="Sonlandır"><i class="fas fa-stop"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="admin-table-name">72 Saat Bulmaca Jam</div>
+                    <div class="admin-table-email">Tema: Minimalizm</div>
+                </td>
+                <td>PuzzleMasters</td>
+                <td>456</td>
+                <td>18 saat</td>
+                <td><span class="status-badge active">Canlı</span></td>
+                <td>
+                    <button class="admin-action-btn" title="Düzenle"><i class="fas fa-edit"></i></button>
+                    <button class="admin-action-btn" title="Görüntüle"><i class="fas fa-eye"></i></button>
+                    <button class="admin-action-btn danger" title="Sonlandır"><i class="fas fa-stop"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Upcoming Jams -->
+<div class="admin-table-card">
+    <div class="admin-table-header">
+        <h2><i class="fas fa-calendar"></i> Yaklaşan Yarışmalar</h2>
+    </div>
+    <table class="admin-table">
+        <thead>
+            <tr>
+                <th>Yarışma</th>
+                <th>Düzenleyen</th>
+                <th>Kayıtlı</th>
+                <th>Başlangıç</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Retro Pixel Art Jam</td>
+                <td>PixelArtists</td>
+                <td>789</td>
+                <td>5 Şubat 2026</td>
+                <td>
+                    <button class="admin-action-btn" title="Düzenle"><i class="fas fa-edit"></i></button>
+                    <button class="admin-action-btn danger" title="İptal Et"><i class="fas fa-times"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

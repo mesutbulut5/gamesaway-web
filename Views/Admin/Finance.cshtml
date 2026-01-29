@@ -1,0 +1,119 @@
+@{
+    ViewData["Title"] = "Gelir & Finans";
+    Layout = "~/Views/Admin/_AdminLayout.cshtml";
+}
+
+<!-- Stats -->
+<div class="admin-stats">
+    <div class="admin-stat-card">
+        <div class="admin-stat-icon green"><i class="fas fa-lira-sign"></i></div>
+        <div class="admin-stat-info">
+            <h3>₺45,750</h3>
+            <p>Toplam Gelir</p>
+        </div>
+        <span class="admin-stat-change up"><i class="fas fa-arrow-up"></i> 23%</span>
+    </div>
+    <div class="admin-stat-card">
+        <div class="admin-stat-icon blue"><i class="fas fa-calendar-alt"></i></div>
+        <div class="admin-stat-info">
+            <h3>₺8,420</h3>
+            <p>Bu Ay</p>
+        </div>
+        <span class="admin-stat-change up"><i class="fas fa-arrow-up"></i> 15%</span>
+    </div>
+    <div class="admin-stat-card">
+        <div class="admin-stat-icon purple"><i class="fas fa-percentage"></i></div>
+        <div class="admin-stat-info">
+            <h3>₺4,575</h3>
+            <p>Platform Komisyonu (%10)</p>
+        </div>
+    </div>
+    <div class="admin-stat-card">
+        <div class="admin-stat-icon orange"><i class="fas fa-hand-holding-usd"></i></div>
+        <div class="admin-stat-info">
+            <h3>₺2,350</h3>
+            <p>Bekleyen Ödemeler</p>
+        </div>
+    </div>
+</div>
+
+<!-- Revenue Chart -->
+<div class="admin-charts">
+    <div class="admin-chart-card">
+        <h3><i class="fas fa-chart-line"></i> Gelir Grafiği (Son 12 Ay)</h3>
+        <div class="chart-placeholder" style="height: 300px;">
+            <span>Grafik verisi yüklenecek...</span>
+        </div>
+    </div>
+    <div class="admin-chart-card">
+        <h3><i class="fas fa-chart-pie"></i> Gelir Dağılımı</h3>
+        <div class="revenue-breakdown">
+            <div class="revenue-item">
+                <span class="revenue-label">Oyun Satışları</span>
+                <span class="revenue-value">₺32,500 (71%)</span>
+            </div>
+            <div class="revenue-item">
+                <span class="revenue-label">Paket Satışları</span>
+                <span class="revenue-value">₺8,750 (19%)</span>
+            </div>
+            <div class="revenue-item">
+                <span class="revenue-label">Bağışlar</span>
+                <span class="revenue-value">₺4,500 (10%)</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Transactions -->
+<div class="admin-table-card">
+    <div class="admin-table-header">
+        <h2><i class="fas fa-exchange-alt"></i> Son İşlemler</h2>
+        <button class="btn btn-primary btn-sm"><i class="fas fa-download"></i> Rapor İndir</button>
+    </div>
+    <table class="admin-table">
+        <thead>
+            <tr>
+                <th>İşlem</th>
+                <th>Kullanıcı</th>
+                <th>Tutar</th>
+                <th>Komisyon</th>
+                <th>Tarih</th>
+                <th>Durum</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Epic Battle Arena Satışı</td>
+                <td>StudioX</td>
+                <td>₺50</td>
+                <td>₺5</td>
+                <td>2 saat önce</td>
+                <td><span class="status-badge approved">Tamamlandı</span></td>
+            </tr>
+            <tr>
+                <td>Indie Bundle Satışı</td>
+                <td>Çoklu</td>
+                <td>₺75</td>
+                <td>₺7.50</td>
+                <td>5 saat önce</td>
+                <td><span class="status-badge approved">Tamamlandı</span></td>
+            </tr>
+            <tr>
+                <td>Ödeme Talebi</td>
+                <td>PuzzleMaster</td>
+                <td>-₺1,250</td>
+                <td>-</td>
+                <td>1 gün önce</td>
+                <td><span class="status-badge pending">İşleniyor</span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<style>
+.revenue-breakdown { padding: 1rem 0; }
+.revenue-item { display: flex; justify-content: space-between; padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.revenue-label { color: #999; }
+.revenue-value { color: white; font-weight: 600; }
+.btn-sm { padding: 0.5rem 1rem; font-size: 0.9rem; }
+</style>

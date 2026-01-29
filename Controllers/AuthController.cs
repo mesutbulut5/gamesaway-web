@@ -46,6 +46,15 @@ public class AuthController : Controller
                 Expires = DateTimeOffset.UtcNow.AddDays(30)
             });
             
+            HttpContext.Response.Cookies.Append("UserRole", user.Role ?? "Player", new CookieOptions
+            {
+                Expires = DateTimeOffset.UtcNow.AddDays(30)
+            });
+            
+            // Redirect based on role
+            if (user.Role == "Admin")
+                return RedirectToAction("Index", "Admin");
+            
             return RedirectToAction("Index", "Dashboard");
         }
         
@@ -72,8 +81,10 @@ public class AuthController : Controller
         var user = new User
         {
             Name = name,
+            Username = name.Replace(" ", "").ToLower(),
             Email = email,
             PasswordHash = HashPassword(password),
+            Role = "Player",
             CreatedAt = DateTime.UtcNow
         };
         
@@ -94,6 +105,11 @@ public class AuthController : Controller
             Expires = DateTimeOffset.UtcNow.AddDays(30)
         });
         
+        HttpContext.Response.Cookies.Append("UserRole", user.Role, new CookieOptions
+        {
+            Expires = DateTimeOffset.UtcNow.AddDays(30)
+        });
+        
         TempData["Success"] = "Registration successful!";
         return RedirectToAction("Index", "Dashboard");
     }
@@ -102,6 +118,7 @@ public class AuthController : Controller
     {
         HttpContext.Response.Cookies.Delete("UserId");
         HttpContext.Response.Cookies.Delete("UserName");
+        HttpContext.Response.Cookies.Delete("UserRole");
         return RedirectToAction("Index", "Home");
     }
     
@@ -116,5 +133,19 @@ public class AuthController : Controller
     private bool VerifyPassword(string password, string hash)
     {
         return HashPassword(password) == hash;
+    }
+    
+    // Temporary: Make first user admin (remove in production!)
+    [Route("/make-admin/{email}")]
+    public async Task<IActionResult> MakeAdmin(string email)
+    {
+        var user = await _db.Users.FirstOrDefaultAsync(u => u.Email == email);
+        if (user != null)
+        {
+            user.Role = "Admin";
+            await _db.SaveChangesAsync();
+            return Content($"User {user.Name} is now Admin. Please login again.");
+        }
+        return Content("User not found");
     }
 }

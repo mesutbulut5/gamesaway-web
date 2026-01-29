@@ -1,0 +1,133 @@
+@{
+    ViewData["Title"] = "Koleksiyon Detayı";
+    var collectionId = ViewBag.CollectionId ?? 1;
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/pages.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/collections.css" asp-append-version="true">
+}
+
+<div class="collection-detail-page">
+    <!-- Collection Header -->
+    <section class="collection-detail-hero">
+        <div class="container">
+            <div class="collection-detail-header">
+                <h1>2025'in En İyi Bağımsız Oyunları</h1>
+                <p class="collection-detail-description" data-tr="Yılın en beğenilen ve en çok oynanan bağımsız oyunlarını bir araya getirdik." data-en="We've gathered the most loved and played indie games of the year.">
+                    Yılın en beğenilen ve en çok oynanan bağımsız oyunlarını bir araya getirdik.
+                </p>
+                <div class="collection-detail-meta">
+                    <span class="collection-curator"><i class="fas fa-user"></i> GamesAway Editörleri</span>
+                    <span><i class="fas fa-gamepad"></i> 50 <span data-tr="oyun" data-en="games">oyun</span></span>
+                    <span><i class="fas fa-heart"></i> 12.5K</span>
+                    <span><i class="fas fa-calendar"></i> <span data-tr="Ocak 2026" data-en="January 2026">Ocak 2026</span></span>
+                </div>
+                <div class="collection-actions">
+                    <button class="btn btn-primary"><i class="fas fa-heart"></i> <span data-tr="Beğen" data-en="Like">Beğen</span></button>
+                    <button class="btn btn-outline"><i class="fas fa-share"></i> <span data-tr="Paylaş" data-en="Share">Paylaş</span></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Collection Games -->
+        <section class="collection-games-section">
+            <div class="games-grid">
+                <a asp-action="GameDetail" asp-route-id="1" class="game-card">
+                    <div class="game-card-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <div class="game-card-overlay"><span class="game-card-play"><i class="fas fa-play"></i></span></div>
+                    </div>
+                    <div class="game-card-content">
+                        <h3 class="game-card-title">Epic Battle Arena</h3>
+                        <p class="game-card-developer">by StudioX</p>
+                        <div class="game-card-footer">
+                            <span class="game-card-category">Aksiyon</span>
+                            <span class="game-card-rating"><i class="fas fa-star"></i> 4.8</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a asp-action="GameDetail" asp-route-id="2" class="game-card">
+                    <div class="game-card-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        <div class="game-card-overlay"><span class="game-card-play"><i class="fas fa-play"></i></span></div>
+                    </div>
+                    <div class="game-card-content">
+                        <h3 class="game-card-title">Mind Maze</h3>
+                        <p class="game-card-developer">by PuzzleMaster</p>
+                        <div class="game-card-footer">
+                            <span class="game-card-category">Bulmaca</span>
+                            <span class="game-card-rating"><i class="fas fa-star"></i> 4.9</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a asp-action="GameDetail" asp-route-id="3" class="game-card">
+                    <div class="game-card-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <div class="game-card-overlay"><span class="game-card-play"><i class="fas fa-play"></i></span></div>
+                    </div>
+                    <div class="game-card-content">
+                        <h3 class="game-card-title">Speed Rush</h3>
+                        <p class="game-card-developer">by RaceTeam</p>
+                        <div class="game-card-footer">
+                            <span class="game-card-category">Yarış</span>
+                            <span class="game-card-rating"><i class="fas fa-star"></i> 4.7</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a asp-action="GameDetail" asp-route-id="4" class="game-card">
+                    <div class="game-card-image" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                        <div class="game-card-overlay"><span class="game-card-play"><i class="fas fa-play"></i></span></div>
+                    </div>
+                    <div class="game-card-content">
+                        <h3 class="game-card-title">Lost Kingdom</h3>
+                        <p class="game-card-developer">by AdventureStudio</p>
+                        <div class="game-card-footer">
+                            <span class="game-card-category">Macera</span>
+                            <span class="game-card-rating"><i class="fas fa-star"></i> 4.6</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a asp-action="GameDetail" asp-route-id="5" class="game-card">
+                    <div class="game-card-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                        <div class="game-card-overlay"><span class="game-card-play"><i class="fas fa-play"></i></span></div>
+                    </div>
+                    <div class="game-card-content">
+                        <h3 class="game-card-title">Cyber Runner</h3>
+                        <p class="game-card-developer">by NeonGames</p>
+                        <div class="game-card-footer">
+                            <span class="game-card-category">Aksiyon</span>
+                            <span class="game-card-rating"><i class="fas fa-star"></i> 4.5</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a asp-action="GameDetail" asp-route-id="6" class="game-card">
+                    <div class="game-card-image" style="background: linear-gradient(135deg, #30cfd0 0%, #667eea 100%);">
+                        <div class="game-card-overlay"><span class="game-card-play"><i class="fas fa-play"></i></span></div>
+                    </div>
+                    <div class="game-card-content">
+                        <h3 class="game-card-title">Block Master</h3>
+                        <p class="game-card-developer">by CubeStudios</p>
+                        <div class="game-card-footer">
+                            <span class="game-card-category">Bulmaca</span>
+                            <span class="game-card-rating"><i class="fas fa-star"></i> 4.4</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </div>
+</div>
+
+<style>
+.collection-detail-hero { padding: 60px 0; background: var(--gradient); color: white; text-align: center; }
+.collection-detail-header h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 1rem; }
+.collection-detail-description { font-size: 1.25rem; opacity: 0.95; margin-bottom: 1.5rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+.collection-detail-meta { display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; font-size: 0.95rem; }
+.collection-actions { display: flex; justify-content: center; gap: 1rem; }
+.collection-games-section { padding: 3rem 0; }
+</style>

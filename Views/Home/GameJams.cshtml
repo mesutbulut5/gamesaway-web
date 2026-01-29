@@ -1,0 +1,196 @@
+@{
+    ViewData["Title"] = "Oyun Yarışmaları";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/pages.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/gamejams.css" asp-append-version="true">
+}
+
+<div class="gamejams-page">
+    <!-- Hero Section -->
+    <section class="gamejams-hero">
+        <div class="container">
+            <h1 class="gamejams-hero-title">
+                <span data-tr="Oyun Yarışmaları" data-en="Game Jams">Oyun Yarışmaları</span>
+            </h1>
+            <p class="gamejams-hero-subtitle" data-tr="Sınırlı sürede oyun geliştir, yeteneklerini göster ve ödüller kazan!" data-en="Develop games in limited time, show your skills and win prizes!">
+                Sınırlı sürede oyun geliştir, yeteneklerini göster ve ödüller kazan!
+            </p>
+            <div class="gamejams-hero-actions">
+                <a href="#active-jams" class="btn btn-primary btn-large">
+                    <i class="fas fa-play"></i>
+                    <span data-tr="Aktif Yarışmalar" data-en="Active Jams">Aktif Yarışmalar</span>
+                </a>
+                <a asp-controller="Auth" asp-action="Register" class="btn btn-outline btn-large">
+                    <i class="fas fa-plus"></i>
+                    <span data-tr="Yarışma Oluştur" data-en="Host a Jam">Yarışma Oluştur</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Stats -->
+        <div class="gamejams-stats">
+            <div class="stat-box">
+                <i class="fas fa-trophy"></i>
+                <div class="stat-info">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label" data-tr="Tamamlanan Yarışma" data-en="Completed Jams">Tamamlanan Yarışma</span>
+                </div>
+            </div>
+            <div class="stat-box">
+                <i class="fas fa-gamepad"></i>
+                <div class="stat-info">
+                    <span class="stat-number">15,000+</span>
+                    <span class="stat-label" data-tr="Gönderilen Oyun" data-en="Games Submitted">Gönderilen Oyun</span>
+                </div>
+            </div>
+            <div class="stat-box">
+                <i class="fas fa-users"></i>
+                <div class="stat-info">
+                    <span class="stat-number">50,000+</span>
+                    <span class="stat-label" data-tr="Katılımcı" data-en="Participants">Katılımcı</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Active Jams -->
+        <section id="active-jams" class="gamejams-section">
+            <div class="section-header">
+                <h2 class="section-title" data-tr="Aktif Yarışmalar" data-en="Active Jams">Aktif Yarışmalar</h2>
+                <span class="jam-count">12 <span data-tr="yarışma" data-en="jams">yarışma</span></span>
+            </div>
+
+            <div class="jams-grid">
+                <!-- Jam Card 1 -->
+                <a asp-action="GameJamDetail" asp-route-id="1" class="jam-card jam-featured">
+                    <div class="jam-banner" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <span class="jam-status jam-live"><i class="fas fa-circle"></i> <span data-tr="CANLI" data-en="LIVE">CANLI</span></span>
+                    </div>
+                    <div class="jam-content">
+                        <h3 class="jam-title">GamesAway Winter Jam 2026</h3>
+                        <p class="jam-host"><i class="fas fa-user"></i> GamesAway Team</p>
+                        <div class="jam-meta">
+                            <span><i class="fas fa-clock"></i> <span data-tr="3 gün kaldı" data-en="3 days left">3 gün kaldı</span></span>
+                            <span><i class="fas fa-users"></i> 1,234 <span data-tr="katılımcı" data-en="joined">katılımcı</span></span>
+                        </div>
+                        <div class="jam-theme">
+                            <span class="theme-label" data-tr="Tema:" data-en="Theme:">Tema:</span>
+                            <span class="theme-value">"Kış Masalı"</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Jam Card 2 -->
+                <a asp-action="GameJamDetail" asp-route-id="2" class="jam-card">
+                    <div class="jam-banner" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        <span class="jam-status jam-live"><i class="fas fa-circle"></i> <span data-tr="CANLI" data-en="LIVE">CANLI</span></span>
+                    </div>
+                    <div class="jam-content">
+                        <h3 class="jam-title">72 Saat Bulmaca Jam</h3>
+                        <p class="jam-host"><i class="fas fa-user"></i> PuzzleMasters</p>
+                        <div class="jam-meta">
+                            <span><i class="fas fa-clock"></i> <span data-tr="18 saat kaldı" data-en="18 hours left">18 saat kaldı</span></span>
+                            <span><i class="fas fa-users"></i> 456 <span data-tr="katılımcı" data-en="joined">katılımcı</span></span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Jam Card 3 -->
+                <a asp-action="GameJamDetail" asp-route-id="3" class="jam-card">
+                    <div class="jam-banner" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <span class="jam-status jam-upcoming"><i class="fas fa-calendar"></i> <span data-tr="YAKINDA" data-en="SOON">YAKINDA</span></span>
+                    </div>
+                    <div class="jam-content">
+                        <h3 class="jam-title">Retro Pixel Art Jam</h3>
+                        <p class="jam-host"><i class="fas fa-user"></i> PixelArtists</p>
+                        <div class="jam-meta">
+                            <span><i class="fas fa-calendar"></i> <span data-tr="5 Şubat'ta başlıyor" data-en="Starts Feb 5">5 Şubat'ta başlıyor</span></span>
+                            <span><i class="fas fa-users"></i> 789 <span data-tr="kayıtlı" data-en="registered">kayıtlı</span></span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Jam Card 4 -->
+                <a asp-action="GameJamDetail" asp-route-id="4" class="jam-card">
+                    <div class="jam-banner" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                        <span class="jam-status jam-upcoming"><i class="fas fa-calendar"></i> <span data-tr="YAKINDA" data-en="SOON">YAKINDA</span></span>
+                    </div>
+                    <div class="jam-content">
+                        <h3 class="jam-title">Tek Tuş Oyun Jam</h3>
+                        <p class="jam-host"><i class="fas fa-user"></i> MinimalistGames</p>
+                        <div class="jam-meta">
+                            <span><i class="fas fa-calendar"></i> <span data-tr="10 Şubat'ta başlıyor" data-en="Starts Feb 10">10 Şubat'ta başlıyor</span></span>
+                            <span><i class="fas fa-users"></i> 321 <span data-tr="kayıtlı" data-en="registered">kayıtlı</span></span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="section-footer">
+                <a href="#" class="btn btn-text">
+                    <span data-tr="Tüm Aktif Yarışmaları Gör" data-en="View All Active Jams">Tüm Aktif Yarışmaları Gör</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Past Jams -->
+        <section class="gamejams-section">
+            <div class="section-header">
+                <h2 class="section-title" data-tr="Geçmiş Yarışmalar" data-en="Past Jams">Geçmiş Yarışmalar</h2>
+            </div>
+
+            <div class="past-jams-list">
+                <a asp-action="GameJamDetail" asp-route-id="10" class="past-jam-item">
+                    <div class="past-jam-icon" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="past-jam-info">
+                        <h4>Halloween Horror Jam 2025</h4>
+                        <p><span data-tr="Ekim 2025" data-en="October 2025">Ekim 2025</span> • 2,345 <span data-tr="oyun" data-en="games">oyun</span></p>
+                    </div>
+                    <span class="past-jam-arrow"><i class="fas fa-chevron-right"></i></span>
+                </a>
+
+                <a asp-action="GameJamDetail" asp-route-id="11" class="past-jam-item">
+                    <div class="past-jam-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="past-jam-info">
+                        <h4>Summer Game Jam 2025</h4>
+                        <p><span data-tr="Temmuz 2025" data-en="July 2025">Temmuz 2025</span> • 1,876 <span data-tr="oyun" data-en="games">oyun</span></p>
+                    </div>
+                    <span class="past-jam-arrow"><i class="fas fa-chevron-right"></i></span>
+                </a>
+
+                <a asp-action="GameJamDetail" asp-route-id="12" class="past-jam-item">
+                    <div class="past-jam-icon" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="past-jam-info">
+                        <h4>Spring Creativity Jam 2025</h4>
+                        <p><span data-tr="Nisan 2025" data-en="April 2025">Nisan 2025</span> • 1,543 <span data-tr="oyun" data-en="games">oyun</span></p>
+                    </div>
+                    <span class="past-jam-arrow"><i class="fas fa-chevron-right"></i></span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Host Your Own Jam CTA -->
+        <section class="host-jam-cta">
+            <div class="host-jam-content">
+                <h2 data-tr="Kendi Yarışmanı Düzenle" data-en="Host Your Own Jam">Kendi Yarışmanı Düzenle</h2>
+                <p data-tr="Topluluğunu bir araya getir, tema belirle ve yaratıcılığı ateşle!" data-en="Bring your community together, set a theme and ignite creativity!">
+                    Topluluğunu bir araya getir, tema belirle ve yaratıcılığı ateşle!
+                </p>
+                <a asp-controller="Auth" asp-action="Register" class="btn btn-light btn-large">
+                    <i class="fas fa-rocket"></i>
+                    <span data-tr="Yarışma Oluştur" data-en="Create a Jam">Yarışma Oluştur</span>
+                </a>
+            </div>
+        </section>
+    </div>
+</div>

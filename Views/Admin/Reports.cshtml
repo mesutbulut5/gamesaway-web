@@ -1,0 +1,111 @@
+@{
+    ViewData["Title"] = "Raporlar & Şikayetler";
+    Layout = "~/Views/Admin/_AdminLayout.cshtml";
+}
+
+<!-- Stats -->
+<div class="admin-stats">
+    <div class="admin-stat-card">
+        <div class="admin-stat-icon orange"><i class="fas fa-flag"></i></div>
+        <div class="admin-stat-info">
+            <h3>3</h3>
+            <p>Bekleyen Rapor</p>
+        </div>
+    </div>
+    <div class="admin-stat-card">
+        <div class="admin-stat-icon green"><i class="fas fa-check-circle"></i></div>
+        <div class="admin-stat-info">
+            <h3>45</h3>
+            <p>Çözülen</p>
+        </div>
+    </div>
+    <div class="admin-stat-card">
+        <div class="admin-stat-icon purple"><i class="fas fa-ban"></i></div>
+        <div class="admin-stat-info">
+            <h3>12</h3>
+            <p>Kaldırılan İçerik</p>
+        </div>
+    </div>
+</div>
+
+<!-- Pending Reports -->
+<div class="admin-table-card">
+    <div class="admin-table-header">
+        <h2><i class="fas fa-exclamation-triangle"></i> Bekleyen Raporlar</h2>
+    </div>
+    <table class="admin-table">
+        <thead>
+            <tr>
+                <th>İçerik</th>
+                <th>Rapor Eden</th>
+                <th>Sebep</th>
+                <th>Tarih</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <div class="admin-table-user">
+                        <div class="admin-game-thumb" style="background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);"></div>
+                        <div>
+                            <div class="admin-table-name">Suspicious Game</div>
+                            <div class="admin-table-email">Oyun</div>
+                        </div>
+                    </div>
+                </td>
+                <td>User123</td>
+                <td><span class="report-reason">Uygunsuz İçerik</span></td>
+                <td>2 saat önce</td>
+                <td>
+                    <button class="admin-action-btn" title="İncele"><i class="fas fa-eye"></i></button>
+                    <button class="admin-action-btn" style="color: #43e97b;" title="Reddet (İçerik Uygun)"><i class="fas fa-check"></i></button>
+                    <button class="admin-action-btn danger" title="Kaldır"><i class="fas fa-trash"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="admin-table-user">
+                        <div class="admin-table-avatar"><i class="fas fa-user"></i></div>
+                        <div>
+                            <div class="admin-table-name">SpamUser99</div>
+                            <div class="admin-table-email">Kullanıcı</div>
+                        </div>
+                    </div>
+                </td>
+                <td>ModeratorX</td>
+                <td><span class="report-reason">Spam</span></td>
+                <td>5 saat önce</td>
+                <td>
+                    <button class="admin-action-btn" title="İncele"><i class="fas fa-eye"></i></button>
+                    <button class="admin-action-btn" style="color: #43e97b;" title="Reddet"><i class="fas fa-check"></i></button>
+                    <button class="admin-action-btn danger" title="Yasakla"><i class="fas fa-ban"></i></button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="admin-table-user">
+                        <div class="admin-table-avatar"><i class="fas fa-comment"></i></div>
+                        <div>
+                            <div class="admin-table-name">Yorum #4521</div>
+                            <div class="admin-table-email">Yorum</div>
+                        </div>
+                    </div>
+                </td>
+                <td>Player456</td>
+                <td><span class="report-reason">Hakaret</span></td>
+                <td>1 gün önce</td>
+                <td>
+                    <button class="admin-action-btn" title="İncele"><i class="fas fa-eye"></i></button>
+                    <button class="admin-action-btn" style="color: #43e97b;" title="Reddet"><i class="fas fa-check"></i></button>
+                    <button class="admin-action-btn danger" title="Sil"><i class="fas fa-trash"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<style>
+.admin-game-thumb { width: 50px; height: 50px; border-radius: 8px; flex-shrink: 0; }
+.report-reason { background: rgba(255,107,107,0.2); color: #ff6b6b; padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.85rem; }
+</style>

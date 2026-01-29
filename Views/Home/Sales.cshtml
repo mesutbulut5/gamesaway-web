@@ -1,0 +1,154 @@
+@{
+    ViewData["Title"] = "İndirimler";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/pages.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/sales.css" asp-append-version="true">
+}
+
+<div class="sales-page">
+    <!-- Hero Section -->
+    <section class="sales-hero">
+        <div class="container">
+            <h1 class="sales-hero-title">
+                <i class="fas fa-tags"></i>
+                <span data-tr="İndirimler" data-en="Sales">İndirimler</span>
+            </h1>
+            <p class="sales-hero-subtitle" data-tr="En sevdiğin oyunları indirimli fiyatlarla yakala!" data-en="Grab your favorite games at discounted prices!">
+                En sevdiğin oyunları indirimli fiyatlarla yakala!
+            </p>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Active Sale Banner -->
+        <section class="active-sale-banner">
+            <div class="sale-banner-content">
+                <span class="sale-badge" data-tr="AKTİF KAMPANYA" data-en="ACTIVE SALE">AKTİF KAMPANYA</span>
+                <h2>Kış İndirimleri 2026</h2>
+                <p data-tr="Binlerce oyunda %90'a varan indirimler!" data-en="Up to 90% off on thousands of games!">
+                    Binlerce oyunda %90'a varan indirimler!
+                </p>
+                <div class="sale-timer">
+                    <div class="timer-item"><span class="timer-value">5</span><span class="timer-label" data-tr="Gün" data-en="Days">Gün</span></div>
+                    <div class="timer-item"><span class="timer-value">12</span><span class="timer-label" data-tr="Saat" data-en="Hours">Saat</span></div>
+                    <div class="timer-item"><span class="timer-value">45</span><span class="timer-label" data-tr="Dakika" data-en="Min">Dakika</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sale Games Grid -->
+        <section class="sale-games-section">
+            <div class="section-header">
+                <h2 class="section-title" data-tr="İndirimdeki Oyunlar" data-en="Games on Sale">İndirimdeki Oyunlar</h2>
+                <div class="sale-filters">
+                    <select class="sale-filter-select">
+                        <option value="discount" data-tr="En Yüksek İndirim" data-en="Highest Discount">En Yüksek İndirim</option>
+                        <option value="price" data-tr="En Düşük Fiyat" data-en="Lowest Price">En Düşük Fiyat</option>
+                        <option value="popular" data-tr="En Popüler" data-en="Most Popular">En Popüler</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="sale-games-grid">
+                <!-- Sale Game Card 1 -->
+                <a asp-action="GameDetail" asp-route-id="1" class="sale-game-card">
+                    <div class="sale-game-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <span class="discount-badge">-75%</span>
+                    </div>
+                    <div class="sale-game-content">
+                        <h3>Epic Battle Arena</h3>
+                        <p class="sale-game-dev">StudioX</p>
+                        <div class="sale-game-pricing">
+                            <span class="original-price">₺100</span>
+                            <span class="sale-price">₺25</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Sale Game Card 2 -->
+                <a asp-action="GameDetail" asp-route-id="2" class="sale-game-card">
+                    <div class="sale-game-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        <span class="discount-badge">-60%</span>
+                    </div>
+                    <div class="sale-game-content">
+                        <h3>Mind Maze</h3>
+                        <p class="sale-game-dev">PuzzleMaster</p>
+                        <div class="sale-game-pricing">
+                            <span class="original-price">₺80</span>
+                            <span class="sale-price">₺32</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Sale Game Card 3 -->
+                <a asp-action="GameDetail" asp-route-id="3" class="sale-game-card">
+                    <div class="sale-game-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <span class="discount-badge">-50%</span>
+                    </div>
+                    <div class="sale-game-content">
+                        <h3>Speed Rush</h3>
+                        <p class="sale-game-dev">RaceTeam</p>
+                        <div class="sale-game-pricing">
+                            <span class="original-price">₺60</span>
+                            <span class="sale-price">₺30</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Sale Game Card 4 -->
+                <a asp-action="GameDetail" asp-route-id="4" class="sale-game-card">
+                    <div class="sale-game-image" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                        <span class="discount-badge">-80%</span>
+                    </div>
+                    <div class="sale-game-content">
+                        <h3>Lost Kingdom</h3>
+                        <p class="sale-game-dev">AdventureStudio</p>
+                        <div class="sale-game-pricing">
+                            <span class="original-price">₺150</span>
+                            <span class="sale-price">₺30</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Sale Game Card 5 -->
+                <a asp-action="GameDetail" asp-route-id="5" class="sale-game-card">
+                    <div class="sale-game-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                        <span class="discount-badge">-90%</span>
+                    </div>
+                    <div class="sale-game-content">
+                        <h3>Cyber Runner</h3>
+                        <p class="sale-game-dev">NeonGames</p>
+                        <div class="sale-game-pricing">
+                            <span class="original-price">₺200</span>
+                            <span class="sale-price">₺20</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Sale Game Card 6 -->
+                <a asp-action="GameDetail" asp-route-id="6" class="sale-game-card">
+                    <div class="sale-game-image" style="background: linear-gradient(135deg, #30cfd0 0%, #667eea 100%);">
+                        <span class="discount-badge">-55%</span>
+                    </div>
+                    <div class="sale-game-content">
+                        <h3>Block Master</h3>
+                        <p class="sale-game-dev">CubeStudios</p>
+                        <div class="sale-game-pricing">
+                            <span class="original-price">₺90</span>
+                            <span class="sale-price">₺40</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="section-footer">
+                <a asp-action="Browse" asp-route-filter="sale" class="btn btn-primary">
+                    <span data-tr="Tüm İndirimleri Gör" data-en="View All Sales">Tüm İndirimleri Gör</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </section>
+    </div>
+</div>

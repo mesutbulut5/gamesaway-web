@@ -1,0 +1,122 @@
+@{
+    ViewData["Title"] = "Oyun Yarışması Detayı";
+    var jamId = ViewBag.JamId ?? 1;
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/pages.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/gamejams.css" asp-append-version="true">
+}
+
+<div class="gamejam-detail-page">
+    <!-- Jam Header -->
+    <section class="jam-detail-hero" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+        <div class="container">
+            <div class="jam-detail-header">
+                <span class="jam-status jam-live"><i class="fas fa-circle"></i> CANLI</span>
+                <h1>GamesAway Winter Jam 2026</h1>
+                <p class="jam-detail-host"><i class="fas fa-user"></i> GamesAway Team <span data-tr="tarafından düzenleniyor" data-en="hosted by">tarafından düzenleniyor</span></p>
+                <div class="jam-detail-stats">
+                    <div class="jam-stat"><i class="fas fa-users"></i> 1,234 <span data-tr="katılımcı" data-en="participants">katılımcı</span></div>
+                    <div class="jam-stat"><i class="fas fa-gamepad"></i> 456 <span data-tr="oyun" data-en="games">oyun</span></div>
+                    <div class="jam-stat"><i class="fas fa-clock"></i> 3 <span data-tr="gün kaldı" data-en="days left">gün kaldı</span></div>
+                </div>
+                <a href="#" class="btn btn-light btn-large">
+                    <i class="fas fa-plus"></i>
+                    <span data-tr="Yarışmaya Katıl" data-en="Join Jam">Yarışmaya Katıl</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="jam-detail-content">
+            <!-- Theme Section -->
+            <section class="jam-theme-section">
+                <h2 data-tr="Tema" data-en="Theme">Tema</h2>
+                <div class="jam-theme-box">
+                    <span class="theme-reveal">"Kış Masalı"</span>
+                </div>
+            </section>
+
+            <!-- Description -->
+            <section class="jam-description">
+                <h2 data-tr="Açıklama" data-en="Description">Açıklama</h2>
+                <div class="jam-description-content">
+                    <p data-tr="GamesAway Winter Jam 2026'ya hoş geldiniz! Bu yarışmada kış temalı oyunlar geliştireceğiz." data-en="Welcome to GamesAway Winter Jam 2026! In this jam, we'll develop winter-themed games.">
+                        GamesAway Winter Jam 2026'ya hoş geldiniz! Bu yarışmada kış temalı oyunlar geliştireceğiz.
+                    </p>
+                    <h3 data-tr="Kurallar" data-en="Rules">Kurallar</h3>
+                    <ul>
+                        <li data-tr="Oyununuz 72 saat içinde geliştirilmiş olmalıdır" data-en="Your game must be developed within 72 hours">Oyununuz 72 saat içinde geliştirilmiş olmalıdır</li>
+                        <li data-tr="Tema ile ilgili olmalıdır" data-en="Must be related to the theme">Tema ile ilgili olmalıdır</li>
+                        <li data-tr="Takım veya solo katılabilirsiniz" data-en="You can participate solo or as a team">Takım veya solo katılabilirsiniz</li>
+                        <li data-tr="Önceden hazırlanmış asset'ler kullanılabilir" data-en="Pre-made assets are allowed">Önceden hazırlanmış asset'ler kullanılabilir</li>
+                    </ul>
+                    <h3 data-tr="Ödüller" data-en="Prizes">Ödüller</h3>
+                    <ul>
+                        <li><strong>1. Sıra:</strong> ₺5,000 + GamesAway Pro 1 Yıl</li>
+                        <li><strong>2. Sıra:</strong> ₺2,500 + GamesAway Pro 6 Ay</li>
+                        <li><strong>3. Sıra:</strong> ₺1,000 + GamesAway Pro 3 Ay</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Submissions -->
+            <section class="jam-submissions">
+                <div class="section-header">
+                    <h2 data-tr="Gönderilen Oyunlar" data-en="Submissions">Gönderilen Oyunlar</h2>
+                    <span class="submission-count">456 <span data-tr="oyun" data-en="games">oyun</span></span>
+                </div>
+                <div class="games-grid">
+                    <a asp-action="GameDetail" asp-route-id="1" class="game-card">
+                        <div class="game-card-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
+                        <div class="game-card-content">
+                            <h3 class="game-card-title">Snowfall Adventure</h3>
+                            <p class="game-card-developer">by WinterDev</p>
+                            <div class="game-card-footer">
+                                <span class="game-card-rating"><i class="fas fa-star"></i> 4.8</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a asp-action="GameDetail" asp-route-id="2" class="game-card">
+                        <div class="game-card-image" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);"></div>
+                        <div class="game-card-content">
+                            <h3 class="game-card-title">Ice Kingdom</h3>
+                            <p class="game-card-developer">by FrostGames</p>
+                            <div class="game-card-footer">
+                                <span class="game-card-rating"><i class="fas fa-star"></i> 4.7</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a asp-action="GameDetail" asp-route-id="3" class="game-card">
+                        <div class="game-card-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+                        <div class="game-card-content">
+                            <h3 class="game-card-title">Cozy Cabin</h3>
+                            <p class="game-card-developer">by WarmHeart</p>
+                            <div class="game-card-footer">
+                                <span class="game-card-rating"><i class="fas fa-star"></i> 4.9</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+<style>
+.jam-detail-hero { padding: 80px 0; color: white; text-align: center; }
+.jam-detail-header h1 { font-size: 2.5rem; font-weight: 800; margin: 1rem 0; }
+.jam-detail-host { font-size: 1.1rem; opacity: 0.9; margin-bottom: 1.5rem; }
+.jam-detail-stats { display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; }
+.jam-stat { font-size: 1.1rem; }
+.jam-theme-section, .jam-description, .jam-submissions { padding: 2rem 0; }
+.jam-theme-box { background: var(--gradient); padding: 3rem; border-radius: 16px; text-align: center; }
+.theme-reveal { font-size: 2.5rem; font-weight: 800; color: white; }
+.jam-description-content { background: var(--card-bg); padding: 2rem; border-radius: 12px; }
+.jam-description-content h3 { margin: 1.5rem 0 1rem; color: var(--text-dark); }
+.jam-description-content ul { padding-left: 1.5rem; color: var(--text-light); }
+.jam-description-content li { margin-bottom: 0.5rem; }
+.submission-count { background: var(--light-color); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; color: var(--text-light); }
+</style>
